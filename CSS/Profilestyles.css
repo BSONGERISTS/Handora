@@ -1,0 +1,254 @@
+@font-face {
+    font-family: 'Markazi';
+    src: url(fonts/MarkaziText-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: 'Actor';
+    src: url(fonts/Actor-Regular.ttf);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+/* NavBar */
+
+.header {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 99;
+    width: 100%;
+    height: 8vh;
+    background-color: rgb(0, 0, 0, .3);
+    transition: 1s;
+}
+
+.wrap {
+    width: 92.3%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10vh;
+}
+
+.logo {
+    width: 30vh;
+    height: auto;
+    cursor: pointer;
+}
+
+.header-buttons{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    height: 100%;
+    width: 18%;
+}
+
+.Nav-Style {
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 0.1vh 2.6vh 0.1vh 2.6vh ;
+    border-radius: 100px;
+    cursor: pointer;
+    font-family: 'Markazi';
+    font-size: 3vh;
+    color: black;
+    background-color: #D9D9D9;
+} 
+
+.nav-btn{
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    cursor: pointer;
+}
+
+.nav-btn-size{
+    width: 4vh;
+    height: auto;
+}
+
+.hover-icon:hover{
+    opacity: 1;
+    transition: 0.3s;
+    filter: grayscale(0%) sepia(100%) saturate(5000%) hue-rotate(-45deg);
+}
+
+.Nav-Style:hover {
+    transition: all ease 0.5s;
+    transform: scale(1.1);
+    background-color: black;
+    color: white;
+    border: solid white;
+}
+
+.profile{
+    background-color: #D9D9D9;
+    border-radius: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    width: 5vh;
+    cursor: pointer;
+}
+
+.right-margin{
+    margin-right: 1vh;
+}
+
+/* background */
+
+.Container{
+    height: 100vh;
+    width: 100%;
+}
+
+.background{
+    width: 100%;
+    height: 186.4vh;
+    z-index: -1;
+    position: absolute;
+}
+
+.background img{
+    width: 100%;
+    transition: 0.3s;
+}
+
+/* Profile */
+
+.profile-wrap{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 10vh;
+}
+
+.profile-contents{
+    height: auto;
+    width: auto;
+}
+
+.profile-top{
+    height: auto;
+    width: auto;
+    display: flex;
+    gap: 1vh;
+}
+
+/* Left */
+.top-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5vh;
+}
+
+.user-left{
+    height: 35.4vh;
+    width: 30vh;
+    background-color: #2A2A2A;
+    opacity: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 4.5vh;
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+    gap: 1.5vh;
+}
+
+.profile-pic{
+    height: 22vh;
+    width: 22vh;
+    background-color: #D9D9D9;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom{
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+}
+
+.display-name{
+    font-size: 3.2vh;
+    color: #FFC700;
+    font-family: Actor;
+    font-weight: 400;
+}
+
+
+.signout{
+    height: 8.5vh;
+    width: 30vh;
+    background-color: #2A2A2A;
+    opacity: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4.5vh;
+    cursor: pointer;
+    font-size: 2.4vh;
+    color: #BABABA;
+    font-family: Actor;
+    font-weight: 400;
+    text-decoration: none;
+}  
+
+.signout:hover{
+    color: white;
+    opacity: 100%;
+    transition: 0.3s;
+}
+
+/* Top Right */
+
+.top-right{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.user-right-indicator{
+    height: 5.5vh;
+    width: 96vh;
+    background-color: black;
+    color: white;
+    font-size: 2.4vh;
+    font-family: Actor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2vh;
+}
+
+.user-right-bot{
+    width: 96vh;
+    height: 100%;
+    background-color: #2A2A2A;
+    opacity: 80%;
+    border-radius: 2vh;
+}

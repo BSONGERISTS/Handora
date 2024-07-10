@@ -1,0 +1,568 @@
+@font-face {
+    font-family: 'Markazi';
+    src: url(fonts/MarkaziText-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: 'Actor';
+    src: url(fonts/Actor-Regular.ttf);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    overflow-x: hidden;
+}
+
+/* NavBar */
+
+.header {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 99;
+    width: 100%;
+    height: 8vh;
+    background-color: rgb(0, 0, 0, .3);
+    transition: 1s;
+}
+
+.wrap {
+    width: 92.3%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10vh;
+}
+
+.logo {
+    width: 30vh;
+    height: auto;
+    cursor: pointer;
+}
+
+.header-buttons{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    height: 100%;
+    width: 18%;
+}
+
+.Nav-Style {
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 0.1vh 2.6vh 0.1vh 2.6vh ;
+    border-radius: 100px;
+    cursor: pointer;
+    font-family: 'Markazi';
+    font-size: 3vh;
+    color: black;
+    background-color: #D9D9D9;
+} 
+
+.nav-btn{
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    cursor: pointer;
+}
+
+.nav-btn-size{
+    width: 4vh;
+    height: auto;
+}
+
+.hover-icon:hover{
+    opacity: 1;
+    transition: 0.3s;
+    filter: grayscale(0%) sepia(100%) saturate(5000%) hue-rotate(-45deg);
+}
+
+.Nav-Style:hover {
+    transition: all ease 0.5s;
+    transform: scale(1.1);
+    background-color: black;
+    color: white;
+    border: solid white;
+}
+
+.profile{
+    background-color: #D9D9D9;
+    border-radius: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    width: 5vh;
+    cursor: pointer;
+}
+
+/* Container 1 */
+
+.Container{
+    height: auto;
+    width: 100%;
+    margin: 0%;
+}
+
+.video-Container{
+    width: 100%;
+    height: auto;
+}
+
+.video-Container video {
+    padding-left: 15%;
+    width: 100%;
+    object-fit: fill;
+}
+
+/* Tagline */
+
+.tagline{
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    width: 78vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.Tag-Header{
+    color: #FFF;
+    text-shadow: 5px 5px 200px #FFC700;
+    font-family: "Markazi";
+    font-size: 13vh;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 12vh;
+    width: 59vh;
+}
+
+.Tag-Support{
+    color: #FFF;
+    text-shadow: 5px 5px 200px #FFC700;
+    font-family: Actor;
+    font-size: 2.5vh;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 3vh;
+    width: 78vh;
+}
+
+/* Search Bar */
+
+.search-center{
+    position: absolute;
+    bottom: 20%;
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar {
+    width: 108vh;
+    height: 7vh;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    background-color: #d9d9d9;
+    box-shadow: 0px 4px 45.5px rgba(225, 199, 0, 0.54);
+    border-radius: 5vh;
+}
+
+.search-bar:focus-within,
+.search-bar:hover{
+    transition: 0.3s;
+    background-color: white;
+}
+
+.search-bar-content{
+    width: 98%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+}
+
+.search-bar input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    margin-left: 1vh;
+    color: rgba(0, 0, 0, 0.50);
+    font-family: "Times New Roman";
+    font-size: 3vh;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+.search-bar input:focus,
+.search-bar input:hover{
+    transition: 0.3s;
+    color: black;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.search-bar img {
+    height: auto;
+    width: 3.28vh;
+}
+
+/* Scroll Animation */
+
+.scroll-center{
+    position: absolute;
+    bottom: 2%;
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Scroll-icon{
+    width: 8vh;
+    height: auto;
+}
+
+.scroll-center img {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(1vh);
+    }
+    50% {
+        transform: translateY(-4vh);
+    }
+}
+
+/* Container 2 */
+
+.Container-2{
+    height: auto;
+    width: 100%;
+    margin: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-wrap{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.sub-title{
+    color: #FFF;
+    text-shadow: 5px 5px 200px #FFC700;
+    font-family: "Markazi Text";
+    font-size: 5vh;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.popular-games {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5vh;
+    justify-content: center;
+    grid-column-gap: 11vh;
+}
+
+.game {
+    width: 21%;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.game img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+.game:hover {
+    transform: scale(1.05);
+}
+
+
+/* Container 3 */
+
+.Container-3{
+    height: auto;
+    width: 100%;
+    margin: 50px 0px 50px 0px;
+}
+
+.news-wrap{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.news-top{
+    height: auto;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.news-title{
+    width: auto;
+    color: white;
+    text-shadow: 5px 5px 200px #FFC700;
+    font-family: "Markazi Text";
+    font-size: 5vh;
+    font-weight: 700;
+    line-height: 20vh;
+}
+
+.left-news{
+    width: 66.6vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.news-header{
+    color: #FFF;
+    text-shadow: 5px 5px 200px #FFC700;
+    font-family: "Markazi";
+    font-size: 9vh;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 11.5vh;
+}
+
+.news-btn{
+    width: 17.5vh;
+    height: 7vh;
+    border-radius: 1.5vh;
+    background: red;
+    color: white;
+    font-family: 'Markazi';
+    font-size: 5vh;
+    font-weight: bold;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.news-pic{
+    width: 50%;
+    height: auto;
+}
+
+.news-desc{
+    margin-top: 3vh;
+    color: #FFF;
+    width: 87.5%;
+    font-family: Actor;
+    font-size: 3vh;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* Carousel */
+
+.news-indicator{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.news-indicator-wrap{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    height: 1.5vh;
+    width: 1.5vh;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot-active{
+    background-color: #FFC700;
+}
+
+/* Footer */
+
+.footer{
+    height: 23vh;
+    width: 100%;
+    bottom: 0%;
+    background: rgba(31, 31, 31, 0.7);
+    z-index: 98;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-wrap{
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-wrap img{
+    height: auto;
+    width: 23vh;
+    margin-bottom: 3vh;
+}
+
+.footer-content{
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5vh ;
+}
+
+.line-border{
+    width: 81vh;
+    height: 0.05vh;
+    background-color: white;
+}
+
+.footer-text{
+    color: white;
+    font-family: Actor;
+    font-size: 1.5vh;
+    cursor: default;
+}
+
+.footer-mid{
+    display: flex;
+    gap: 1.5vh;
+}
+
+.footer-mid a{
+    color: white;
+}
+
+.footer-mid a:hover{
+    color: #FFD540;
+}
+
+.footer-bot{
+    display: flex;
+    font-size: 2vh;
+    gap: 2vh;
+    cursor: default;
+    color: white;
+}
+
+.footer-bot a{
+    color: white;
+    font-size: 2vh;
+    font-family: Actor;
+}
+
+.footer-bot a:hover{
+    color: #FFD540;
+}
+
+/* Pop Up */
+
+.login-box{
+    width: 22.9vh;
+    height: 9.1vh;
+    position: fixed;
+    z-index: 100;
+    top: 10vh;
+    right: 1vh;
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    border-radius: 1vh;
+}
+
+.login-index{
+    z-index: -1;
+    opacity: 0;
+    transition: 0.5s;
+}  
+
+.pop-indicator{
+    position: absolute;
+    top: -24%;
+}
+
+.pop-btn{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 1vh;
+    color: #000;
+    text-decoration: none;
+    font-size: 2vh;
+}
+
+.pop-btn:hover{
+    background-color: #bdbdbd;
+    transition: 0.3s;
+}
+
+
+.grid-top{
+    border-radius: 1vh 1vh 0vh 0vh;
+}
+
+.grid-bot{
+    border-radius: 0vh 0vh 1vh 1vh;
+}

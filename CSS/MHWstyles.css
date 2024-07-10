@@ -1,0 +1,277 @@
+/* styles.css */
+@font-face {
+    font-family: 'Markazi';
+    src: url(fonts/MarkaziText-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: 'Actor';
+    src: url(fonts/Actor-Regular.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #464646;
+    overflow-x: hidden;
+}
+
+/* NavBar */
+
+.header {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 99;
+    width: 100%;
+    height: 80px;
+    background-color: rgb(0, 0, 0, .3);
+}
+
+.wrap {
+    width: 95%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+.logo {
+    width: 75%;
+}
+
+#header-buttons{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    height: 100%;
+    width: 18%;
+}
+
+.hover-icon{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.hover-icon:hover{
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.nav-btn{
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.Nav-Style {
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 0.1rem 1.6rem 0.1rem 1.6rem ;
+    border-radius: 100px;
+    cursor: pointer;
+    font-family: 'Markazi';
+}
+
+.Nav-Login {
+    font-size: 1.8rem;
+    color: black;
+    background-color: #D9D9D9;
+}
+
+.Nav-Middle {
+    font-size: 25px;
+    color: white;
+    font-weight: 500;
+}
+
+.active, .Nav-Style:hover, .Nav-Login:hover {
+    transition: all ease 0.5s;
+    transform: scale(1.1);
+    background-color: black;
+    color: white;
+    border: solid #D9D9D9;
+}
+
+
+
+.Nav-Gap {
+    margin-left: 30%;
+}
+
+
+/* Top Container */
+#home-container{
+    width: 100%;
+    height: 200vh;
+}
+
+.background {
+    width: 100%;
+    height: 186.4vh;
+    z-index: -1;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-size{
+    position: absolute;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.bg-opacity{
+    opacity: 0;
+}
+
+/* Top Container */
+
+.top-content{
+    position: absolute;
+    top: 20%;
+    left: 0%;
+    z-index: 2;
+    width: 100%;
+    height: auto;
+}
+
+.logo-content{
+    width: 85%;
+    height: 100%;
+    z-index: 2;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    
+}
+
+.img-c-size{
+    z-index: 2;
+    height: auto;
+    width: auto;
+}
+
+.logo-content-text{
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    text-align: center;
+    line-height: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.logo-order{
+    order:-1
+}
+
+.logo{
+    z-index: 2;
+    width: auto;
+}
+
+.tagline{
+    font-size: 43px;
+    width: 680px;
+    text-align: center;
+    line-height: 68px;
+    color: #D9D9D9;
+    text-shadow: -1px -1px black, 1px 1px black, 5px 5px 5px black;
+}
+
+.tagline-btn{
+    font-family: 'Merkazi';
+    font-size: 35px;
+    padding: 0rem 1rem 0rem 1rem;
+    color: white;
+    border-radius: 10px;
+    background-color: transparent;
+    border: solid #D9D9D9;
+    cursor: pointer;
+}
+
+.tagline-btn:hover{
+    transition: all ease 0.5s;
+    transform: scale(1.1);
+    background-color: black;
+    color: white;
+    border: solid #D9D9D9;
+}
+
+.top-bot-content{
+    position: absolute;
+    bottom: 5%;
+    left: 0%;
+    z-index: 2;
+    width: 100%;
+    height: auto;
+    background-color: rgb(0, 0, 0, .3);
+}
+
+.game-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+
+.game{
+    width: 400px;
+    height: auto;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0%;
+}
+
+.game-left{
+    left: 15%;
+}
+
+.game-right{
+    right: 15%;
+}
+
+.game-txt{
+    font-size: 45px;
+    color: white;
+}
+
+.game-size{
+    width: 400px;
+    height: 223px;
+    display: flex;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.active-game, .game-size:hover{
+    transition: 0.3s;
+    width: 537px;
+    height: 319px;
+    
+}
+
+
+
+
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

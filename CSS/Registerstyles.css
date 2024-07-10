@@ -1,0 +1,288 @@
+@font-face {
+    font-family: 'Markazi';
+    src: url(fonts/MarkaziText-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: 'Actor';
+    src: url(fonts/Actor-Regular.ttf);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+/* NavBar */
+
+.header {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 99;
+    width: 100%;
+    height: 8vh;
+    background-color: rgb(0, 0, 0, .3);
+}
+
+.wrap {
+    width: 95%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+.logo {
+    width: 30vh;
+    height: auto;
+    cursor: pointer;
+}
+
+.header-buttons{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    height: 100%;
+    width: 18%;
+}
+
+.nav-btn{
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.nav-btn-size{
+    width: 4vh;
+    height: auto;
+}
+
+.hover-icon{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.hover-icon:hover{
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.right-margin{
+    margin-right: 1vh;
+}
+
+/* Background */
+.Container{
+    height: 100vh;
+    width: 100%;
+}
+
+.background{
+    width: 100%;
+    height: 186.4vh;
+    z-index: -1;
+    position: absolute;
+}
+
+.background img{
+    width: 100%;
+    transition: 0.3s;
+}
+
+/* Registers */
+
+.Register-Wrap{ 
+    height: auto;
+    width: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    top: 13vh;
+    left: 35vh;
+}
+
+.Register-Contents{
+    display: flex;
+    flex-direction: column;
+    gap: 3.5vh;
+}
+
+.Register-title{
+    color: #FFF;
+    text-shadow: 0.2vh 0.2vh 0.01vh rgba(255, 255, 255, 0.25);
+    font-family: 'Actor';
+    font-size: 4.8vh;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: default;
+}
+
+.Panel-Gap{
+    display: flex;
+    flex-direction: column;
+    gap: 2.8vh;
+}
+
+.Panel{
+    display: flex;
+    flex-direction: column;
+    gap: 0.1vh;
+}
+
+.Panel-Text{
+    color: #BFBFBF;
+    font-family: Actor;
+    font-size: 2.4vh;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: default;
+}
+
+.Input-Style{
+    width: 36vh;
+    height: 4.5vh;
+    border-radius: 1vh;
+    background-color: #5F5F5F;
+    box-shadow: 0 0 1.5vh 0 black;
+    font-size: 2vh;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Input-Style Input{
+    height: 100%;
+    width: 90%;
+    background: transparent;
+    outline: none;
+    border: none;
+    font-size:2vh;
+    color: white;
+    transition: 0.3s;
+}
+
+.Input-Style:focus-within,
+.Input-Style:hover{
+    transition: 0.3s;
+    background-color: rgb(214, 214, 214);
+}
+
+.Input-Style Input:focus,
+.Input-Style input:hover{
+    color: black;
+}
+
+.continue-btn{
+    width: 36vh;
+    height: 4.5vh;
+    font-size: 2.4vh;
+    font-weight: 400;
+    font-family: Actor;
+    border-radius: 1vh;
+    background: linear-gradient(90deg, #FFD540 50%, #998026 100%);
+    box-shadow: 0.5vh 0.4vh 0.4vh 0vh rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.continue-btn:hover{
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+/* Footer */
+
+.footer{
+    height: 23vh;
+    width: 100%;
+    position: fixed;
+    bottom: 0%;
+    background: rgba(0, 0, 0, 0.70);
+    z-index: 98;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-wrap{
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-wrap img{
+    height: auto;
+    width: 23vh;
+    margin-bottom: 3vh;
+}
+
+.footer-content{
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5vh ;
+}
+
+.line-border{
+    width: 81vh;
+    height: 0.05vh;
+    background-color: white;
+}
+
+.footer-text{
+    color: white;
+    font-family: Actor;
+    font-size: 1.5vh;
+    cursor: default;
+}
+
+.footer-mid{
+    display: flex;
+    gap: 1.5vh;
+}
+
+.footer-mid a{
+    color: white;
+}
+
+.footer-mid a:hover{
+    color: #FFD540;
+}
+
+.footer-bot{
+    display: flex;
+    font-size: 2vh;
+    gap: 2vh;
+    cursor: default;
+    color: white;
+}
+
+.footer-bot a{
+    color: white;
+    font-size: 2vh;
+    font-family: Actor;
+}
+
+.footer-bot a:hover{
+    color: #FFD540;
+}
