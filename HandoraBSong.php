@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Handora</title>
-    <link rel="stylesheet" href="/CSS/HandoraMain.css">
+    <link rel="stylesheet" href="./CSS/HandoraMain.css">
 </head>
 <body>
 
@@ -23,13 +23,11 @@
             <div class="header-buttons">
                 
                 <nav class="nav-btn"> 
-                    <img src="./Assets/Discord.svg" class="nav-btn-size nav-btn-size"/>
-                    <img src="./Assets/Dhover.svg" class="nav-btn-size hover-icon"/>
+                    <img src="./Assets/Discord.svg" class="nav-btn-size hover-icon"/>
                 </nav>
 
                 <nav class="nav-btn">
-                    <img src="./Assets/x icon.png" class="nav-btn-size"/>
-                    <img src="./Assets/HXicon.svg" class="nav-btn-size hover-icon"/>
+                    <img src="./Assets/x icon.png" class="nav-btn-size hover-icon"/>
                 </nav>
 
                 <nav class="Nav-Style popup"><span>Login</span></nav>
@@ -74,7 +72,7 @@
             <!-- register -->
              <div class="register">
                 <div class="register-text">Dont have an account?</div>
-                <a href="RegisterPage.html" class="register-text mid-link">Register</a>
+                <a href="./RegisterPage.php" class="register-text mid-link">Register</a>
              </div>
 
         </div>

@@ -75,27 +75,21 @@ body {
 .nav-btn-size{
     width: 4vh;
     height: auto;
-}
-
-.hover-icon{
-    position: absolute;
-    opacity: 0;
     cursor: pointer;
 }
 
 .hover-icon:hover{
     opacity: 1;
     transition: 0.3s;
+    filter: grayscale(0%) sepia(100%) saturate(5000%) hue-rotate(-45deg);
 }
 
 .Nav-Style:hover {
     transition: all ease 0.5s;
-    transform: scale(1.1);
     background-color: black;
     color: white;
-    border: solid white;
+    border: 0.1vh solid white;
 }
-
 
 /* Container 1 */
 
@@ -131,18 +125,19 @@ body {
 
 .Tag-Header{
     color: #FFF;
-    text-shadow: 5px 5px 200px #FFC700;
+    text-shadow: 0.5vh 0.5vh 20vh #FFC700;
     font-family: "Markazi";
     font-size: 13vh;
     font-style: normal;
     font-weight: 700;
     line-height: 12vh;
     width: 59vh;
+    cursor: default;
 }
 
 .Tag-Support{
     color: #FFF;
-    text-shadow: 5px 5px 200px #FFC700;
+    text-shadow: 0.5vh 0.5vh 20vh #FFC700;
     font-family: Actor;
     font-size: 2.5vh;
     font-style: normal;
@@ -170,7 +165,7 @@ body {
     display: flex;
     align-items: center;
     background-color: #d9d9d9;
-    box-shadow: 0px 4px 45.5px rgba(225, 199, 0, 0.54);
+    box-shadow: 0vh 0.4vh 4.55vh rgba(225, 199, 0, 0.54);
     border-radius: 5vh;
 }
 
@@ -269,16 +264,17 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 40px;
+    gap: 4vh;
 }
 
 .sub-title{
     color: #FFF;
-    text-shadow: 5px 5px 200px #FFC700;
+    text-shadow: 0.5vh 0.5vh 20vh #FFC700;
     font-family: "Markazi Text";
     font-size: 5vh;
     font-style: normal;
     font-weight: 700;
+    cursor: default;
 }
 
 .popular-games {
@@ -292,7 +288,7 @@ body {
 .game {
     width: 21%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 1vh;
     overflow: hidden;
     transition: transform 0.2s;
 }
@@ -300,7 +296,7 @@ body {
 .game img {
     width: 100%;
     display: block;
-    border-radius: 10px;
+    border-radius: 1vh;
 }
 
 .game:hover {
@@ -313,7 +309,7 @@ body {
 .Container-3{
     height: auto;
     width: 100%;
-    margin: 50px 0px 50px 0px;
+    margin: 5vh 0vh 5vh 0vh;
 }
 
 .news-wrap{
@@ -336,11 +332,12 @@ body {
 .news-title{
     width: auto;
     color: white;
-    text-shadow: 5px 5px 200px #FFC700;
+    text-shadow: 0.5vh 0.5vh 20vh #FFC700;
     font-family: "Markazi Text";
     font-size: 5vh;
     font-weight: 700;
     line-height: 20vh;
+    cursor: default;
 }
 
 .left-news{
@@ -353,12 +350,13 @@ body {
 
 .news-header{
     color: #FFF;
-    text-shadow: 5px 5px 200px #FFC700;
+    text-shadow: 0.5vh 0.5vh 20vh #FFC700;
     font-family: "Markazi";
     font-size: 9vh;
     font-style: normal;
     font-weight: 700;
     line-height: 11.5vh;
+    cursor: default;
 }
 
 .news-btn{
@@ -401,7 +399,7 @@ body {
     justify-content: center;
 }
 
-.news-indicator-wrap{
+.indicator-wrap{
     width: 100%;
     height: auto;
     display: flex;
@@ -412,7 +410,7 @@ body {
 .dot {
     height: 1.5vh;
     width: 1.5vh;
-    margin: 0 5px;
+    margin: 0 0.5vh;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
@@ -503,7 +501,6 @@ body {
 .footer-bot a:hover{
     color: #FFD540;
 }
-
 
 /* Pop Up */
 

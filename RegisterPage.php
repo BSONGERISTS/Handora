@@ -35,7 +35,7 @@
 
                 <nav class="nav-btn right-margin" >
                         <img src="./Assets/BackBtn.svg" class="nav-btn-size"/>
-                        <a href="HandoraBSong.html"><img src="./Assets/HoverBack.svg" class="nav-btn-size hover-icon"/></a>
+                        <a href="./HandoraBSong.php"><img src="./Assets/HoverBack.svg" class="nav-btn-size hover-icon"/></a>
                 </nav>
 
             </div>
@@ -54,12 +54,12 @@
                 <!-- Title -->
                 <div class="Register-title">CREATE YOUR ACCOUNT</div>
                 
-                <div class="Panel-Gap">
+                <form class="Panel-Gap" id="signupform">
                     <!-- Username --> 
                     <div class="Panel">
                         <div class="Panel-Text">Username</div>
                         <div class="Input-Style">
-                            <input type="text">
+                            <input type="text" name="Input-Username">
                         </div>
                     </div>
 
@@ -67,7 +67,7 @@
                     <div class="Panel">
                         <div class="Panel-Text">Email Address</div>
                         <div class="Input-Style">
-                            <input type="text">
+                            <input type="email" name="Input-Email">
                         </div>
                     </div>
 
@@ -75,7 +75,7 @@
                     <div class="Panel">
                         <div class="Panel-Text">Password</div>
                         <div class="Input-Style">
-                            <input type="password">
+                            <input type="password" name="Input-Password">
                         </div>
                     </div>
 
@@ -83,13 +83,14 @@
                     <div class="Panel">
                         <div class="Panel-Text">Confirm Password</div>
                         <div class="Input-Style">
-                            <input type="password">
+                            <input type="password" name="Input-Password-2">
                         </div>
                     </div>
 
-                    <div class="continue-btn">Continue</div>
+                    <button type="submit" class="continue-btn">Continue</button>
 
-                </div>    
+                </form> 
+
             </div>
         </div> 
 
@@ -98,7 +99,7 @@
     <div class="footer">
         <div class="footer-wrap">
             <!-- left footer -->
-            <img src="/Assets/HandoraFoot.svg">
+            <img src="./Assets/HandoraFoot.svg">
 
             <!-- right footer -->
             <div class="footer-content">
@@ -131,6 +132,6 @@
     </div>
 
 
-    <script src="RegisterScript.js"></script>
+    <script src="./RegisterScript.js"></script>
 </body>
 </html>

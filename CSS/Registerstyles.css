@@ -286,3 +286,22 @@ body {
 .footer-bot a:hover{
     color: #FFD540;
 }
+
+/* Success */
+
+.Success-Wrap{
+    height: 69vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 8vh;
+    color: #FFF;
+    text-shadow: 2px 2px 0.1px rgba(255, 255, 255, 0.25);
+    font-family: Actor;
+    font-size: 4.8vh;
+    font-weight: 400;
+    gap: 5vh;
+}

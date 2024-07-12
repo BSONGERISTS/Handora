@@ -52,56 +52,101 @@
 
         <!-- Profile -->
         <div class="profile-wrap">
-
             <div class="profile-contents">
                 <!-- Top View -->
                 <div class="profile-top">
-
-                        <!-- Left -->
-                        <div class="top-left">
-                            <!-- Profile -->
-                            <div class="user-left">
-                                <div class="profile-pic">
-                                    <img src="/Assets/ProfilePlaceholder.svg" class="custom">
-                                    <div class="prof-btn"></div>
-                                </div>
-                                <div class="display-name">Username</div>
+                    <!-- Left -->
+                    <div class="top-left">
+                        <!-- Profile -->
+                        <div class="user-left">
+                            <div class="profile-pic">
+                                <img src="/Assets/ProfilePlaceholder.svg" class="custom">
+                                <div class="prof-btn"></div>
                             </div>
-                            <!-- Signout -->
-                            <a href="/HandoraBSong.html" class="signout">
-                                <img src="/Assets/LogOutProf.svg">
-                                Sign Out
-                            </a>
+                            <div class="display-name">Username</div>
                         </div>
-
-                        <!-- Right -->
-                        <div class="top-right">
-                            <!-- Right Top -->
-                            <div class="user-right-indicator">
-                                <img src="/Assets/Setting.svg">
-                                Profile Settings
-                            </div>
-
-                            <!-- Right Bot -->
-                            <div class="user-right-bot">
-                                <div class="right-top-contents">
-                                    
-                                </div>
-
-                                <div class="right-bit-contents">
-                                    <div class="">Cancel</div>
-                                    <div class="">Save Changes</div>
-                                </div>
-                            </div>
-
+                        <!-- Signout -->
+                        <a href="/HandoraBSong.html" class="signout">
+                            <img src="./Assets/LogOutProf.svg">
+                            Sign Out
+                        </a>
+                    </div>
+                    <!-- Right -->
+                    <div class="top-right">
+                        <!-- Right Top -->
+                        <div class="user-right-indicator">
+                            <img src="./Assets/Setting.svg">
+                            Profile Settings
                         </div>
+                        <!-- Right Bot -->
+                        <div class="user-right-bot">
+                            <div class="right-top-contents">
+                                <!-- Registered Cradentials -->
+                                    <!-- left -->
+                                <div class="left-credential">
+                                    <!-- Username -->
+                                    <div class="credential-wrap">
+                                        <img src="./Assets/Edit.svg">
+                                        <div class="credential-text">
+                                            <a>USERNAME</a>
+                                            <input type="text" id="name" value="Username" readonly>
+                                        </div>
+                                    </div>
+                                    <!-- Email -->
+                                    <div class="credential-wrap">
+                                        <img src="./Assets/Edit.svg">
+                                        <div class="credential-text">
+                                            <a>EMAIL</a>
+                                            <input type="text" id="e-mail" value="username@email.com" readonly>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <!-- right -->
+                                <div class="right-credential">
+                                    <div class="right-credential-wrap">
+                                        <div class="pass-top">
+                                            <img src="./Assets/Key.svg">
+                                            Change Password
+                                        </div>
+                                        <input type="text" id="chng-pass" readonly>
+                                    </div>
+                                </div>
+                            </div>
 
-                    
+                            <div class="right-bot-contents">
+                                <button class="change-style">Cancel</button>
+                                <button class="change-style">Save Changes</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- Bot View -->
+                <div class="profile-bot">
+                    <!-- bot Container -->
+                    <div id="butts" class="profile-bot-contents">
+                        <!-- Button -->
+                        <div id="btn" class="bot-btn">
+                            <button id="Guide" class="gui btn-style active" onclick="guide()">Guides</button>
 
+                            <button id="Diss" class="dis btn-style" onclick="diss()">Discussions</buttom>
+                        </div>
+
+                        <div id="1s" class="contribution position">
+                            <div class="contribution-scroll">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, dolores fugiat. Incidunt cupiditate culpa sed in dolorum harum ipsum. Modi, debitis itaque? Quisquam optio quae vel est deleniti hic, pariatur quos velit repudiandae non sequi mollitia dolor doloribus nesciunt, voluptate repellendus magnam corporis quasi qui harum laboriosam omnis consequatur error.
+                            </div>
+                        </div>
+
+                        <div id="2s" class="contribution ">
+                            <div class="contribution-scroll">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 
 
