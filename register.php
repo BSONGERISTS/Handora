@@ -41,7 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sss", $username, $email, $hashed_password);
 
     if ($stmt->execute()) {
-        echo "bruh successful.";
+        header("Location: RegisterSuccessPage.html");
+        exit();
     } else {
         // Check if error is due to duplicate entry
         if ($conn->errno == 1062) {
