@@ -30,3 +30,18 @@ function diss(){
     var element4 = document.getElementById("2s");
     element4.classList.add("position")
 }
+
+function PopOpen(){
+    var PopElementOpen = document.getElementById("pop");
+    PopElementOpen.classList.remove("pop-index")
+}
+
+function PopClose(){
+    var PopElementClose = document.getElementById("pop");
+    PopElementClose.classList.add("pop-index")
+}
+
+function Prof1(){
+    var Prof1 = document.getElementById("user-prof");
+    Prof1.src = "./Assets/MCLogo.svg";
+}
