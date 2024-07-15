@@ -18,5 +18,3 @@ function togglePopup() {
     pop.classList.toggle("login-index");
 }
 
-
-
