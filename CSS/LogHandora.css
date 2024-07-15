@@ -571,3 +571,22 @@ body {
 .grid-bot{
     border-radius: 0vh 0vh 1vh 1vh;
 }
+
+/* scrollbar */
+::-webkit-scrollbar{
+    width: 1vh;
+}
+
+::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #cccccc;
+    opacity: 0;
+    border-radius: 1vh;
+}
+
+::-webkit-slider-thumb:hover{
+    background: #BABABA;
+}

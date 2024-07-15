@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['email'] = $email;
             echo "Login successful. Welcome, " . $username . "!";
             // Redirect to a protected page
-            header("Location: HandoraBSong.html");
+            header("Location: LogHandora.html");
         } else {
             echo "Invalid password.";
         }

@@ -664,3 +664,22 @@ body {
     width: auto;
     cursor: default;
 }
+
+/* scrollbar */
+::-webkit-scrollbar{
+    width: 1vh;
+}
+
+::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #cccccc;
+    opacity: 0;
+    border-radius: 1vh;
+}
+
+::-webkit-slider-thumb:hover{
+    background: #BABABA;
+}
