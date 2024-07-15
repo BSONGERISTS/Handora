@@ -693,6 +693,7 @@ body {
     background-color: #BABABA;
     border: none;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .pop-img:hover{
@@ -720,6 +721,7 @@ body {
     font-family: Actor;
     font-size: 2.4vh;
     border-radius: 1vh;
+    cursor: pointer;
     background: linear-gradient(90deg, #FFD540 50%, #998026 100%);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
