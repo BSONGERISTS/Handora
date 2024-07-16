@@ -148,17 +148,30 @@ body {
     gap: 1vh;
 }
 
+
+/* left top */
 .left-top-content{
     width: 85vh;
-    height: 36.9vh;
+    height: 0vh;
+    visibility: hidden;
     background-color: #2A2A2A;
     border-radius: 0.5vh;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.75);
-    opacity: 80%;
+    opacity: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: ease-in-out;
+    overflow: hidden;
+    transition: 0.8s;
 }
+
+.draw{
+    height: 36.9vh;
+    visibility: visible;
+    transition: 0.8s;
+}
+
 
 .header-diss{
     width: 95%;
@@ -208,6 +221,7 @@ body {
     border: 0.1vh solid #000;
     background: #424242;
     box-shadow: 0px 0px 0.5vh 0px rgba(0, 0, 0, 0.25) inset;
+    display: flex;
 }
 
 .input-title input{
@@ -224,13 +238,21 @@ body {
 }
 
 .input-title:focus-within,
-.input-title:hover{
+.input-title:hover,
+.input-body:focus-within,
+.input-body:hover,
+.inner-category:focus-within,
+.inner-category:hover{
     transition: 0.3s;
     background-color: rgb(214, 214, 214);
 }
 
 .input-title input:focus,
-.input-title input:hover{
+.input-title input:hover,
+.input-body textarea:focus,
+.input-body textarea:hover,
+.inner-category input:focus,
+.inner-category input:hover{
     color: black;
     transition: 0.3s;
 }
@@ -245,8 +267,8 @@ body {
 }
 
 .input-body textarea{
-    width: 96%;
-    height: 100%;
+    width: 98%;
+    height: 93%;
     margin-left: 1vh;
     background-color: transparent;
     border: none;
@@ -257,6 +279,7 @@ body {
     transition: 0.3s;
     overflow: hidden;
     overflow-y: scroll;
+    resize: none;
 }
 
 .category{
@@ -277,8 +300,80 @@ body {
     margin-left: 2vh;
 }
 
+.inner-category{
+    width: 44vh;
+    height: 5vh;
+    border-radius: 0.5vh;
+    background-color: #424242;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1vh;
+}
 
+.inner-category img{
+    height: 3vh;
+    width: auto;
+    margin-left: 1vh;
+}
 
+.inner-category input{
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    border-radius: 0.5vh;
+    font-size: 2vh;
+    font-family: Actor;
+    outline: none;
+    color: white;
+}
+
+.button-wrap{
+    height: 7vh;
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.post{
+    width: 20vh;
+    height: 5vh;
+    border-radius: 0.5vh;
+    background: linear-gradient(180deg, #FFD540 0%, #998026 100%);
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #000;
+    text-align: center;
+    font-family: Actor;
+    font-size: 2.4vh;
+    border:none;
+    cursor: pointer;
+}
+
+.post:hover{
+    transition: 0.3s;
+    transform: scale(1.05);
+}
+
+/* left bot */
+.left-content{
+    height: 88vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.left-bot-content{
+    width: 85vh;
+    height: 100%;
+    border-radius: 0.5vh;
+    background: rgba(42, 42, 42, 0.70);
+    box-shadow: 0px 0.4vh 0.4vh 0px rgba(0, 0, 0, 0.75);
+    overflow: hidden;
+    color: white;
+    overflow-y: scroll;
+}
 
 
 
@@ -301,7 +396,7 @@ body {
     background-color: #2A2A2A;
     border-radius: 0.5vh;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.75);
-    opacity: 80%;
+    opacity: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -385,7 +480,7 @@ body {
     align-items: center;
 }
 
-span {
+.Dropdown span {
     width: 30vh;
     height: auto;
     color : white;
@@ -398,7 +493,7 @@ span {
     border-radius: 5vh;
 }
   
-span::after {
+.Dropdown span::after {
     float: right;
     right: 10%;
 }
@@ -487,7 +582,7 @@ span::after {
     background-color: #2A2A2A;
     border-radius: 0.5vh;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.75);
-    opacity: 80%;
+    opacity: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -45,3 +45,12 @@ for (var i = 0; i < dropbtn.length; i++) {
         } 
     );
 }
+
+function PopOpen() {
+    var PopOpen = document.getElementById("top-pop");
+    if (PopOpen.classList.contains("draw")) {
+        PopOpen.classList.remove("draw");
+    } else {
+        PopOpen.classList.add("draw");
+    }
+}
