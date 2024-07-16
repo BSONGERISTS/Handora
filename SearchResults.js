@@ -54,3 +54,12 @@ function PopOpen() {
         PopOpen.classList.add("draw");
     }
 }
+
+function Extend() {
+    var Popex = document.getElementById("bot-pop");
+    if (Popex.classList.contains("drag")) {
+        Popex.classList.remove("drag");
+    } else {
+        Popex.classList.add("drag");
+    }
+}

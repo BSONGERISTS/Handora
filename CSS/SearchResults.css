@@ -366,16 +366,111 @@ body {
 
 .left-bot-content{
     width: 85vh;
-    height: 100%;
+    height: 50.2vh;
     border-radius: 0.5vh;
     background: rgba(42, 42, 42, 0.70);
     box-shadow: 0px 0.4vh 0.4vh 0px rgba(0, 0, 0, 0.75);
     overflow: hidden;
     color: white;
     overflow-y: scroll;
+    overflow: hidden;
+    transition: 0.8s;
 }
 
+.drag{
+    height: 100vh;
+    transition: 0.8s;
+}
 
+/* The Content */
+
+.topic-container{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.guide-post{
+    width: 82vh;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1vh;
+    border-radius: 0.5vh;
+    background-color: #393939;
+    box-shadow: 0px 0.4vh 0.4vh 0px rgba(0, 0, 0, 0.75);
+    text-decoration: none;
+}
+
+.guide-post:hover{
+    transform: scale(1.01);
+    transition: 0.3s;
+    background-color: #525252;
+}
+
+.guide-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+    margin-left: 1vh;
+}
+
+.guide-left img{
+    width: 6vh;
+    height: auto;
+}
+
+.guide-left-contents{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+}
+
+.guide-top-left{
+    color: white;
+    font-family: Actor;
+    font-size: 3.6vh;
+    font-weight: bold;
+}
+
+.guide-bot-left{
+    color: white;
+    font-family: Actor;
+    font-size: 2vh;
+}
+
+.guide-right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+    margin-right: 1vh;
+}
+
+.date{
+    color: white;
+    font-size: 2vh;
+    font-family: Actor;
+    gap: 1vh;
+}
+
+.number{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+}
+
+.num{
+    color: white;
+    font-size: 3.6vh;
+    font-family: Actor;
+}
 
 
 

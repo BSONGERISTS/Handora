@@ -414,6 +414,7 @@ body {
     justify-content: center;
     color: #BABABA;
     border-radius: 1vh;
+    cursor: pointer;
 }
 
 .change-style:hover{
