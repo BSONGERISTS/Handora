@@ -73,18 +73,98 @@
             <div class="search-contents">
                 <!-- search left -->
                 <div class="left-content">
-                    <div class="left-top-content">
 
+                    <div class="left-top-content">
+                        <!-- header -->
+                        <div class="header-diss">START A DISCUSSION</div>
+
+                        <div class="line-left"></div>
+                        <!-- mid -->
+                        <div class="mid-content">
+                            <!-- user pic -->
+                            <div class="user-pic">
+                                <img src="./Assets/MCLogo.svg">
+                            </div>
+                            <!-- user input -->
+                            <div class="inputs">
+                                <!-- title input -->
+                                <div class="input-title">
+                                    <input type="text"placeholder="Title">
+                                </div>
+                                <!-- body input -->
+                                <div class="input-body">
+                                    <textarea type="text" placeholder="Type your content"></textarea>
+                                </div>
+                            </div>
+                        </div>    
+                            <!-- categoty -->
+                            <div class="category">
+                                <div class="category-txt">Post in:</div>
+                                <div class="inner-category">
+                                    <img src="./pics/search icon.png">
+                                    <input type="text" class="category-input">
+                                </div>
+                            </div>
+                            <div class="button-wrap">
+                                <button class="post">
+                                    Post Discussion
+                                </button>
+                            </div>
+                        
                     </div>
+
                 </div>
                 <!-- search right -->
                  <div class="right-content">
                     <div class="right-top-content">
+                        <!-- search bar -->
+                        <div class="inner-search">
+                            <img src="./pics/search icon.png">
+                            <input type="text" placeholder="Search Handora Topics">
+                        </div>
+                        <!-- search nav -->
+                        <div id="snav" class="search-nav">
+                            <button id="all" class="search-btn sbtn-active">All of Handora</button>
+                            <button id="disscuss" class="search-btn">Discussions</button>
+                            <button id="guiddes" class="search-btn">Guides</button>
+                        </div>
+                        <div class="search-line"></div>
+                        <!-- Dropdown -->
+                        <div class="Dropdown">
+                            <label for="touch">
+                                <span>
+                                    Filter Game by Title
+                                    <img src="./Assets/dropdown.svg" class="dp">
+                                </span>
+                            </label>               
+                                <input type="checkbox" id="touch"> 
 
+                            <div id="drop" class="slide">
+                                <li><button class="drop-btn drop-active">Lorem Ipsum</button></li> 
+                                <li><button class="drop-btn">Lorem Ipsum</button></li>
+                                <li><button class="drop-btn">Lorem Ipsum</button></li> 
+                                <li><button class="drop-btn">Lorem Ipsum</button></li>
+                                <li><button class="drop-btn">Lorem Ipsum</button></li>
+                                <li><button class="drop-btn">Lorem Ipsum</button></li> 
+                                <li><button class="drop-btn">Lorem Ipsum</button></li> 
+                                <li><button class="drop-btn">Lorem Ipsum</button></li>
+                                <li><button class="drop-btn">Lorem Ipsum</button></li> 
+                                <li><button class="drop-btn">Lorem Ipsum</button></li> 
+                                <li><button class="drop-btn">Lorem Ipsum</button></li>
+                                <li><button class="drop-btn">Lorem Ipsum</button></li> 
+                                <li><button class="drop-btn">Lorem Ipsum</button></li> 
+                            </div>
+                        </div>    
                     </div>
 
                     <div class="right-bot-content">
-                        
+                        <button id="make-discuss" class="bot-btn">Start Disussion</button>
+                        <div class="search-line"></div>
+                        <button id="make-guide" class="bot-btn">Publish Guide</button>
+                        <div class="guide-desc">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </div>
                     </div>
                  </div>
             </div>
