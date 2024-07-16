@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 // Connect to the database
 $servername = "localhost";
 $username = "root";
@@ -23,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("ss", $email_or_username, $email_or_username);
     $stmt->execute();
     $stmt->store_result();
-    
+
     if ($stmt->num_rows > 0) {
         $stmt->bind_result($id, $username, $email, $hashed_password);
         $stmt->fetch();
@@ -33,9 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $id;
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $email;
+            $_SESSION['logged_in'] = true;  // Set session variable
             echo "Login successful. Welcome, " . $username . "!";
             // Redirect to a protected page
-            header("Location: LogHandora.html");
+            header("Location: HandoraBSong.html");
+            exit();
         } else {
             echo "Invalid password.";
         }
