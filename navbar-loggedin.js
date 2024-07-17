@@ -17,9 +17,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     <nav class="profile popup">
                         <img src="./Assets/ProfilePlaceholder.svg" class="nav-btn-size" />
                     </nav>
-                    
+
                     <div id="pop" class="login-box login-index">
                         <img src="./Assets/PopTop.svg" class="pop-indicator">
+
                         <!-- Profile Btn -->
                         <a href="./ProfileHandora.html" class='pop-btn grid-top'>
                             View my Profile
