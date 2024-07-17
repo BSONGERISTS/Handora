@@ -451,6 +451,7 @@ body {
     gap: 10vh;
     margin: 3vh 0 3vh 0;
     width: 100%;
+    position: relative;
 }
 
 .bot-btn a{
@@ -468,8 +469,8 @@ body {
     color: black;
     border-radius:32vh;
     transition: 0.3s;
-    position: absolute;
-    right: 39vh;
+    position: relative;
+    right: -22vh;
     text-decoration: none;
 }
 
