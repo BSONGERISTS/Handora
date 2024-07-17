@@ -3,6 +3,12 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             if (data.logged_in) {
+
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = './CSS/LogHandora.css';
+                document.head.appendChild(link);
+
                 // User is logged in, update the navbar
                 document.getElementById('navbar-buttons').innerHTML = `
                     <nav class="nav-btn"> 
