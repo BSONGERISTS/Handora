@@ -205,7 +205,7 @@ body {
 }
 
 .body-wrap-e{
-    height: 61.5vh;
+    height: 66.4vh;
     width: 133vh;
     transition: 0.3s;
 }
@@ -465,11 +465,12 @@ body {
 
 /* buttons */
 .btn-wrap{
-    width: 100%;
+    width: 133vh;
     height: 7.5vh;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    position: relative;
     gap: 2vh;
 }
 
@@ -485,11 +486,6 @@ body {
     padding: 0vh 2vh 0vh 2vh;
     border: none;
     outline: none;
-}
-
-.btn-wrap button:hover{
-    transition: 0.3s;
-    transform: scale(1.05);
 }
 
 .cel{
