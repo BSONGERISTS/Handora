@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Handora</title>
     <link rel="stylesheet" href="./CSS/HandoraMain.css">
+    <!-- <link rel="stylesheet" href="./CSS/LogHandora.css"> -->
 </head>
 <body>
 
@@ -14,70 +15,56 @@
     <div id="head" class="header">
         <!-- Inside Navbar -->
         <div class="wrap">
-
             <!-- Navbar Logo -->
-            
-            <a href="HandoraBSong.html"><img src="./Assets/WebNL.svg" class="logo"/></a>
-            
+            <a href="HandoraBSong.html"><img src="./Assets/WebNL.svg" class="logo" /></a>
             <!-- Navbar Buttons -->
-            <div class="header-buttons">
-                
+            <div class="header-buttons" id="navbar-buttons">
+                <!-- Default guest buttons -->
                 <nav class="nav-btn"> 
-                    <img src="./Assets/Discord.svg" class="nav-btn-size hover-icon"/>
+                    <img src="./Assets/Discord.svg" class="nav-btn-size hover-icon" />
                 </nav>
-
                 <nav class="nav-btn">
-                    <img src="./Assets/x icon.png" class="nav-btn-size hover-icon"/>
+                    <img src="./Assets/x icon.png" class="nav-btn-size hover-icon" />
                 </nav>
-
                 <nav class="Nav-Style popup"><span>Login</span></nav>
             </div>
         </div>
     </div>
 
-    <!-- Pop Up -->
+    <!-- Log in Pop Up -->
     <div id="pop" class="login-box login-index">
-
         <form class="login-contents" action="login.php" method="post">
             <img src="./Assets/Close.svg" class="closer"></img>
-
             <img src="./Assets/WebNL.svg" class="login-logo"></img>
-
             <!-- Email -->
             <div class="login-input">
                 <input type="text" placeholder="Email or Username" name="email_or_username" required>
-                <img src="./Assets/User.svg"/>
+                <img src="./Assets/User.svg" />
             </div>
-
             <!-- Password -->
             <div class="login-input">
                 <input type="password" placeholder="Password" id="passwordInput" name="password" required>
-                <img src="./Assets/Eye.svg" class="eyebtn" id="togglePassword"/>
+                <img src="./Assets/Eye.svg" class="eyebtn" id="togglePassword" />
             </div>
-            
             <!-- links -->
             <div class="login-mid">
                 <!-- check box -->
                 <div class="check-box">
-                    <input type="checkbox"/>
+                    <input type="checkbox" />
                     <div class="mid-text">Remember Me</div>
                 </div>
                 <!-- Forgot Link -->
                 <a href="" class="mid-text mid-link">Forgot Password?</a>
             </div>
-
             <!-- Login Button -->
             <button class="login-mid-mid">Login</button>
-
             <!-- register -->
-             <div class="register">
+            <div class="register">
                 <div class="register-text">Dont have an account?</div>
                 <a href="./RegisterPage.html" class="register-text mid-link">Register</a>
-             </div>
-
+            </div>
         </form>
-
-    </div>                                                                                               
+    </div>
     
     <!-- Nav End -->
 
@@ -237,7 +224,7 @@
 
 
 
-
+    <script src="navbar-loggedin.js"></script>
     <script src="indexMain.js"></script>
 </body>
 </html>

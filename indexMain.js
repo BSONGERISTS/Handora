@@ -7,7 +7,7 @@ var head = document.getElementById("head");
 
 var btns = head.getElementsByClassName("popup");
 
-// Loop through all buttons and add the active class to the current/clicked button
+// Loop through all buttons and the active class to the current/clicked button
 for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function() {
         var current = document.getElementsByClassName("login-index");
