@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             View my Profile
                         <a>
                         <!-- Log Out btn -->
-                        <a href="./HandoraBSong.html" class='pop-btn grid-bot'>
+                        <a href="logout.php" class='pop-btn grid-bot'>
                             Log Out
                             <img src="./Assets/LogOut.svg">
                         </a>
