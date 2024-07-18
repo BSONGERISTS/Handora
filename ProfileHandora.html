@@ -150,43 +150,47 @@
                         </div>
                         <!-- Right Bot -->
                         <div class="user-right-bot">
-                            <div class="right-top-contents">
-                                <!-- Registered Cradentials -->
-                                    <!-- left -->
-                                <div class="left-credential">
-                                    <!-- Username -->
-                                    <div class="credential-wrap">
-                                        <img src="./Assets/Edit.svg">
-                                        <div class="credential-text">
-                                            <a>USERNAME</a>
-                                            <input type="text" id="name" value="Username" readonly>
+                            <form id="updateProfile">
+                                <div class="right-top-contents">
+                                
+                                    <!-- Registered Cradentials -->
+                                        <!-- left -->
+                                    <div class="left-credential">
+                                        <!-- Username -->
+                                        <div class="credential-wrap">
+                                            <img src="./Assets/Edit.svg">
+                                            <div class="credential-text">
+                                                <a>USERNAME</a>
+                                                <input type="text" name="input_username" id="name" value="Username">
+                                            </div>
+                                        </div>
+                                        <!-- Email -->
+                                        <div class="credential-wrap">
+                                            <img src="./Assets/Edit.svg">
+                                            <div class="credential-text">
+                                                <a>EMAIL</a>
+                                                <input type="text" name="input_email" id="e-mail" value="username@email.com">
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <!-- right -->
+                                    <div class="right-credential">
+                                        <div class="right-credential-wrap">
+                                            <div class="pass-top">
+                                                <img src="./Assets/Key.svg">
+                                                Change Password
+                                            </div>
+                                            <input type="password" name="input_password" id="chng-pass">
                                         </div>
                                     </div>
-                                    <!-- Email -->
-                                    <div class="credential-wrap">
-                                        <img src="./Assets/Edit.svg">
-                                        <div class="credential-text">
-                                            <a>EMAIL</a>
-                                            <input type="text" id="e-mail" value="username@email.com" readonly>
-                                        </div>
-                                    </div>
-                                </div> 
-                                <!-- right -->
-                                <div class="right-credential">
-                                    <div class="right-credential-wrap">
-                                        <div class="pass-top">
-                                            <img src="./Assets/Key.svg">
-                                            Change Password
-                                        </div>
-                                        <input type="text" id="chng-pass" readonly>
-                                    </div>
+                                
                                 </div>
-                            </div>
 
-                            <div class="right-bot-contents">
-                                <button class="change-style">Cancel</button>
-                                <button class="change-style">Save Changes</button>
-                            </div>
+                                <div class="right-bot-contents">
+                                    <button class="change-style">Cancel</button>
+                                    <button type="submit" class="change-style">Save Changes</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
