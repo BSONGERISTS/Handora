@@ -207,7 +207,6 @@ body {
 .body-wrap-e{
     height: 66.4vh;
     width: 133vh;
-    transition: 0.3s;
 }
 
 .guide-search{
@@ -513,7 +512,6 @@ body {
 .body-wrap-e2{
     height: 73.7vh;
     width: 133vh;
-    transition: 0.3s;
 }
 
 .guide-content-header{
@@ -679,7 +677,69 @@ body {
     height: 3.2vh;
 }
 
+/* body3 */
 
+.body-wrap3{
+    height: 0vh;
+    width: 0vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 1vh;
+}
+
+.body-wrap-e3{
+    height: auto;
+    width: 133vh;
+}
+
+.preview-head{
+    height: auto;
+    width: 133vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-radius: 1.5vh;
+    background: rgba(42, 42, 42, 0.70);
+    box-shadow: 0px 0.4vh 0.4vh 0px rgba(0, 0, 0, 0.75);
+    gap: 2vh;
+}
+
+.insides{
+    height: auto;
+    width: 133vh;
+    display: flex;
+    justify-content: flex-start;
+    gap: 2vh;
+}
+
+.lime{
+    width: 112.5vh;
+    height: 0.1vh;
+    background: #B9B9B9;
+    box-shadow: 0px 0.4vh 0.4vh 0px rgba(0, 0, 0, 0.25);
+    margin-top: 2.6vh;
+}
+
+.date{
+    color: #B9B9B9;
+    font-family: Actor;
+    font-size: 2.4vh;
+    font-weight: 400;
+    margin-left: 4vh;  
+    width: 125vh;
+}
+
+.date a{
+    color: #B9B9B9;
+    font-family: Actor;
+    font-size: 2.4vh;
+    font-weight: 400;
+    overflow: hidden;
+}
 
 
 

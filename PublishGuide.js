@@ -32,14 +32,23 @@ function togglePopup() {
 
     var extend1 = document.getElementById("body1");
     var extend2 = document.getElementById("body2");
+    var extend3 = document.getElementById("body3");
 
 function Body1() {
     extend1.classList.add("body-wrap-e"),
-    extend2.classList.remove("body-wrap-e2");
+    extend2.classList.remove("body-wrap-e2"),
+    extend3.classList.remove("body-wrap-e3");
 }
 
 function Body2() {
     extend2.classList.add("body-wrap-e2"),
-    extend1.classList.remove("body-wrap-e");
+    extend1.classList.remove("body-wrap-e"),
+    extend3.classList.remove("body-wrap-e3");
     
+}
+
+function Body3() {
+    extend3.classList.add("body-wrap-e3"),
+    extend1.classList.remove("body-wrap-e"),
+    extend2.classList.remove("body-wrap-e2");
 }
