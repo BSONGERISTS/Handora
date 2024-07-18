@@ -39,6 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>    
                 ` ;
                 
+                // Previously on separate file called Logindex.js
+
                 // Get the head element and all elements with the class 'popup'
                 var head = document.getElementById("head");
                 var btns = head.getElementsByClassName("popup");
