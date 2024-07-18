@@ -73,10 +73,10 @@
             <!-- top nav -->
             <div class="guide-nav">
     
-                <div class="nav-wrap">
-                    <button class="guide-nav-style gnstyle-active">Guide Information</button>
+                <div id="guide-nav-btn" class="nav-wrap">
+                    <button class="guide-nav-style gnstyle-active" onclick="Body1()">Guide Information</button>
                     <img src="./Assets/Arriw.svg">
-                    <button class="guide-nav-style">Guide Contents</button>
+                    <button class="guide-nav-style" onclick="Body2()">Guide Contents</button>
                     <img src="./Assets/Arriw.svg">
                     <button class="guide-nav-style">Preview Guide</button>
                 </div>
@@ -84,9 +84,9 @@
             </div>
         </div>
         <!-- insides -->
-        <div class="content-container">
+        <div id="main-body" class="content-container">
             <!-- the wrap -->
-            <div class="body-wrap">
+            <div id="body1" class="body-wrap body-wrap-e">
                 <!-- search -->
                 <div class="guide-search">
                     <!-- text -->
@@ -154,8 +154,72 @@
                     <button class="sndcon">Save and Continue</button>
                 </div>
             </div>
-        </div>
 
+            <div id="body2" class="body-wrap2">
+                <!-- Guide Content Header -->
+                <div class="guide-content-header">
+                    <div class="profile-wrap">
+                        <img>
+                    </div>
+                    <div class="guide-content-text">
+                        <div class="big-header-text">Guide Title</div>
+                        <div class="underline-header-text">Game Title</div>
+                    </div>
+                </div>
+                <!-- Guide Content Body -->
+                <div class="guide-content-body">
+                    <!-- Text Area -->
+                    <div class="desc-content">
+                        <img class="imgr2" src="./Assets/indicator.svg">
+                        <div class="left-info-wrap">
+                            <div class="yellow-header">Guide Contents</div>
+                            <div class="header-support">
+                                Type in here the contents of your guide. To add an image, click the insert image icon on the bottom-right of the text field. 
+                            </div>
+
+                            <div class="textarea-btns">
+                                <button id="btn1">
+                                    <img>
+                                </button>
+                                <button id="btn2">
+                                    <img>
+                                </button>
+                                <button id="btn3">
+                                    <img>
+                                </button>
+                                <button id="btn4">
+                                    <img>
+                                </button>
+                                <button id="btn5">
+                                    <img>
+                                </button>
+                                <button id="btn6">
+                                    <img>
+                                </button>
+                                <button id="btn7">
+                                    <img>
+                                </button>
+                                <button id="btn8">
+                                    <img>
+                                </button>
+                            </div>
+
+                            <div class="info-inner4">
+                                <textarea type="text" class="txtarea"></textarea>
+                                <button><img src="./pics/photo.png" class="insert-pic"></button>
+                            </div>
+                            <a href="" class="f-help">Formatting Help</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- buttons -->
+                <div class="btn-wrap">
+                    <button class="cel">Cancel</button>
+                    <button class="sndcon">Save and Continue</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 

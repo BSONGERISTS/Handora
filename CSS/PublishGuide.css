@@ -12,9 +12,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #2A2A2A;
+    background: #313131;
     overflow-x: hidden;
-    overflow-y: hidden;
 }
 
 /* NavBar */
@@ -112,15 +111,19 @@ body {
 /* background */
 
 .Container{
-    height: 100vh;
+    height: auto;
     width: 100%;
-    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     z-index: 90;
 }
 
 .background{
     width: 100%;
-    height: 186.4vh;
+    height: 110vh;
+    top: 0;
+    left: 0;
     z-index: -1;
     position: absolute;
 }
@@ -169,23 +172,19 @@ body {
     font-family: Actor;
     font-size: 2vh;
     cursor: pointer;
-    transition: 0.3s;
 }
 
 .gnstyle-active{
     color: #000;
     background: linear-gradient(90deg, #FFD540 0%, #998026 100%);
-    transition: 0,3s;
 }
 
 /* contents */
 
 .content-container{
-    height: 61.5vh;
-    width: 100%;
+    height: auto;
+    width: 133vh;
     display: flex;
-    align-items: center;
-    flex-direction: column;
     position: relative;
     top: 12vh;
 }
@@ -193,12 +192,19 @@ body {
 /* body1 */
 
 .body-wrap{
-    height: 61.5vh;
-    width: 133vh;
+    height: 0vh;
+    width: 0vh;
     display: flex;
     align-items: center;
     flex-direction: column;
+    overflow: hidden;
     gap: 1vh;
+}
+
+.body-wrap-e{
+    height: 61.5vh;
+    width: 133vh;
+    transition: 0.3s;
 }
 
 .guide-search{
@@ -255,7 +261,9 @@ body {
 .info-inner:focus-within,
 .info-inner:hover,
 .info-inner3:focus-within,
-.info-inner3:hover{
+.info-inner3:hover,
+.info-inner4:focus-within,
+.info-inner4:hover{
     transition: 0.3s;
     background-color: #575757;
 }
@@ -265,7 +273,9 @@ body {
 .info-inner input:focus,
 .info-inner input:hover,
 .info-inner3 textarea:focus,
-.info-inner3 textarea:hover{
+.info-inner3 textarea:hover,
+.info-inner4 textarea:focus,
+.info-inner4 textarea:hover{
     color: white;
     transition: 0.3s;
 }
@@ -363,6 +373,8 @@ body {
     font-weight: 400;
     border-radius: 0.5vh;
     cursor: pointer;
+    border: none;
+    outline: none;
 }
 
 .info-inner2 button:hover{
@@ -418,6 +430,8 @@ body {
 
 .imgr{
     margin-top: -28vh;
+    width: auto;
+    height: 3vh;
 }
 
 .txtarea{
@@ -452,6 +466,7 @@ body {
     height: 7.5vh;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     gap: 2vh;
 }
 
@@ -464,6 +479,9 @@ body {
     font-size: 2.4vh;
     font-weight: 400;
     cursor: pointer;
+    padding: 0vh 2vh 0vh 2vh;
+    border: none;
+    outline: none;
 }
 
 .btn-wrap button:hover{
@@ -480,6 +498,192 @@ body {
     background: linear-gradient(180deg, #FFD540 0%, #998026 100%);
     box-shadow: 0.4vh 0.4vh 0.4vh 0 rgba(0, 0, 0, 0.25);
 }
+
+/* body2 */
+
+.body-wrap2{
+    height: 0vh;
+    width: 0vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 1vh;
+}
+
+.body-wrap-e2{
+    height: 73.7vh;
+    width: 133vh;
+    transition: 0.3s;
+}
+
+.guide-content-header{
+    width: 100%;
+    height: 14vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 1.5vh;
+    background: rgba(42, 42, 42, 0.70);
+    box-shadow: 0px 0.4vh 0.4vh 0px rgba(0, 0, 0, 0.75);
+    gap: 2vh;
+}
+
+.profile-wrap{
+    width: 10vh;
+    height: 10vh;
+    background: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-left: 4.5vh;
+}
+
+.guide-content-text{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.big-header-text{
+    color: #FFD540;
+    text-shadow: 0px 0.4vh 0.4vh rgba(0, 0, 0, 0.25);
+    font-family: Actor;
+    font-size: 3.6vh;
+    font-weight: 400;
+}
+
+.underline-header-text{
+    color: #B9B9B9;
+    text-shadow: 0px 0.4vh 0.4vh rgba(0, 0, 0, 0.25);
+    font-family: Actor;
+    font-size: 2.4vh;
+    font-weight: 400;
+    text-decoration-line: underline;
+}
+
+.guide-content-body{
+    width: 133vh;
+    height: 45.6vh;
+    display: flex;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    border-radius: 1.5vh;
+    background: rgba(42, 42, 42, 0.70);
+    box-shadow: 0px 0.4vh 0.4vh 0px rgba(0, 0, 0, 0.75);
+}
+
+/* textarea guide content */
+
+.desc-content{
+    height: auto;
+    width: auto;
+    margin-left: 1vh;
+    display: flex;
+    align-items: center;
+}
+
+.info-inner4{
+    width: 124.2vh;
+    height: 30vh;
+    border-radius: 0.5vh;
+    border: 0.1vh solid #000;
+    background: #424242;
+    box-shadow: 0 0 0.5ch 0 rgba(0, 0, 0, 0.25) inset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-inner4 img{
+    position: relative;
+}
+
+.imgr2{
+    margin-top: -39vh;
+    width: auto;
+    height: 3vh;
+}
+
+.txtarea{
+    width: 98%;
+    height: 93%;
+    margin-left: 1vh;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-family: Actor;
+    font-size: 2vh;
+    color: white;
+    transition: 0.3s;
+    overflow: hidden;
+    overflow-y: scroll;
+    resize: none;
+}
+
+.f-help{
+    color: #FFF;
+    font-family: Actor;
+    font-size: 1.6vh;
+    font-weight: 400;
+    position: relative;
+    left: 113vh;
+    text-decoration: none;
+}
+
+.textarea-btns{
+    width: 100%;
+    height: 3vh;
+    display: flex;
+    gap: 0.1vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.textarea-btns button{
+    width: 3vh;
+    height: 3vh;
+    border-radius: 0.4vh;
+    background: #FFF;
+    box-shadow: 0px 0.4vh 0.4vh 0px rgba(0, 0, 0, 0.25), 0px 0px 0.5vh 0px rgba(0, 0, 0, 0.25) inset;
+    border: none;
+    outline: none;
+}
+
+.textarea-btns button:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.info-inner4 button{
+    display: flex;
+    position: relative;
+    top: 11vh;
+    left: 1vh;
+    height: 0vh;
+    width: 3vh;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.insert-pic{
+    position: relative;
+    top: 0vh;
+    left: -1.7vh;
+    width: auto;
+    height: 3.2vh;
+}
+
+
+
+
 
 
 
