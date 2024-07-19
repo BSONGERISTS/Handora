@@ -399,7 +399,7 @@ body {
     justify-content: space-between;
     margin: 1vh;
     border-radius: 0.5vh;
-    background-color: #393939;
+    background: rgba(42, 42, 42, 0.70);
     box-shadow: 0px 0.4vh 0.4vh 0px rgba(0, 0, 0, 0.75);
     text-decoration: none;
 }
