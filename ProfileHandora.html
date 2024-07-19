@@ -107,6 +107,57 @@
         </div>
     </div>
 
+    <div id="pop2" class="popup-container2 pop-index2">
+        <div class="popup-content2">
+            <!-- pop navbar -->
+            <div class="pop-top2">
+                <div class="pop-top-text2">Update your Password</div>
+                <button id="exit2" class="pop-exit2" onclick="PopClose2()">
+                    <img src="./Assets/Close.svg">
+                </button>
+            </div>
+
+            <!-- pics and confirm -->
+            <div class="pop-body2">
+
+                <div class="insides-wrap">
+                    <div class="insides-text">Current Password</div>
+                    <div class="inner-input">
+                        <input type="text">
+                    </div>
+                </div>
+
+                <div class="insides-wrap">
+                    <div class="insides-text">New Password</div>
+                    <div class="inner-input">
+                        <input type="text">
+                    </div>
+                </div>
+
+                <div class="insides-wrap">
+                    <div class="insides-text">Confirm New Password</div>
+                    <div class="inner-input">
+                        <input type="text">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- confirm -->
+            <div class="con-wrap2">
+                <button class="pop-cancel2">
+                    Cancel
+                </button>
+
+                <button class="pop-confirm2">
+                    Confirm
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
 
     <!-- Container -->
     <div class="Container">
@@ -151,26 +202,30 @@
                                     <!-- left -->
                                 <div class="left-credential">
                                     <!-- Username -->
-                                    <div class="credential-wrap">
-                                        <img src="./Assets/Edit.svg">
+                                    <div class="credential-wrap1">
+                                        <button>
+                                            <img src="./Assets/Edit.svg">
+                                        </button>
                                         <div class="credential-text">
                                             <a>USERNAME</a>
-                                            <input type="text" id="name" value="Username" readonly>
+                                            <input type="text" id="name" value="Username">
                                         </div>
                                     </div>
                                     <!-- Email -->
-                                    <div class="credential-wrap">
-                                        <img src="./Assets/Edit.svg">
+                                    <div class="credential-wrap1">
+                                        <button>
+                                            <img src="./Assets/Edit.svg">
+                                        </button>
                                         <div class="credential-text">
                                             <a>EMAIL</a>
-                                            <input type="text" id="e-mail" value="username@email.com" readonly>
+                                            <input type="text" id="e-mail" value="username@email.com">
                                         </div>
                                     </div>
                                     <!-- Change Pass -->
                                     <div class="credential-wrap">
                                         <img src="./Assets/Key.svg">
                                         <div class="credential-text">
-                                            <button>Change Password</button>
+                                            <button onclick="PopOpen2()">Change Password</button>
                                         </div>
                                     </div>
                                 </div> 

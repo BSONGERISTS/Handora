@@ -41,6 +41,16 @@ function PopClose(){
     PopElementClose.classList.add("pop-index")
 }
 
+function PopOpen2(){
+    var PopElementOpen2 = document.getElementById("pop2");
+    PopElementOpen2.classList.remove("pop-index2")
+}
+
+function PopClose2(){
+    var PopElementClose2 = document.getElementById("pop2");
+    PopElementClose2.classList.add("pop-index2")
+}
+
 function Prof1(){
     var Prof1 = document.getElementById("user-prof");
     Prof1.src = "./Assets/MCLogo.svg";
