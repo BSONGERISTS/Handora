@@ -15,25 +15,25 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Error fetching session status:', error));
 
-    const updateProfile = document.getElementById("updateProfile");
-    console.log (updateProfile);
+    // const updateProfile = document.getElementById("updateProfile");
+    // console.log (updateProfile);
 
-    // if there is submit on form
-    updateProfile.addEventListener('submit', (ev) => {
-        // prevent website from loading
-        ev.preventDefault();
+    // // if there is submit on form
+    // updateProfile.addEventListener('submit', (ev) => {
+    //     // prevent website from loading
+    //     ev.preventDefault();
         
-        const formdata = new FormData(updateProfile);
+    //     const formdata = new FormData(updateProfile);
 
-        fetch ('./ProfileScriptProcess.php',{
-            method: "POST",
-            body: formdata
-        })
-        .then (response => response.json())
-            .then (data => {
-                console.log(data);
-            })
-    })
+    //     fetch ('./ProfileScriptProcess.php',{
+    //         method: "POST",
+    //         body: formdata
+    //     })
+    //     .then (response => response.json())
+    //         .then (data => {
+    //             console.log(data);
+    //         })
+    // })
 
 });
 
