@@ -1,5 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('JavaScript loaded');
+
+    fetch('session_status.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.logged_in) {
+                document.querySelector('.display-name').innerText = data.username;
+                document.getElementById('name').value = data.username;
+                document.getElementById('e-mail').value = data.email;
+            } else {
+                // Redirect to login page or show an error message
+                window.location.href = './HandoraBSong.html';
+            }
+        })
+        .catch(error => console.error('Error fetching session status:', error));
+
+    // const updateProfile = document.getElementById("updateProfile");
+    // console.log (updateProfile);
+
+    // // if there is submit on form
+    // updateProfile.addEventListener('submit', (ev) => {
+    //     // prevent website from loading
+    //     ev.preventDefault();
+        
+    //     const formdata = new FormData(updateProfile);
+
+    //     fetch ('./ProfileScriptProcess.php',{
+    //         method: "POST",
+    //         body: formdata
+    //     })
+    //     .then (response => response.json())
+    //         .then (data => {
+    //             console.log(data);
+    //         })
+    // })
+
 });
 
 var header = document.getElementById("butts");
