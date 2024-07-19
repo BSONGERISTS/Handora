@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Error fetching session status:', error));
 
-    // const updateProfile = document.getElementById("updateProfile");
+    // const updateProfile = document.getElementById("updateProfile");      // naka comment tas lalagyan ng form
     // console.log (updateProfile);
 
     // // if there is submit on form
