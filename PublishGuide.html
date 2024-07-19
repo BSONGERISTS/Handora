@@ -32,10 +32,6 @@
                     <img src="./Assets/x icon.png" class="nav-btn-size hover-icon"/>
                 </nav>
 
-                <nav class="nav-btn">
-                    <img src="./Assets/notifs.svg" class="nav-btn-size hover-icon"/>
-                </nav>
-
                 <nav class="profile popup">
                     <img src="./Assets/ProfilePlaceholder.svg" class="nav-btn-size">
                 </nav>
@@ -78,7 +74,7 @@
                     <img src="./Assets/Arriw.svg">
                     <button class="guide-nav-style" onclick="Body2()">Guide Contents</button>
                     <img src="./Assets/Arriw.svg">
-                    <button class="guide-nav-style">Preview Guide</button>
+                    <button class="guide-nav-style" onclick="Body3()">Preview Guide</button>
                 </div>
 
             </div>
@@ -122,8 +118,9 @@
                                 This image will represent your game guide in the Handora Guides Community.
                             </div>
                             <div class="info-inner2">
-                                <button>Choose File</button>
-                                <input type="text" placeholder="No file chosen" readonly>
+
+                                
+                                <input type="file">
                             </div>
                         </div>
                     </div>
@@ -138,7 +135,7 @@
                         <div class="left-info-wrap">
                             <div class="yellow-header">Describe your guide</div>
                             <div class="header-support">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                Use this space to describe your guide, what makes it interesting, and what the scope is. 
                             </div>
                             <div class="info-inner3">
                                 <textarea type="text" class="txtarea"></textarea>
@@ -150,7 +147,7 @@
 
                 <!-- buttons -->
                 <div class="btn-wrap">
-                    <button class="cel">Cancel</button>
+                    <a href="SearchResults.html"><button class="cel">Cancel</button></a>
                     <button class="sndcon">Save and Continue</button>
                 </div>
             </div>
@@ -178,7 +175,7 @@
                             </div>
 
                             <div class="textarea-btns">
-                                <button id="btn1">
+                                <!-- <button id="btn1">
                                     <img>
                                 </button>
                                 <button id="btn2">
@@ -201,7 +198,7 @@
                                 </button>
                                 <button id="btn8">
                                     <img>
-                                </button>
+                                </button> -->
                             </div>
 
                             <div class="info-inner4">
@@ -214,11 +211,56 @@
                 </div>
                 <!-- buttons -->
                 <div class="btn-wrap">
-                    <button class="cel">Cancel</button>
+                    <a href="SearchResults.html"><button class="cel">Cancel</button></a>
                     <button class="sndcon">Save and Continue</button>
                 </div>
             </div>
 
+            <div id="body3" class="body-wrap3">
+                <!-- preview head -->
+                <div class="preview-head">
+                    <div class="insides">
+                        <div class="profile-wrap">
+                            <img>
+                        </div>
+                        <div class="guide-content-text">
+                            <div class="big-header-text">Guide Title</div>
+                            <div class="underline-header-text">Game Title</div>
+                            <div class="lime"></div>
+                        </div>
+                    </div>
+                    <!-- date -->
+                    <div class="date"> Date Published: <a id="date"> June 24, 2024</a></div>
+                    <div class="date">
+                        <a id="titlepubs">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </a>
+                    </div>
+                </div>
+                <!-- body -->
+                <div class="preview-head">
+                    <div class="body-header">
+                        Heading 1 Lorem
+                    </div>
+                    <div class="body-line"></div>
+                    <div class="date">
+                        <a id="body-con">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="btn-wrap">
+                    <button class="sndcon">Publish Guide</button>
+                </div>
+                
+            </div>
         </div>
     </div>
 
