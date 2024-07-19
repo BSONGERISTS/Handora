@@ -34,8 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['input_email'];
     $hashed_password = password_hash($_POST['input_password'], PASSWORD_DEFAULT);
 
-    
-    if (empty($hashed_password)){
+    if (empty($_POST['input_password'])){
 
         try{
             // create an sql to update a logged in user
