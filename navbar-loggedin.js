@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     <nav class="nav-btn">
                         <img src="./Assets/x icon.png" class="nav-btn-size hover-icon" />
                     </nav>
-                    
                     <nav class="profile popup">
                         <img src="./Assets/ProfilePlaceholder.svg" class="nav-btn-size" />
                     </nav>
