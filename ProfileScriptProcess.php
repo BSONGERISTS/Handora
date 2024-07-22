@@ -1,102 +1,48 @@
 <?php
-
 session_start();
-// Connect to the database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "reben_database";
+include('db_connection.php'); // Make sure you have the database connection file included
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$response = array();
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Check if form data has been submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    // create an sql to get users 
-    $sql = "SELECT * FROM `users` WHERE id = ?";
-    // prepare the statement with sql
-    $stmt = $conn -> prepare ($sql);
-    // bind the session user id
-    $stmt -> bind_param ('i', $_SESSION['user_id']);
-    // execute the statement
-    $stmt->execute();
-    // get the result from execution
-    $result = $stmt -> get_result();
-    // get the value of result as variable $user
-    $user = $result -> fetch_assoc();
-
-    // get all the inputs from the ProfileHandora.html
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['input_username'];
     $email = $_POST['input_email'];
-    $hashed_password = password_hash($_POST['input_password'], PASSWORD_DEFAULT);
+    $userId = $_SESSION['user_id'];
 
-    if (empty($_POST['input_password'])){
+    // Debugging: Check if variables are set correctly
+    error_log("Username: $username, Email: $email, UserID: $userId");
 
-        try{
-            // create an sql to update a logged in user
-            $sql = "UPDATE `users` SET `username`= ?,`email`= ? WHERE ID = ?;";
-            // prepare the statement with sql
-            $stmt = $conn -> prepare ($sql);
-            // bind the all the values
-            $stmt -> bind_param ('ssi', $username, $email, $_SESSION['user_id']);
-            // execute the statement
-            $stmt->execute();
-    
-            $response = [
-                'status' => "success",
-                'message' => "Data updated successfully"
-            ];
-        }
-        // if there is error in query
-        catch (Exception $e){
-            // make an error response
-            $response = [
-                'status' => "error",
-                'message' => "Error No: ". $e->getCode() ." - ". $e->getMessage()    // get error code and message
-            ];
-        }
-    
+    // Update query
+    $query = "UPDATE users SET username = ?, email = ? WHERE id = ?";
+    $stmt = $conn->prepare($query);
+
+    // Debugging: Check if the statement preparation is successful
+    if (!$stmt) {
+        error_log("Statement preparation failed: " . $conn->error);
     }
-    else{
-        try{
-            // create an sql to update a logged in user
-            $sql = "UPDATE `users` SET `username`= ?,`email`= ?,`password`= ? WHERE ID = ?;";
-            // prepare the statement with sql
-            $stmt = $conn -> prepare ($sql);
-            // bind the all the values
-            $stmt -> bind_param ('sssi', $username, $email, $hashed_password, $_SESSION['user_id']);
-            // execute the statement
-            $stmt->execute();
-    
-            $response = [
-                'status' => "success",
-                'message' => "Data updated successfully"
-            ];
-        }
-        // if there is error in query
-        catch (Exception $e){
-            // make an error signup response
-            $response = [
-                'status' => "error",
-                'message' => "Error No: ". $e->getCode() ." - ". $e->getMessage()    // get error code and message
-            ];
-        }
-    }
-    
 
-    exit ( json_encode($response) );
+    $stmt->bind_param("ssi", $username, $email, $userId);
+
+    if ($stmt->execute()) {
+        // Update session variables
+        $_SESSION['username'] = $username;
+        $_SESSION['email'] = $email;
+        
+        $response['status'] = 'success';
+        $response['message'] = 'Profile updated successfully';
+    } else {
+        $response['status'] = 'error';
+        $response['message'] = 'Failed to update profile: ' . $stmt->error;
+        // Debugging: Log the SQL error
+        error_log("SQL error: " . $stmt->error);
+    }
+
+    $stmt->close();
+    $conn->close();
+} else {
+    $response['status'] = 'error';
+    $response['message'] = 'Invalid request';
 }
 
-$response = [
-    'status' => "error",
-    'message' => "NOT A POST METHOD"
-];
-
-exit ( json_encode($response) );
-
-
+echo json_encode($response);
 ?>
