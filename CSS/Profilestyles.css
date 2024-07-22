@@ -373,7 +373,7 @@ body {
     flex-direction: column;
 }
 
-.credential-text a{
+.credential-text label{
     font-size: 2vh;
     color: #BABABA;
     font-family: Actor;
