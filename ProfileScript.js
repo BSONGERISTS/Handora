@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelector('.display-name').innerText = data.username;
                 document.getElementById('name').value = data.username;
                 document.getElementById('e-mail').value = data.email;
+                document.getElementById('welcome-username').innerText = data.username;
 
                 document.querySelector('.change-style.cancel').addEventListener('click', () => {
                     // Reset the form values to the original data
@@ -39,9 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Profile updated successfully');
                 
                 // Update the displayed username and email without refreshing
-                document.querySelector('.display-name').innerText = formData.get('input_username');
-                document.getElementById('name').value = formData.get('input_username');
-                document.getElementById('e-mail').value = formData.get('input_email');
+                const newUsername = formData.get('input_username');
+                const newEmail = formData.get('input_email');
+                document.querySelector('.display-name').innerText = newUsername;
+                document.getElementById('name').value = newUsername;
+                document.getElementById('e-mail').value = newEmail;
+                document.getElementById('welcome-username').innerText = newUsername;
             } else {
                 alert('Failed to update profile: ' + data.message);
             }
