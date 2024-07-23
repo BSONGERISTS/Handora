@@ -1,20 +1,15 @@
 <?php
-// session_start();
-// header('Content-Type: application/json');
-// echo json_encode(['logged_in' => isset($_SESSION['logged_in']) && $_SESSION['logged_in']]);
-
 session_start();
-header('Content-Type: application/json');
 
-$response = [
-    'logged_in' => isset($_SESSION['logged_in']) && $_SESSION['logged_in'],
-];
+$response = array();
 
-if ($response['logged_in']) {
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+    $response['logged_in'] = true;
     $response['username'] = $_SESSION['username'];
     $response['email'] = $_SESSION['email'];
+} else {
+    $response['logged_in'] = false;
 }
 
 echo json_encode($response);
-
 ?>
