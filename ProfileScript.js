@@ -85,6 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Error updating password:', error));
     });
+
+    document.querySelector('.pop-cancel2').addEventListener('click', () => {
+        document.getElementById('current-password').value = '';
+        document.getElementById('new-password').value = '';
+        document.getElementById('confirm-password').value = '';
+        PopClose2();
+    });
 });
 
 var header = document.getElementById("butts");
