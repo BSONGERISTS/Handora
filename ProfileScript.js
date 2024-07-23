@@ -55,6 +55,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('Guide').addEventListener('click', guide);
     document.getElementById('Diss').addEventListener('click', diss);
+    
+    document.getElementById('confirm-password-change').addEventListener('click', () => {
+        const currentPassword = document.getElementById('current-password').value;
+        const newPassword = document.getElementById('new-password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+
+        if (newPassword !== confirmPassword) {
+            alert('New passwords do not match.');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('current_password', currentPassword);
+        formData.append('new_password', newPassword);
+
+        fetch('./update_password.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert('Password updated successfully');
+                PopClose2();
+            } else {
+                alert('Failed to update password: ' + data.message);
+            }
+        })
+        .catch(error => console.error('Error updating password:', error));
+    });
 });
 
 var header = document.getElementById("butts");
