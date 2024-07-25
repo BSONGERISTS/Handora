@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Update profile picture
                 if (data.profile_picture) {
                     document.getElementById('user-prof').src = data.profile_picture + '?' + new Date().getTime(); // Prevent caching
+                    document.getElementById('top-profile-pic').src = data.profile_picture + '?' + new Date().getTime(); // Update top profile pic
                 }
 
                 document.querySelector('.change-style.cancel').addEventListener('click', () => {
@@ -170,7 +171,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (data.status === 'success') {
                         alert('Profile picture updated successfully');
                         // Update profile picture on the frontend
-                        document.getElementById('user-prof').src = URL.createObjectURL(blob) + '?' + new Date().getTime();
+                        var newImageUrl = URL.createObjectURL(blob) + '?' + new Date().getTime();
+                        document.getElementById('user-prof').src = newImageUrl;
+                        document.getElementById('top-profile-pic').src = newImageUrl;
                         hideCropperPopup();
                     } else {
                         alert('Failed to update profile picture');
