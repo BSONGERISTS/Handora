@@ -9,6 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('name').value = data.username;
                 document.getElementById('e-mail').value = data.email;
                 document.getElementById('welcome-username').innerText = data.username;
+                
+                // Update profile picture
+                if (data.profile_picture) {
+                    document.getElementById('user-prof').src = data.profile_picture + '?' + new Date().getTime(); // Prevent caching
+                }
 
                 document.querySelector('.change-style.cancel').addEventListener('click', () => {
                     // Reset the form values to the original data
@@ -164,7 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }).then((data) => {
                     if (data.status === 'success') {
                         alert('Profile picture updated successfully');
-                        document.getElementById('user-prof').src = URL.createObjectURL(blob);
+                        // Update profile picture on the frontend
+                        document.getElementById('user-prof').src = URL.createObjectURL(blob) + '?' + new Date().getTime();
                         hideCropperPopup();
                     } else {
                         alert('Failed to update profile picture');

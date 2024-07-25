@@ -12,26 +12,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $userId = $_SESSION['user_id'];
 
-        $query = "UPDATE users SET profile_picture = ? WHERE id = ?";
-        $stmt = $conn->prepare($query);
+        $imagePath = 'uploads/profile_pictures/' . $userId . '.png'; // Store with user ID
 
-        if (!$stmt) {
-            error_log("Statement preparation failed: " . $conn->error);
-            $response['status'] = 'error';
-            $response['message'] = 'Failed to update profile picture: ' . $conn->error;
-        } else {
-            $stmt->bind_param("si", $imgContent, $userId);
+        // Ensure the directory exists
+        if (!file_exists('uploads/profile_pictures')) {
+            mkdir('uploads/profile_pictures', 0777, true);
+        }
 
-            if ($stmt->execute()) {
-                $response['status'] = 'success';
-                $response['message'] = 'Profile picture updated successfully';
-            } else {
+        // Move the uploaded file
+        if (move_uploaded_file($_FILES['croppedImage']['tmp_name'], $imagePath)) {
+            // Update the database
+            $query = "UPDATE users SET profile_picture = ? WHERE id = ?";
+            $stmt = $conn->prepare($query);
+
+            if (!$stmt) {
+                error_log("Statement preparation failed: " . $conn->error);
                 $response['status'] = 'error';
-                $response['message'] = 'Failed to update profile picture: ' . $stmt->error;
-                error_log("SQL error: " . $stmt->error);
-            }
+                $response['message'] = 'Failed to update profile picture: ' . $conn->error;
+            } else {
+                $stmt->bind_param("si", $imagePath, $userId);
 
-            $stmt->close();
+                if ($stmt->execute()) {
+                    $response['status'] = 'success';
+                    $response['message'] = 'Profile picture updated successfully';
+                } else {
+                    $response['status'] = 'error';
+                    $response['message'] = 'Failed to update profile picture: ' . $stmt->error;
+                    error_log("SQL error: " . $stmt->error);
+                }
+
+                $stmt->close();
+            }
+        } else {
+            $response['status'] = 'error';
+            $response['message'] = 'Failed to upload image';
         }
     } else {
         // Handle other profile updates (e.g., username and email)
@@ -52,9 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->bind_param("ssi", $username, $email, $userId);
 
             if ($stmt->execute()) {
-                $_SESSION['username'] = $username;
-                $_SESSION['email'] = $email;
-
                 $response['status'] = 'success';
                 $response['message'] = 'Profile updated successfully';
             } else {
@@ -66,11 +77,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->close();
         }
     }
-
-    $conn->close();
-} else {
-    $response['status'] = 'error';
-    $response['message'] = 'Invalid request';
 }
 
 echo json_encode($response);
