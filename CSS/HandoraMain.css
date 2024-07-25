@@ -290,13 +290,15 @@ body {
 
 .popular-games {
     display: flex;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 11vh;
+    width: 142vh;
+    height: auto;
 }
 
 .game {
-    width: 21%;
+    width: 40vh;
     height: auto;
     border-radius: 1vh;
     overflow: hidden;
