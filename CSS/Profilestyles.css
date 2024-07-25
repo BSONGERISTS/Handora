@@ -102,6 +102,7 @@ body {
     align-items: center;
     height: 5vh;
     width: 5vh;
+    overflow: hidden;
     cursor: pointer;
 }
 
