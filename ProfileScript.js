@@ -9,12 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('name').value = data.username;
                 document.getElementById('e-mail').value = data.email;
                 document.getElementById('welcome-username').innerText = data.username;
-                
-                // Update profile picture
-                if (data.profile_picture) {
-                    document.getElementById('user-prof').src = data.profile_picture + '?' + new Date().getTime(); // Prevent caching
-                    document.getElementById('top-profile-pic').src = data.profile_picture + '?' + new Date().getTime(); // Update top profile pic
-                }
 
                 document.querySelector('.change-style.cancel').addEventListener('click', () => {
                     // Reset the form values to the original data
@@ -98,92 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('confirm-password').value = '';
         PopClose2();
     });
-
-    var cropper;
-    var uploadImageInput = document.getElementById('upload-image');
-    var cropperImage = document.getElementById('cropper-image');
-
-    uploadImageInput.addEventListener('change', function (event) {
-        var files = event.target.files;
-        var done = function (url) {
-            uploadImageInput.value = '';
-            cropperImage.src = url;
-            showCropperPopup();
-        };
-        var reader;
-        var file;
-        var url;
-
-        if (files && files.length > 0) {
-            file = files[0];
-
-            if (URL) {
-                done(URL.createObjectURL(file));
-            } else if (FileReader) {
-                reader = new FileReader();
-                reader.onload = function (event) {
-                    done(reader.result);
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-    });
-
-    function showCropperPopup() {
-        document.getElementById('cropper-popup').style.display = 'flex';
-        cropper = new Cropper(cropperImage, {
-            aspectRatio: 1,
-            viewMode: 2,
-            autoCropArea: 1,
-            responsive: true,
-            background: false,
-            zoomable: true,
-            movable: true,
-            scalable: true
-        });
-    }
-
-    function hideCropperPopup() {
-        document.getElementById('cropper-popup').style.display = 'none';
-        cropper.destroy();
-        cropper = null;
-    }
-
-    window.showCropperPopup = showCropperPopup;
-    window.hideCropperPopup = hideCropperPopup;
-
-    window.cropImage = function() {
-        var canvas;
-        if (cropper) {
-            canvas = cropper.getCroppedCanvas({
-                width: 300,
-                height: 300,
-            });
-            canvas.toBlob(function (blob) {
-                var formData = new FormData();
-                formData.append('croppedImage', blob);
-                fetch('ProfileScriptProcess.php', {
-                    method: 'POST',
-                    body: formData,
-                }).then((response) => {
-                    return response.json();
-                }).then((data) => {
-                    if (data.status === 'success') {
-                        alert('Profile picture updated successfully');
-                        // Update profile picture on the frontend
-                        var newImageUrl = URL.createObjectURL(blob) + '?' + new Date().getTime();
-                        document.getElementById('user-prof').src = newImageUrl;
-                        document.getElementById('top-profile-pic').src = newImageUrl;
-                        hideCropperPopup();
-                    } else {
-                        alert('Failed to update profile picture');
-                    }
-                }).catch((error) => {
-                    console.error('Error:', error);
-                });
-            });
-        }
-    };
 });
 
 var header = document.getElementById("butts");
@@ -211,6 +119,16 @@ function diss() {
 
     var element4 = document.getElementById("2s");
     element4.classList.add("position");
+}
+
+function PopOpen() {
+    var PopElementOpen = document.getElementById("pop");
+    PopElementOpen.classList.remove("pop-index");
+}
+
+function PopClose() {
+    var PopElementClose = document.getElementById("pop");
+    PopElementClose.classList.add("pop-index");
 }
 
 function PopOpen2() {

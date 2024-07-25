@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Handora</title>
     <link rel="stylesheet" href="./CSS/Profilestyles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css"/>
 </head>
+
 <body>
     <!-- Navbar -->
     <div id="head" class="header">
@@ -24,23 +24,74 @@
                     <img src="./Assets/x icon.png" class="nav-btn-size hover-icon"/>
                 </nav>
                 <a href="./ProfileHandora.html" class="profile">
-                    <img id="top-profile-pic" src="./Assets/ProfilePlaceholder.svg" class="nav-btn-size">
+                    <img src="./Assets/ProfilePlaceholder.svg" class="nav-btn-size">
                 </a>
             </div>
         </div>
     </div>
-
-    <div id="cropper-popup" class="cropper-popup-container" style="display: none;">
-        <div class="cropper-popup-content">
-            <div class="cropper-pop-top">
-                <div class="cropper-pop-top-text">Crop your image</div>
-                <button class="cropper-pop-exit" onclick="hideCropperPopup()">&times;</button>
+    
+    <div id="pop" class="popup-container pop-index">
+        <div class="popup-content">
+            <!-- pop navbar -->
+            <div class="pop-top">
+                <div class="pop-top-text">Choose your Avatar</div>
+                <button id="exit" class="pop-exit" onclick="PopClose()">
+                    <img src="./Assets/Close.svg">
+                </button>
             </div>
-            <div class="cropper-pop-body">
-                <img id="cropper-image" src="">
+            <!-- pics and confirm -->
+            <div class="pop-body">
+                <button class="pop-img" onclick="Prof1()">
+                    <img src="./Assets/MCLogo.svg">
+                </button>
+                <button class="pop-img">
+                    <img src="./Assets/MCLogo.svg">
+                </button>
+                <button class="pop-img">
+                    <img src="./Assets/MCLogo.svg">
+                </button>
+                <button class="pop-img">
+                    <img src="./Assets/MCLogo.svg">
+                </button>
+                <button class="pop-img">
+                    <img src="./Assets/MCLogo.svg">
+                </button>
+                <button class="pop-img">
+                    <img src="./Assets/MCLogo.svg">
+                </button>
+                <button class="pop-img">
+                    <img src="./Assets/MCLogo.svg">
+                </button>
+                <button class="pop-img">
+                    <img src="./Assets/MCLogo.svg">
+                </button>
+                <button class="pop-img">
+                    <img src="./Assets/MCLogo.svg">
+                </button>
+                <button class="pop-img">
+                    <img src="./Assets/MCLogo.svg">
+                </button>
+                <button class="pop-img">
+                    <img src="./Assets/MCLogo.svg">
+                </button>
+                <button class="pop-img">
+                    <img src="./Assets/MCLogo.svg">
+                </button>
+                <button class="pop-img">
+                    <img src="./Assets/MCLogo.svg">
+                </button>
+                <button class="pop-img">
+                    <img src="./Assets/MCLogo.svg">
+                </button>
+                <button class="pop-img">
+                    <img src="./Assets/MCLogo.svg">
+                </button>
             </div>
-            <div class="cropper-con-wrap">
-                <button class="cropper-pop-confirm" onclick="cropImage()">Save</button>
+            <!-- confirm -->
+            <div class="con-wrap">
+                <button class="pop-confirm">
+                    Confirm
+                </button>
             </div>
         </div>
     </div>
@@ -105,14 +156,13 @@
                         <div class="user-left">
                             <div class="profile-pic">
                                 <img id="user-prof" src="./Assets/ProfilePlaceholder.svg" class="custom">
-                                <input type="file" id="upload-image" accept="image/*" style="display: none;">
-                                <button class="change" onclick="document.getElementById('upload-image').click();"><img src="./Assets/Camera.svg"></button>
+                                <button class="change" onclick="PopOpen()"><img src="./Assets/Camera.svg"></button>
                                 <div class="prof-btn"></div>
                             </div>
                             <div class="display-name">Username</div>
                         </div>
                         <!-- Signout -->
-                        <a href="./logout.php" class="signout">
+                        <a href="logout.php" class="signout">
                             <img src="./Assets/LogOutProf.svg">
                             Sign Out
                         </a>
@@ -300,46 +350,6 @@
                                         </div>
                                     </div>
                                 </a>
-
-                                <a class="guide-post" href="">
-                                    <div class="guide-left">
-                                        <!-- game logo -->
-                                        <img src="./Assets/MCLogo.svg">
-                                        <!-- info -->
-                                        <div class="guide-left-contents">
-                                            <div class="guide-top-left">Title Lorem</div>
-                                            <div class="guide-bot-left">Minecraf|Guide</div>
-                                        </div> 
-                                    </div>
-                                    <!-- publish date -->
-                                    <div class="guide-right">
-                                        <div class="date">May 27, 2024</div>
-                                        <div class="number">
-                                            <img src="./Assets/Chat.svg">
-                                            <div class="num">100</div>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <a class="guide-post" href="">
-                                    <div class="guide-left">
-                                        <!-- game logo -->
-                                        <img src="./Assets/MCLogo.svg">
-                                        <!-- info -->
-                                        <div class="guide-left-contents">
-                                            <div class="guide-top-left">Title Lorem</div>
-                                            <div class="guide-bot-left">Minecraf|Guide</div>
-                                        </div> 
-                                    </div>
-                                    <!-- publish date -->
-                                    <div class="guide-right">
-                                        <div class="date">May 27, 2024</div>
-                                        <div class="number">
-                                            <img src="./Assets/Chat.svg">
-                                            <div class="num">100</div>
-                                        </div>
-                                    </div>
-                                </a>
                             </div>
                         </div>
 
@@ -372,7 +382,6 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
     <script src="ProfileScript.js"></script>
 </body>
 </html>

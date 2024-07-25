@@ -5,78 +5,43 @@ include('db_connection.php'); // Make sure you have the database connection file
 $response = array();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_FILES['croppedImage'])) {
-        // Handle profile picture update
-        $image = $_FILES['croppedImage']['tmp_name'];
-        $imgContent = addslashes(file_get_contents($image));
+    $username = $_POST['input_username'];
+    $email = $_POST['input_email'];
+    $userId = $_SESSION['user_id'];
 
-        $userId = $_SESSION['user_id'];
+    // Debugging: Check if variables are set correctly
+    error_log("Username: $username, Email: $email, UserID: $userId");
 
-        $imagePath = 'uploads/profile_pictures/' . $userId . '.png'; // Store with user ID
+    // Update query
+    $query = "UPDATE users SET username = ?, email = ? WHERE id = ?";
+    $stmt = $conn->prepare($query);
 
-        // Ensure the directory exists
-        if (!file_exists('uploads/profile_pictures')) {
-            mkdir('uploads/profile_pictures', 0777, true);
-        }
-
-        // Move the uploaded file
-        if (move_uploaded_file($_FILES['croppedImage']['tmp_name'], $imagePath)) {
-            // Update the database
-            $query = "UPDATE users SET profile_picture = ? WHERE id = ?";
-            $stmt = $conn->prepare($query);
-
-            if (!$stmt) {
-                error_log("Statement preparation failed: " . $conn->error);
-                $response['status'] = 'error';
-                $response['message'] = 'Failed to update profile picture: ' . $conn->error;
-            } else {
-                $stmt->bind_param("si", $imagePath, $userId);
-
-                if ($stmt->execute()) {
-                    $response['status'] = 'success';
-                    $response['message'] = 'Profile picture updated successfully';
-                } else {
-                    $response['status'] = 'error';
-                    $response['message'] = 'Failed to update profile picture: ' . $stmt->error;
-                    error_log("SQL error: " . $stmt->error);
-                }
-
-                $stmt->close();
-            }
-        } else {
-            $response['status'] = 'error';
-            $response['message'] = 'Failed to upload image';
-        }
-    } else {
-        // Handle other profile updates (e.g., username and email)
-        $username = $_POST['input_username'];
-        $email = $_POST['input_email'];
-        $userId = $_SESSION['user_id'];
-
-        error_log("Username: $username, Email: $email, UserID: $userId");
-
-        $query = "UPDATE users SET username = ?, email = ? WHERE id = ?";
-        $stmt = $conn->prepare($query);
-
-        if (!$stmt) {
-            error_log("Statement preparation failed: " . $conn->error);
-            $response['status'] = 'error';
-            $response['message'] = 'Failed to update profile: ' . $conn->error;
-        } else {
-            $stmt->bind_param("ssi", $username, $email, $userId);
-
-            if ($stmt->execute()) {
-                $response['status'] = 'success';
-                $response['message'] = 'Profile updated successfully';
-            } else {
-                $response['status'] = 'error';
-                $response['message'] = 'Failed to update profile: ' . $stmt->error;
-                error_log("SQL error: " . $stmt->error);
-            }
-
-            $stmt->close();
-        }
+    // Debugging: Check if the statement preparation is successful
+    if (!$stmt) {
+        error_log("Statement preparation failed: " . $conn->error);
     }
+
+    $stmt->bind_param("ssi", $username, $email, $userId);
+
+    if ($stmt->execute()) {
+        // Update session variables
+        $_SESSION['username'] = $username;
+        $_SESSION['email'] = $email;
+        
+        $response['status'] = 'success';
+        $response['message'] = 'Profile updated successfully';
+    } else {
+        $response['status'] = 'error';
+        $response['message'] = 'Failed to update profile: ' . $stmt->error;
+        // Debugging: Log the SQL error
+        error_log("SQL error: " . $stmt->error);
+    }
+
+    $stmt->close();
+    $conn->close();
+} else {
+    $response['status'] = 'error';
+    $response['message'] = 'Invalid request';
 }
 
 echo json_encode($response);
