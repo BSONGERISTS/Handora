@@ -142,7 +142,7 @@ body {
     font-style: normal;
     font-weight: 700;
     line-height: 12vh;
-    width: 59vh;
+    width: 73vh;
     cursor: default;
 }
 
@@ -290,14 +290,15 @@ body {
 
 .popular-games {
     display: flex;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    gap: 5vh;
-    justify-content: center;
-    grid-column-gap: 11vh;
+    gap: 11vh;
+    width: 142vh;
+    height: auto;
 }
 
 .game {
-    width: 21%;
+    width: 40vh;
     height: auto;
     border-radius: 1vh;
     overflow: hidden;
