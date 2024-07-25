@@ -59,7 +59,7 @@ body {
     justify-content: center;
     height: auto;
     padding: 0.1vh 2.6vh 0.1vh 2.6vh ;
-    border-radius: 100px;
+    border-radius: 10vh;
     cursor: pointer;
     font-family: 'Markazi';
     font-size: 3vh;
@@ -176,7 +176,7 @@ body {
     justify-content: center;
     flex-direction: column;
     border-radius: 4.5vh;
-    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0.4vh 0.4vh 0.4vh rgba(0, 0, 0, 0.25));
     gap: 1.5vh;
 }
 
@@ -591,7 +591,7 @@ body {
     margin: 1vh;
     border-radius: 0.5vh;
     background-color: #393939;
-    box-shadow: 0px 0.4vh 0.4vh 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0.4vh 0.4vh 0 rgba(0, 0, 0, 0.75);
     text-decoration: none;
 }
 
@@ -773,7 +773,7 @@ body {
     border-radius: 1vh;
     cursor: pointer;
     background: linear-gradient(90deg, #FFD540 50%, #998026 100%);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0.4vh 0.4vh 0.4vh rgba(0, 0, 0, 0.25), 0 0.4vh 0.4vh 0.4vh rgba(0, 0, 0, 0.25), 0 0.4vh 0.4vh 0ch rgba(0, 0, 0, 0.25);
 }
 
 .pop-confirm:hover{
@@ -869,7 +869,7 @@ body {
 
 .insides-text{
     color: #B9B9B9;
-    text-shadow: 0px 0.4vh 0.4vh rgba(0, 0, 0, 0.25);
+    text-shadow: 01 0.4vh 0.4vh rgba(0, 0, 0, 0.25);
     font-family: Actor;
     font-size: 2.4vh;
     font-weight: 400;
@@ -880,7 +880,7 @@ body {
     height: 5vh;
     border-radius: 1vh;
     background: #5E5E5E;
-    box-shadow: 0px 0px 0.4vh 0.1vh #000 inset;
+    box-shadow: 0 0 0.4vh 0.1vh #000 inset;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -916,7 +916,7 @@ body {
     border-radius: 1vh;
     cursor: pointer;
     background: transparent;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0.4vh 0.4vh 0 rgba(0, 0, 0, 0.25), 0 0.4vh 0.4vh 0 rgba(0, 0, 0, 0.25), 0 0.4vh 0.4vh 0 rgba(0, 0, 0, 0.25);
 }
 
 .pop-cancel2:hover{
@@ -933,7 +933,7 @@ body {
     border-radius: 1vh;
     cursor: pointer;
     background: linear-gradient(90deg, #FFD540 50%, #998026 100%);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0.4vh 0.4vh 0 rgba(0, 0, 0, 0.25), 0 0.4vh 0.4vh 0 rgba(0, 0, 0, 0.25), 0 0.4vh 0.4vh 0 rgba(0, 0, 0, 0.25);
 }
 
 .pop-confirm2:hover{
@@ -976,16 +976,16 @@ body {
 
 .cropper-popup-content {
     width: 90%;
-    max-width: 600px;
-    background: #fff;
-    border-radius: 8px;
+    max-width: 60vh;
+    background: #525252;
+    border-radius: 0.8vh;
     overflow: hidden;
     position: relative;
 }
 
 .cropper-popup-content .cropper-pop-top {
-    padding: 10px;
-    background: #333;
+    padding: 1vh;
+    background: black;
     color: #fff;
     text-align: center;
     display: flex;
@@ -995,6 +995,8 @@ body {
 
 .cropper-popup-content .cropper-pop-top .cropper-pop-top-text {
     flex-grow: 1;
+    font-style: Actor;
+    font-size: 2.4vh;
 }
 
 .cropper-popup-content .cropper-pop-top .cropper-pop-exit {
@@ -1006,10 +1008,12 @@ body {
 }
 
 .cropper-popup-content .cropper-pop-body {
-    padding: 10px;
+    padding: 1vh;
     text-align: center;
-    max-height: 400px;
+    max-height: 40vh;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 
 .cropper-popup-content img {
@@ -1021,22 +1025,23 @@ body {
 .cropper-popup-content .cropper-con-wrap {
     display: flex;
     justify-content: center;
-    padding: 10px;
+    padding: 1vh;
 }
 
 .cropper-popup-content .cropper-pop-confirm {
-    background-color: #f0ad4e;
+    background-color: #FFC700;
     border: none;
-    padding: 10px 20px;
+    padding: 1vh 2vh;
     color: white;
-    font-size: 16px;
+    font-size: 1.6vh;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 0.5vh;
+    font-family: Actor;
 }
 
 .cropper-container {
     max-width: 100%;
-    max-height: 400px;
+    max-height: 40vh;
     margin: 0 auto;
     position: relative;
 }
