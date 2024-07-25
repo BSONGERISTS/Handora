@@ -5,36 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Handora</title>
-    <link rel="stylesheet" href="CSS/Profilestyles.css">
+    <link rel="stylesheet" href="./CSS/Profilestyles.css">
 </head>
 
-
 <body>
-
     <!-- Navbar -->
     <div id="head" class="header">
         <!-- Inside Navbar -->
         <div class="wrap">
-
             <!-- Navbar Logo -->
-            
-            <a href="LogHandora.html"><img src="./Assets/WebNL.svg" class="logo"/></a>
-            
+            <a href="HandoraBSong.html"><img src="./Assets/WebNL.svg" class="logo"/></a>
             <!-- Navbar Buttons -->
             <div class="header-buttons">
-                
                 <nav class="nav-btn"> 
                     <img src="./Assets/Discord.svg" class="nav-btn-size hover-icon"/>
                 </nav>
-
                 <nav class="nav-btn">
                     <img src="./Assets/x icon.png" class="nav-btn-size hover-icon"/>
                 </nav>
-
                 <a href="./ProfileHandora.html" class="profile">
                     <img src="./Assets/ProfilePlaceholder.svg" class="nav-btn-size">
                 </a>
-
             </div>
         </div>
     </div>
@@ -48,7 +39,6 @@
                     <img src="./Assets/Close.svg">
                 </button>
             </div>
-
             <!-- pics and confirm -->
             <div class="pop-body">
                 <button class="pop-img" onclick="Prof1()">
@@ -97,7 +87,6 @@
                     <img src="./Assets/MCLogo.svg">
                 </button>
             </div>
-
             <!-- confirm -->
             <div class="con-wrap">
                 <button class="pop-confirm">
@@ -116,48 +105,38 @@
                     <img src="./Assets/Close.svg">
                 </button>
             </div>
-
             <!-- pics and confirm -->
             <div class="pop-body2">
-
                 <div class="insides-wrap">
                     <div class="insides-text">Current Password</div>
                     <div class="inner-input">
-                        <input type="text">
+                        <input type="password" id="current-password">
                     </div>
                 </div>
-
                 <div class="insides-wrap">
                     <div class="insides-text">New Password</div>
                     <div class="inner-input">
-                        <input type="text">
+                        <input type="password" id="new-password">
                     </div>
                 </div>
-
                 <div class="insides-wrap">
                     <div class="insides-text">Confirm New Password</div>
                     <div class="inner-input">
-                        <input type="text">
+                        <input type="password" id="confirm-password">
                     </div>
                 </div>
-
             </div>
-
             <!-- confirm -->
             <div class="con-wrap2">
                 <button class="pop-cancel2" onclick="PopClose2()">
                     Cancel
                 </button>
-
-                <button class="pop-confirm2">
+                <button class="pop-confirm2" id="confirm-password-change">
                     Confirm
                 </button>
             </div>
         </div>
     </div>
-
-
-
 
     <!-- Container -->
     <div class="Container">
@@ -183,7 +162,7 @@
                             <div class="display-name">Username</div>
                         </div>
                         <!-- Signout -->
-                        <a href="HandoraBSong.html" class="signout">
+                        <a href="logout.php" class="signout">
                             <img src="./Assets/LogOutProf.svg">
                             Sign Out
                         </a>
@@ -193,48 +172,48 @@
                         <!-- Right Top -->
                         <div class="user-right-indicator">
                             <img src="./pics/User-white.png">
-                            Welcome to your Handora Profile, <a>Username</a>
+                            Welcome to your Handora Profile, <a id="welcome-username">Username</a>
                         </div>
                         <!-- Right Bot -->
                         <div class="user-right-bot">
                             <div class="right-top-contents">
                                 <!-- Registered Cradentials -->
                                     <!-- left -->
-                                <div class="left-credential">
-                                    <!-- Username -->
-                                    <div class="credential-wrap1">
-                                        <button>
-                                            <img src="./Assets/Edit.svg">
-                                        </button>
-                                        <div class="credential-text">
-                                            <a>USERNAME</a>
-                                            <input type="text" id="name" name="input_username" value="Username">
+                                    <form class="left-credential" id="updateProfile">
+                                        <!-- Username -->
+                                        <div class="credential-wrap1">
+                                            <button type="button">
+                                                <img src="./Assets/Edit.svg">
+                                            </button>
+                                            <div class="credential-text">
+                                                <label for="name">USERNAME</label>
+                                                <input type="text" id="name" name="input_username" value="Username">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- Email -->
-                                    <div class="credential-wrap1">
-                                        <button>
-                                            <img src="./Assets/Edit.svg">
-                                        </button>
-                                        <div class="credential-text">
-                                            <a>EMAIL</a>
-                                            <input type="text" id="e-mail" name="input_email" value="username@email.com">
+                                        <!-- Email -->
+                                        <div class="credential-wrap1">
+                                            <button type="button">
+                                                <img src="./Assets/Edit.svg">
+                                            </button>
+                                            <div class="credential-text">
+                                                <label for="e-mail">EMAIL</label>
+                                                <input type="email" id="e-mail" name="input_email" value="username@email.com">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- Change Pass -->
-                                    <div class="credential-wrap">
-                                        <img src="./Assets/Key.svg">
-                                        <div class="credential-text">
-                                            <button onclick="PopOpen2()">Change Password</button>
+                                        <!-- Change Pass -->
+                                        <div class="credential-wrap">
+                                            <img src="./Assets/Key.svg">
+                                            <div class="credential-text">
+                                                <button type="button" onclick="PopOpen2()">Change Password</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div> 
+                                        <!-- Form Buttons -->
+                                        <div class="right-bot-contents">
+                                            <button type="button" class="change-style cancel">Cancel</button>
+                                            <button type="submit" class="change-style">Save Changes</button>
+                                        </div>
+                                    </form> 
                                 <!-- right -->
-                            </div>
-
-                            <div class="right-bot-contents">
-                                <button class="change-style">Cancel</button>
-                                <button class="change-style">Save Changes</button>
                             </div>
                         </div>
                     </div>
@@ -246,16 +225,12 @@
                         <!-- Button -->
                         <div id="btn" class="bot-btn">
                             <button id="Guide" class="gui btn-style active" onclick="guide()">Guides</button>
-
                             <button id="Diss" class="dis btn-style" onclick="diss()">Discussions</button>
-
                             <a href="./SearchResults.html">+ Create</a>
                         </div>
 
                         <div id="1s" class="contribution position">
-
                             <div class="contribution-scroll">
-
                                 <a class="guide-post" href="">
                                     <div class="guide-left">
                                         <!-- game logo -->
@@ -266,7 +241,7 @@
                                             <div class="guide-bot-left">Minecraf|Guide</div>
                                         </div> 
                                     </div>
-                                        <!-- publish date -->
+                                    <!-- publish date -->
                                     <div class="guide-right">
                                         <div class="date">May 27, 2024</div>
                                         <div class="number">
@@ -286,7 +261,7 @@
                                             <div class="guide-bot-left">Minecraf|Guide</div>
                                         </div> 
                                     </div>
-                                        <!-- publish date -->
+                                    <!-- publish date -->
                                     <div class="guide-right">
                                         <div class="date">May 27, 2024</div>
                                         <div class="number">
@@ -306,7 +281,7 @@
                                             <div class="guide-bot-left">Minecraf|Guide</div>
                                         </div> 
                                     </div>
-                                        <!-- publish date -->
+                                    <!-- publish date -->
                                     <div class="guide-right">
                                         <div class="date">May 27, 2024</div>
                                         <div class="number">
@@ -326,7 +301,7 @@
                                             <div class="guide-bot-left">Minecraf|Guide</div>
                                         </div> 
                                     </div>
-                                        <!-- publish date -->
+                                    <!-- publish date -->
                                     <div class="guide-right">
                                         <div class="date">May 27, 2024</div>
                                         <div class="number">
@@ -346,7 +321,7 @@
                                             <div class="guide-bot-left">Minecraf|Guide</div>
                                         </div> 
                                     </div>
-                                        <!-- publish date -->
+                                    <!-- publish date -->
                                     <div class="guide-right">
                                         <div class="date">May 27, 2024</div>
                                         <div class="number">
@@ -356,13 +331,30 @@
                                     </div>
                                 </a>
 
+                                <a class="guide-post" href="">
+                                    <div class="guide-left">
+                                        <!-- game logo -->
+                                        <img src="./Assets/MCLogo.svg">
+                                        <!-- info -->
+                                        <div class="guide-left-contents">
+                                            <div class="guide-top-left">Title Lorem</div>
+                                            <div class="guide-bot-left">Minecraf|Guide</div>
+                                        </div> 
+                                    </div>
+                                    <!-- publish date -->
+                                    <div class="guide-right">
+                                        <div class="date">May 27, 2024</div>
+                                        <div class="number">
+                                            <img src="./Assets/Chat.svg">
+                                            <div class="num">100</div>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-
                         </div>
 
                         <div id="2s" class="contribution ">
                             <div class="contribution-scroll">
-
                                 <a class="guide-post" href="">
                                     <div class="guide-left">
                                         <!-- game logo -->
@@ -373,7 +365,7 @@
                                             <div class="guide-bot-left">Minecraf|Guide</div>
                                         </div> 
                                     </div>
-                                        <!-- publish date -->
+                                    <!-- publish date -->
                                     <div class="guide-right">
                                         <div class="date">May 27, 2024</div>
                                         <div class="number">
@@ -382,16 +374,13 @@
                                         </div>
                                     </div>
                                 </a>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
     <script src="ProfileScript.js"></script>
 </body>
