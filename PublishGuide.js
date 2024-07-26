@@ -30,6 +30,16 @@ function togglePopup() {
     pop.classList.toggle("login-index");
 }
 
+function openformat(){
+    var gpop = document.getElementById("gpop");
+    gpop.classList.remove("login-index")
+}
+
+function togglegpop() {
+    var gpop = document.getElementById("gpop");
+    gpop.classList.add("login-index")
+}
+
     var extend1 = document.getElementById("body1");
     var extend2 = document.getElementById("body2");
     var extend3 = document.getElementById("body3");

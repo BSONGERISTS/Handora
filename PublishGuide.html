@@ -57,6 +57,56 @@
     
     <!-- Nav End -->
     
+    <!-- Popup -->
+    <div id="gpop" class="guide-pop login-index">
+        <div class="guide-pop-body">
+            <div class="pop-close-wrap">
+                <button onclick="togglegpop()"><img src="./Assets/Close.svg"></button>
+            </div>
+            <div class="guide-pop-header">Formatting Help</div>
+            <div class="guide-header-support">Use the syntax below to add text formatting for your guide publishing texts</div>
+            <!-- Table -->
+            <div class="table">
+                <!-- left table -->
+                <div class="content-table">
+                    <div class="table-line"></div>
+                    <div class="table-header1">Example</div>
+                    <div class="table-line"></div>
+                    <div class="heading">Heading Text</div>
+                    <div class="table-line"></div>
+                    <div class="bold">Bold Text</div>
+                    <div class="table-line"></div>
+                    <div class="underline">Underlined Text</div>
+                    <div class="table-line"></div>
+                    <div class="italic">Italic Text</div>
+                    <div class="table-line"></div>
+                    <div class="website">Website Link</div>
+                    <div class="table-line"></div>
+                    <div class="render">Render a horizontal rule</div>
+                    <div class="table-line"></div>
+                </div>
+                <!-- right table -->
+                <div class="content-table">
+                    <div class="table-line"></div>
+                    <div class="table-header2">Syntax</div>
+                    <div class="table-line"></div>
+                    <div class="table-text"><a>[h1]</a> Heading Text <a>[/h1]</a></div>
+                    <div class="table-line"></div>
+                    <div class="table-text"><a>[b]</a> Bold Text <a>[/b]</a></div>
+                    <div class="table-line"></div>
+                    <div class="table-text"><a>[u]</a> Underlined Text <a>[/u]</a></div>
+                    <div class="table-line"></div>
+                    <div class="table-text"><a>[i]</a> Italic Text <a>[/i]</a></div>
+                    <div class="table-line"></div>
+                    <div class="table-text"><a>[url=https:/example.com]</a> Website Link <a>[/url]</a></div>
+                    <div class="table-line"></div>
+                    <div class="table-text"><a>[hr]</a> Render a horizontal rule <a>[/hr]</a></div>
+                    <div class="table-line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Container -->
     <div class="Container">
         <!-- background -->
@@ -120,7 +170,7 @@
                             <div class="info-inner2">
 
                                 
-                                <input type="file">
+                                <input type="file" accept="image/*" multiple>
                             </div>
                         </div>
                     </div>
@@ -140,7 +190,7 @@
                             <div class="info-inner3">
                                 <textarea type="text" class="txtarea"></textarea>
                             </div>
-                            <a href="" class="f-help">Formatting Help</a>
+                            <button id="format" class="f-help" onclick="openformat()">Formatting Help</button>
                         </div>
                     </div>                    
                 </div>
@@ -209,7 +259,7 @@
                                 <textarea type="text" class="txtarea"></textarea>
                                 <button><img src="./pics/photo.png" class="insert-pic"></button>
                             </div>
-                            <a href="" class="f-help">Formatting Help</a>
+                            <button id="format" class="f-help" onclick="openformat()">Formatting Help</button>
                         </div>
                     </div>
                 </div>
