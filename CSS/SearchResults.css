@@ -102,7 +102,6 @@ body {
     align-items: center;
     height: 5vh;
     width: 5vh;
-    overflow: hidden;
     cursor: pointer;
 }
 
@@ -393,6 +392,155 @@ body {
 }
 
 .guide-post{
+    width: 79.1vh;
+    height: 16vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1vh;
+    padding: 1.5vh;
+    border-radius: 0.5vh;
+    background: rgba(42, 42, 42, 0.70);
+    box-shadow: 0px 0.4vh 0.4vh 0px rgba(0, 0, 0, 0.75);
+    text-decoration: none;
+    gap: 1vh;
+}
+
+.guide-post:hover{
+    transform: scale(1.01);
+    transition: 0.3s;
+    background-color: #525252;
+}
+
+.guide-img-container{
+    width: 19.6vh;
+    height: 11vh;
+    border-radius: 5px;
+    border: 0.1vh solid #B9B9B9;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+.guide-img-container img{
+    width: 100%;
+    height: auto;
+}
+
+.right-guide{
+    width: 59vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.right-guide-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right-left{
+    display: flex;
+    flex-direction: column;
+}
+
+.rl-text{
+    color: #FFF;
+    font-family: Actor;
+    font-size: 3.225vh;
+    font-weight: 400;
+}
+
+.rl-placeholder{
+    display: flex;
+    align-items: center;
+    gap: 0.5vh;
+}
+
+.rl-placeholder img{
+    width: 2vh;
+    height: 2vh;
+}
+
+.placeholder-txt{
+    color: #D9D9D9;
+    font-family: Actor;
+    font-size: 1.792vh;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.like-holder{
+    display: flex;
+    align-items: center;
+    gap: 3vh;
+}
+
+.like{
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+}
+
+.dislike{
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+}
+
+.like img{
+    width: 4vh;
+    height: 4vh;
+    flex-shrink: 0;
+}
+
+.like-holder button{
+    width: 4vh;
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.like-active,
+.like img:hover{
+    opacity: 1;
+    filter: grayscale(0%) sepia(100%) saturate(5000%) hue-rotate(-335deg);
+}
+
+.dislike img{
+    width: 4vh;
+    height: 4vh;
+    flex-shrink: 0;
+}
+
+.dislike-active,
+.dislike img:hover{
+    opacity: 1;
+    filter: grayscale(0%) sepia(100%) saturate(5000%) hue-rotate(-40deg);
+}
+
+.like-font{
+    color: #BABABA;
+    font-family: Actor;
+    font-size: 2.4vh;
+    font-weight: 400;
+}
+
+.right-guide-bot{
+    color: #B9B9B9;
+    font-family: Actor;
+    font-size: 2.15vh;
+    font-weight: 400;
+}
+
+/* Discussion */
+.discussion-post{
     width: 82vh;
     height: 10vh;
     display: flex;
@@ -405,13 +553,13 @@ body {
     text-decoration: none;
 }
 
-.guide-post:hover{
+.discussion-post:hover{
     transform: scale(1.01);
     transition: 0.3s;
     background-color: #525252;
 }
 
-.guide-left{
+.discussion-left{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -419,12 +567,12 @@ body {
     margin-left: 1vh;
 }
 
-.guide-left img{
+.discussion-left img{
     width: 6vh;
     height: auto;
 }
 
-.guide-left-contents{
+.discussion-left-contents{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -432,20 +580,20 @@ body {
     gap: 1vh;
 }
 
-.guide-top-left{
+.discussion-top-left{
     color: white;
     font-family: Actor;
     font-size: 3.6vh;
     font-weight: bold;
 }
 
-.guide-bot-left{
+.discussion-bot-left{
     color: white;
     font-family: Actor;
     font-size: 2vh;
 }
 
-.guide-right{
+.discussion-right{
     display: flex;
     align-items: center;
     justify-content: center;
