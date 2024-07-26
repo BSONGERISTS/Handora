@@ -192,7 +192,7 @@
                                 </a>
 
                                 <!-- Discussion -->
-                                <a class="discussion-post" href="">
+                                <a id="Discussion-ID" class="discussion-post" href="">
                                     <div class="discussion-left">
                                         <!-- game logo -->
                                         <img src="./Assets/Discussion.svg">
@@ -212,14 +212,14 @@
                                     </div>
                                 </a>
                                 
-                                <a class="discussion-post" href="">
+                                <a id="Discussion-ID" class="discussion-post" href="">
                                     <div class="discussion-left">
                                         <!-- game logo -->
                                         <img src="./Assets/Discussion.svg">
                                         <!-- info -->
                                         <div class="discussion-left-contents">
                                             <div class="discussion-top-left">Title Lorem</div>
-                                            <div class="discussion-bot-left">Minecraf|Discussion</div>
+                                            <div class="discussion-bot-left">Minecraf | Discussion</div>
                                         </div> 
                                     </div>
                                         <!-- publish date -->
@@ -245,9 +245,9 @@
                         </div>
                         <!-- search nav -->
                         <div id="snav" class="search-nav">
-                            <button id="all" class="search-btn sbtn-active">All of Handora</button>
-                            <button id="disscuss" class="search-btn">Discussions</button>
-                            <button id="guiddes" class="search-btn">Guides</button>
+                            <button id="all" class="search-btn sbtn-active" onclick="ShowAll()">All of Handora</button>
+                            <button id="disscuss" class="search-btn" onclick="ShowDiscussion()">Discussions</button>
+                            <button id="guiddes" class="search-btn" onclick="ShowGuide()">Guides</button>
                         </div>
                         <div class="search-line"></div>
                         <!-- Dropdown -->

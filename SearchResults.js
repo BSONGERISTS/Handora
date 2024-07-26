@@ -63,3 +63,38 @@ function Extend() {
         Popex.classList.add("drag");
     }
 }
+
+function ShowAll() {
+    document.querySelectorAll('.none1').forEach(element => {
+        element.classList.remove('none1');
+        element.classList.add('guide-post');
+    });
+    document.querySelectorAll('.none').forEach(element => {
+        element.classList.remove('none');
+        element.classList.add('discussion-post');
+    });
+}
+
+function ShowGuide() {
+    document.querySelectorAll('.none1').forEach(element => {
+        element.classList.remove('none1');
+        element.classList.add('guide-post');
+    });
+    document.querySelectorAll('.discussion-post').forEach(element => {
+        element.classList.add('none');
+        element.classList.remove('discussion-post');
+    });
+}
+
+function ShowDiscussion() {
+    document.querySelectorAll('.guide-post').forEach(element => {
+        element.classList.add('none1');
+        element.classList.remove('guide-post');
+    });
+    document.querySelectorAll('.none').forEach(element => {
+        element.classList.remove('none');
+        element.classList.add('discussion-post');
+    });
+}
+
+
