@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (data.status === 'success') {
                         alert('Profile picture updated successfully');
                         // Update profile picture on the frontend
-                        var newImageUrl = URL.createObjectURL(blob) + '?' + new Date().getTime();
+                        var newImageUrl = URL.createObjectURL(blob);
                         document.getElementById('user-prof').src = newImageUrl;
                         document.getElementById('top-profile-pic').src = newImageUrl;
                         hideCropperPopup();

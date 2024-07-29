@@ -42,7 +42,7 @@ function updateNavbarForLoggedInUser() {
                         <img src="./Assets/x icon.png" class="nav-btn-size hover-icon" />
                     </nav>
                     <nav class="profile popup">
-                        <img src="${profilePicUrl}" class="nav-btn-size" />
+                        <img id="top-profile-pic" src="${profilePicUrl}" class="nav-btn-size" />
                     </nav>
                     <div id="pop" class="login-box login-index2">
                         <img src="./Assets/PopTop.svg" class="pop-indicator">

@@ -624,7 +624,7 @@ body {
 }
 
 .right-guide{
-    width: 59vh;
+    width: 89vh;
     display: flex;
     flex-direction: column;
     gap: 2vh;
