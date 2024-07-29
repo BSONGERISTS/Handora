@@ -227,6 +227,7 @@ body {
 }
 
 .search-txt{
+    width: 15vh;
     color: rgba(255, 255, 255, 0.75);
     font-family: Actor;
     font-size: 2vh;
@@ -315,7 +316,7 @@ body {
 
 .left-info-wrap{
     height: auto;
-    width: auto;
+    width: 53vh;
     display: flex;
     flex-direction: column;
     gap: 0.5vh;
@@ -401,6 +402,8 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
 }
 
 .desc-left{
@@ -424,7 +427,7 @@ body {
 }
 
 .imgr{
-    margin-top: -28vh;
+    margin-top: -30.8vh;
     width: auto;
     height: 3vh;
 }
@@ -766,6 +769,14 @@ body {
     font-size: 3.6vh;
     font-weight: 400;
     margin-left: 4vh;
+}
+
+.body-line{
+    width: 125vh;
+    height: 0.1vh;
+    background: #B9B9B9;
+    margin-left: 4vh;
+    box-shadow: 0 0.4vh 0.4vh 0 rgba(0, 0, 0, 0.25);
 }
 
 /* guide pop */

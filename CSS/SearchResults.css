@@ -384,6 +384,16 @@ body {
 
 /* The Content */
 
+.none{
+    display: none;
+    transition: 0.3s;
+}
+
+.none1{
+    display: none;
+    transition: 0.3s;
+}
+
 .topic-container{
     width: 100%;
     height: 100%;
