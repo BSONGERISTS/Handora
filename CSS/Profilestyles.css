@@ -574,7 +574,7 @@ body {
 .position{
     z-index: 1;
     color: blue;
-    bottom: 9vh;
+    bottom: 0vh;
     transition: 0.3s;
 }
 
