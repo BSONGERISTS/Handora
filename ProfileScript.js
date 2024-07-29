@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         // Update profile picture on the frontend
                         var newImageUrl = URL.createObjectURL(blob);
                         document.getElementById('user-prof').src = newImageUrl;
-                        document.getElementById('top-profile-pic').src = newImageUrl;
+                        document.getElementById('top-profile-pic').src = newImageUrl; //for this to work add the id top-profile pic to navbar-logged.js line 45
                         hideCropperPopup();
                     } else {
                         alert('Failed to update profile picture');
