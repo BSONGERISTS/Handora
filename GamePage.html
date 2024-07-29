@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Handora</title>
-    <link rel="stylesheet" href="./CSS/Profilestyles.css">
+    <link rel="stylesheet" href="./CSS/GamePage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css"/>
 </head>
 <body>
@@ -94,84 +94,18 @@
             <img src="./Assets/ProfileBG.svg">
         </div>
 
-        <!-- Profile -->
-        <div class="profile-wrap">
-            <div class="profile-contents">
+        <!-- Game Header -->
+        <div class="game-wrap">
+            <div class="game-contents">
                 <!-- Top View -->
-                <div class="profile-top">
-                    <!-- Left -->
-                    <div class="top-left">
-                        <!-- Profile -->
-                        <div class="user-left">
-                            <div class="profile-pic">
-                                <img id="user-prof" src="./Assets/ProfilePlaceholder.svg" class="custom">
-                                <input type="file" id="upload-image" accept="image/*" style="display: none;">
-                                <button class="change" onclick="document.getElementById('upload-image').click();"><img src="./Assets/Camera.svg"></button>
-                                <div class="prof-btn"></div>
-                            </div>
-                            <div class="display-name">Username</div>
-                        </div>
-                        <!-- Signout -->
-                        <a href="logout.php" class="signout">
-                            <img src="./Assets/LogOutProf.svg">
-                            Sign Out
-                        </a>
-                    </div>
-                    <!-- Right -->
-                    <div class="top-right">
-                        <!-- Right Top -->
-                        <div class="user-right-indicator">
-                            <img src="./pics/User-white.png">
-                            Welcome to your Handora Profile, <a id="welcome-username">Username</a>
-                        </div>
-                        <!-- Right Bot -->
-                        <div class="user-right-bot">
-                            <div class="right-top-contents">
-                                <!-- Registered Cradentials -->
-                                    <!-- left -->
-                                    <form class="left-credential" id="updateProfile">
-                                        <!-- Username -->
-                                        <div class="credential-wrap1">
-                                            <button type="button">
-                                                <img src="./Assets/Edit.svg">
-                                            </button>
-                                            <div class="credential-text">
-                                                <label for="name">USERNAME</label>
-                                                <input type="text" id="name" name="input_username" value="Username">
-                                            </div>
-                                        </div>
-                                        <!-- Email -->
-                                        <div class="credential-wrap1">
-                                            <button type="button">
-                                                <img src="./Assets/Edit.svg">
-                                            </button>
-                                            <div class="credential-text">
-                                                <label for="e-mail">EMAIL</label>
-                                                <input type="email" id="e-mail" name="input_email" value="username@email.com">
-                                            </div>
-                                        </div>
-                                        <!-- Change Pass -->
-                                        <div class="credential-wrap">
-                                            <img src="./Assets/Key.svg">
-                                            <div class="credential-text">
-                                                <button type="button" onclick="PopOpen2()">Change Password</button>
-                                            </div>
-                                        </div>
-                                        <!-- Form Buttons -->
-                                        <div class="right-bot-contents">
-                                            <button type="button" class="change-style cancel">Cancel</button>
-                                            <button type="submit" class="change-style">Save Changes</button>
-                                        </div>
-                                    </form> 
-                                <!-- right -->
-                            </div>
-                        </div>
-                    </div>
+                <div class="game-header">
+                    <img src="./pics/cs2 game cover.png">
                 </div>
+
                 <!-- Bot View -->
-                <div class="profile-bot">
+                <div class="game-bot">
                     <!-- bot Container -->
-                    <div id="butts" class="profile-bot-contents">
+                    <div id="butts" class="game-bot-contents">
                         <!-- Button -->
                         <div id="btn" class="bot-btn">
                             <button id="Guide" class="gui btn-style active" onclick="guide()">Guides</button>
@@ -397,6 +331,6 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
-    <script src="ProfileScript.js"></script>
+    <script src="GamePage.js"></script>
 </body>
 </html>
