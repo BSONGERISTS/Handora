@@ -33,6 +33,7 @@ function updateNavbarForLoggedInUser() {
         .then(response => response.json())
         .then(data => {
             if (data.logged_in) {
+                var profilePicUrl = data.profile_picture + '?' + new Date().getTime();
                 document.getElementById('navbar-buttons').innerHTML = `
                     <nav class="nav-btn"> 
                         <img src="./Assets/Discord.svg" class="nav-btn-size hover-icon" />
@@ -41,7 +42,7 @@ function updateNavbarForLoggedInUser() {
                         <img src="./Assets/x icon.png" class="nav-btn-size hover-icon" />
                     </nav>
                     <nav class="profile popup">
-                        <img src="${data.profile_picture}" class="nav-btn-size" />
+                        <img src="${profilePicUrl}" class="nav-btn-size" />
                     </nav>
                     <div id="pop" class="login-box login-index2">
                         <img src="./Assets/PopTop.svg" class="pop-indicator">
@@ -93,5 +94,3 @@ function addPopupEventListeners() {
         togglePassword.addEventListener('mouseleave', () => passwordInput.setAttribute('type', 'password'));
     }
 }
-
-

@@ -12,8 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Update profile picture
                 if (data.profile_picture) {
-                    document.getElementById('user-prof').src = data.profile_picture + '?' + new Date().getTime(); // Prevent caching
-                    document.getElementById('top-profile-pic').src = data.profile_picture + '?' + new Date().getTime(); // Update top profile pic
+                    var profilePicUrl = data.profile_picture + '?' + new Date().getTime();
+                    document.getElementById('user-prof').src = profilePicUrl;
+                    document.getElementById('top-profile-pic').src = profilePicUrl;
                 }
 
                 document.querySelector('.change-style.cancel').addEventListener('click', () => {
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.getElementById('name').value = data.username;
                     document.getElementById('e-mail').value = data.email;
                 });
+
             } else {
                 // Redirect to login page or show an error message
                 window.location.href = './HandoraBSong.html';
