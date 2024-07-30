@@ -110,7 +110,7 @@
                         <!-- search input -->
                         <div class="search-inner">
                             <img src="./pics/search icon.png">
-                            <input type="text" name="game_title" placeholder="Search Game Title" id="game-search">
+                            <input type="text" placeholder="Search Game Title" id="game-search">
                             <div id="dropdown" class="dropdown-content"></div>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit
                                 </div>
                                 <div class="info-inner">
-                                    <input type="text" name="guide_title">
+                                    <input type="text" id="guide_title">
                                 </div>
                             </div>
                         </div>
@@ -136,7 +136,7 @@
                                     This image will represent your game guide in the Handora Guides Community.
                                 </div>
                                 <div class="info-inner2">
-                                    <input type="file" name="guide_thumbnail" accept="image/*" multiple>
+                                    <input type="file" id="guide_thumbnail" accept="image/*" multiple>
                                 </div>
                             </div>
                         </div>
@@ -151,7 +151,7 @@
                                     Use this space to describe your guide, what makes it interesting, and what the scope is. 
                                 </div>
                                 <div class="info-inner3">
-                                    <textarea type="text" name="guide_description" class="txtarea"></textarea>
+                                    <textarea type="text" id="guide_description" class="txtarea"></textarea>
                                 </div>
                                 <button id="format" class="f-help" type="button" onclick="openformat()">Formatting Help</button>
                             </div>
@@ -169,10 +169,10 @@
                 <!-- Guide Content Header -->
                 <div class="guide-content-header">
                     <div class="profile-wrap">
-                        <img>
+                        <img id="guideImageContent">
                     </div>
                     <div class="guide-content-text">
-                        <div class="big-header-text">Guide Title</div>
+                        <div id="guideTitleContent" class="big-header-text">Guide Title</div>
                         <div class="underline-header-text">
                             <img src="./Assets/MCLogo.svg">
                             Minecraft Guide by
@@ -191,7 +191,7 @@
                                 Type in here the contents of your guide. To add an image, click the insert image icon on the bottom-right of the text field. 
                             </div>
                             <div class="info-inner4">
-                                <textarea type="text" class="txtarea"></textarea>
+                                <textarea type="text" id="guide_contents" class="txtarea"></textarea>
                                 <button><img src="./pics/photo.png" class="insert-pic"></button>
                             </div>
                             <button id="format" class="f-help" onclick="openformat()">Formatting Help</button>
@@ -209,10 +209,10 @@
                 <div class="preview-head">
                     <div class="insides">
                         <div class="profile-wrap">
-                            <img>
+                            <img id="guideImagePreview">
                         </div>
                         <div class="guide-content-text">
-                            <div class="big-header-text">Guide Title</div>
+                            <div id="guideTitlePreview" class="big-header-text">Guide Title</div>
                             <div class="underline-header-text">
                                 <img src="./Assets/MCLogo.svg">
                                 Minecraft Guide by
@@ -248,7 +248,7 @@
                     </div>
                 </div>
                 <div class="btn-wrap">
-                    <button class="sndcon">Publish Guide</button>
+                    <button id="submitButton" class="sndcon">Publish Guide</button>
                 </div>
             </div>
         </div>

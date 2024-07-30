@@ -1,11 +1,66 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('JavaScript loaded and ready');
 
+    // get the ids
+    const guide_title = document.getElementById("guide_title");
+    const guide_description = document.getElementById("guide_description");
+    const game_title = document.getElementById("game-search");
+    const guide_thumbnail = document.getElementById("guide_thumbnail");
+    const guide_contents = document.getElementById("guide_contents");
+
+
+    // SUBMIT BUTTON ==========================================================
+    const submitButton = document.getElementById("submitButton");
+
+    submitButton.addEventListener('click', () => {
+
+        const payload = new FormData();
+
+        payload.append("guide_title", guide_title.value);
+        payload.append("guide_description", guide_description.value);
+        payload.append("game_title", game_title.value);
+        payload.append("guide_thumbnail", guide_thumbnail.value);
+        payload.append("guide_contents", guide_contents.value);
+
+        fetch('./PublishGuide.php', {
+            method: "POST",
+            body: payload
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+
+            })
+            .catch(error => console.error(error))
+    });
+
+    // PREVIEW GUIDE ==========================================================
+    // TITLE
+    guide_title.addEventListener('input', () => {
+        const guideTitleContent = document.getElementById("guideTitleContent");
+        const guideTitlePreview = document.getElementById("guideTitlePreview");
+
+        guideTitleContent.textContent = guide_title.value;
+        guideTitlePreview.textContent = guide_title.value;
+    });
+
+    // DESCRIPTION
+    guide_description.addEventListener('input', () => {
+
+        const descriptionPreview = document.getElementById("titlepubs");
+
+        descriptionPreview.textContent = guide_description.value;
+    });
+
+
+
+
+
     var GuideBtn = document.getElementById("guide-nav-btn");
     var GDBtn = GuideBtn.getElementsByClassName("guide-nav-style");
 
     for (var i = 0; i < GDBtn.length; i++) {
-        GDBtn[i].addEventListener("click", function() {
+        GDBtn[i].addEventListener("click", function () {
             var current = document.getElementsByClassName("gnstyle-active");
             current[0].className = current[0].className.replace(" gnstyle-active", "");
             this.className += " gnstyle-active";
@@ -15,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('game-search').addEventListener('input', showDropdown);
 
     var cropper;
-    var uploadImageInput = document.querySelector('input[name="guide_thumbnail"]');
+    var uploadImageInput = document.getElementById('guide_thumbnail');
     var cropperImage = document.getElementById('cropper-image');
 
     uploadImageInput.addEventListener('change', function (event) {
@@ -106,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.showCropperPopup = showCropperPopup;
     window.hideCropperPopup = hideCropperPopup;
 
-    window.cropImage = function() {
+    window.cropImage = function () {
         var canvas;
         if (cropper) {
             canvas = cropper.getCroppedCanvas({
@@ -117,66 +172,75 @@ document.addEventListener('DOMContentLoaded', () => {
                 var formData = new FormData();
                 formData.append('croppedImage', blob);
 
-                fetch('ThumbnailUploadProcess.php', {
-                    method: 'POST',
-                    body: formData,
-                }).then((response) => {
-                    return response.json();
-                }).then((data) => {
-                    if (data.status === 'success') {
-                        alert('Thumbnail updated successfully');
+
+                // fetch('ThumbnailUploadProcess.php', {
+                //     method: 'POST',
+                //     body: formData,
+                // }).then((response) => {
+                //     return response.json();
+                // }).then((data) => {
+                //     if (data.status === 'success') {
+                //         alert('Thumbnail updated successfully');
+
+
+
+
                         // Update thumbnail on the frontend
                         var newImageUrl = URL.createObjectURL(blob);
-                        document.querySelector('.info-inner2 img').src = newImageUrl;
+                        document.getElementById("guideImageContent").src = newImageUrl;
+                        document.getElementById("guideImagePreview").src = newImageUrl;
                         hideCropperPopup();
-                    } else {
-                        alert('Failed to update thumbnail');
-                    }
-                }).catch((error) => {
-                    console.error('Error:', error);
-                });
+
+                        
+                //     } else {
+                //         alert('Failed to update thumbnail');
+                //     }
+                // }).catch((error) => {
+                //     console.error('Error:', error);
+                // });
             });
         }
     };
 
-    document.getElementById('format').addEventListener('click', openformat);
 
-    document.querySelector('.pop-close-wrap button').addEventListener('click', togglegpop);
+});
+document.getElementById('format').addEventListener('click', openformat);
 
-    function togglePopup() {
-        var pop = document.getElementById("pop");
-        pop.classList.toggle("login-index");
-    }
+document.querySelector('.pop-close-wrap button').addEventListener('click', togglegpop);
 
-    function openformat(){
-        var gpop = document.getElementById("gpop");
-        gpop.classList.remove("login-index");
-    }
+function togglePopup() {
+    var pop = document.getElementById("pop");
+    pop.classList.toggle("login-index");
+}
 
-    function togglegpop() {
-        var gpop = document.getElementById("gpop");
-        gpop.classList.add("login-index");
-    }
+function openformat() {
+    var gpop = document.getElementById("gpop");
+    gpop.classList.remove("login-index");
+}
 
-    var extend1 = document.getElementById("body1");
-    var extend2 = document.getElementById("body2");
-    var extend3 = document.getElementById("body3");
+function togglegpop() {
+    var gpop = document.getElementById("gpop");
+    gpop.classList.add("login-index");
+}
 
-    function Body1() {
-        extend1.classList.add("body-wrap-e"),
+var extend1 = document.getElementById("body1");
+var extend2 = document.getElementById("body2");
+var extend3 = document.getElementById("body3");
+
+function Body1() {
+    extend1.classList.add("body-wrap-e"),
         extend2.classList.remove("body-wrap-e2"),
         extend3.classList.remove("body-wrap-e3");
-    }
+}
 
-    function Body2() {
-        extend2.classList.add("body-wrap-e2"),
+function Body2() {
+    extend2.classList.add("body-wrap-e2"),
         extend1.classList.remove("body-wrap-e"),
         extend3.classList.remove("body-wrap-e3");
-    }
+}
 
-    function Body3() {
-        extend3.classList.add("body-wrap-e3"),
+function Body3() {
+    extend3.classList.add("body-wrap-e3"),
         extend1.classList.remove("body-wrap-e"),
         extend2.classList.remove("body-wrap-e2");
-    }
-});
+}
