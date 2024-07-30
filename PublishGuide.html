@@ -6,9 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Handora</title>
     <link rel="stylesheet" href="./CSS/PublishGuide.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css"/>
 </head>
 <body>
+
     <div id="navbar-container"></div>
+
+    <div id="cropper-popup" class="cropper-popup-container" style="display: none;">
+        <div class="cropper-popup-content">
+            <div class="cropper-pop-top">
+                <div class="cropper-pop-top-text">Crop your image</div>
+                <button class="cropper-pop-exit" onclick="hideCropperPopup()">&times;</button>
+            </div>
+            <div class="cropper-pop-body">
+                <img id="cropper-image" src="">
+            </div>
+            <div class="cropper-con-wrap">
+                <button class="cropper-pop-confirm" onclick="cropImage()">Save</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Popup -->
     <div id="gpop" class="guide-pop login-index">
@@ -237,6 +254,8 @@
         </div>
     </div>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
     <script src="navbar-loggedin.js"></script>
     <script src="./PublishGuide.js"></script>
 </body>
