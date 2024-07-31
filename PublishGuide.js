@@ -9,6 +9,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const submitButton = document.getElementById("submitButton");
 
+    // Fetch and display the logged-in username
+    fetch('./session_status.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.username) {
+                document.getElementById("username-display").textContent = data.username;
+                document.getElementById("username-display-preview").textContent = data.username;
+            }
+        })
+        .catch(error => console.error('Error fetching user session:', error));
+
     submitButton.addEventListener('click', () => {
         const payload = new FormData();
         payload.append("guide_title", guide_title.value);
@@ -113,6 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         gameElement.innerHTML = game;
                         gameElement.onclick = () => {
                             input.value = game;
+                            document.getElementById("game-name-display").textContent = game;
+                            document.getElementById("game-name-display-preview").textContent = game;
                             dropdown.innerHTML = '';
                             dropdown.style.display = 'none';
                         };
