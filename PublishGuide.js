@@ -1,25 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('JavaScript loaded and ready');
 
-    // get the ids
     const guide_title = document.getElementById("guide_title");
     const guide_description = document.getElementById("guide_description");
     const game_title = document.getElementById("game-search");
     const guide_thumbnail = document.getElementById("guide_thumbnail");
     const guide_contents = document.getElementById("guide_contents");
 
-
-    // SUBMIT BUTTON ==========================================================
     const submitButton = document.getElementById("submitButton");
 
     submitButton.addEventListener('click', () => {
-
         const payload = new FormData();
-
         payload.append("guide_title", guide_title.value);
         payload.append("guide_description", guide_description.value);
         payload.append("game_title", game_title.value);
-        payload.append("guide_thumbnail", guide_thumbnail.value);
+        payload.append("guide_thumbnail", guide_thumbnail.files[0]); // Use files[0] instead of value
         payload.append("guide_contents", guide_contents.value);
 
         fetch('./PublishGuide.php', {
@@ -29,32 +24,21 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-
             })
             .catch(error => console.error(error))
     });
 
-    // PREVIEW GUIDE ==========================================================
-    // TITLE
     guide_title.addEventListener('input', () => {
         const guideTitleContent = document.getElementById("guideTitleContent");
         const guideTitlePreview = document.getElementById("guideTitlePreview");
-
         guideTitleContent.textContent = guide_title.value;
         guideTitlePreview.textContent = guide_title.value;
     });
 
-    // DESCRIPTION
     guide_description.addEventListener('input', () => {
-
         const descriptionPreview = document.getElementById("titlepubs");
-
         descriptionPreview.textContent = guide_description.value;
     });
-
-
-
-
 
     var GuideBtn = document.getElementById("guide-nav-btn");
     var GDBtn = GuideBtn.getElementsByClassName("guide-nav-style");
@@ -76,16 +60,21 @@ document.addEventListener('DOMContentLoaded', () => {
     uploadImageInput.addEventListener('change', function (event) {
         var files = event.target.files;
         var done = function (url) {
-            uploadImageInput.value = '';
             cropperImage.src = url;
             showCropperPopup();
         };
         var reader;
         var file;
-        var url;
 
         if (files && files.length > 0) {
             file = files[0];
+
+            // Update file input display
+            const fileName = file.name;
+            const label = document.querySelector('.custom-file-label');
+            if (label) {
+                label.textContent = fileName;
+            }
 
             if (URL) {
                 done(URL.createObjectURL(file));
@@ -109,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch(`fetch_games.php?keyword=${filter}`)
                 .then(response => response.json())
                 .then(data => {
-                    // Sort data to prioritize games that start with the filter
                     data.sort((a, b) => {
                         if (a.toLowerCase().startsWith(filter) && !b.toLowerCase().startsWith(filter)) {
                             return -1;
@@ -117,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (!a.toLowerCase().startsWith(filter) && b.toLowerCase().startsWith(filter)) {
                             return 1;
                         }
-                        return a.localeCompare(b); // Sort alphabetically as a fallback
+                        return a.localeCompare(b);
                     });
 
                     data.forEach(game => {
@@ -172,38 +160,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 var formData = new FormData();
                 formData.append('croppedImage', blob);
 
-
-                // fetch('ThumbnailUploadProcess.php', {
-                //     method: 'POST',
-                //     body: formData,
-                // }).then((response) => {
-                //     return response.json();
-                // }).then((data) => {
-                //     if (data.status === 'success') {
-                //         alert('Thumbnail updated successfully');
-
-
-
-
-                        // Update thumbnail on the frontend
-                        var newImageUrl = URL.createObjectURL(blob);
-                        document.getElementById("guideImageContent").src = newImageUrl;
-                        document.getElementById("guideImagePreview").src = newImageUrl;
-                        hideCropperPopup();
-
-                        
-                //     } else {
-                //         alert('Failed to update thumbnail');
-                //     }
-                // }).catch((error) => {
-                //     console.error('Error:', error);
-                // });
+                var newImageUrl = URL.createObjectURL(blob);
+                document.getElementById("guideImageContent").src = newImageUrl;
+                document.getElementById("guideImagePreview").src = newImageUrl;
+                hideCropperPopup();
             });
         }
     };
-
-
 });
+
 document.getElementById('format').addEventListener('click', openformat);
 
 document.querySelector('.pop-close-wrap button').addEventListener('click', togglegpop);
@@ -228,19 +193,19 @@ var extend2 = document.getElementById("body2");
 var extend3 = document.getElementById("body3");
 
 function Body1() {
-    extend1.classList.add("body-wrap-e"),
-        extend2.classList.remove("body-wrap-e2"),
-        extend3.classList.remove("body-wrap-e3");
+    extend1.classList.add("body-wrap-e");
+    extend2.classList.remove("body-wrap-e2");
+    extend3.classList.remove("body-wrap-e3");
 }
 
 function Body2() {
-    extend2.classList.add("body-wrap-e2"),
-        extend1.classList.remove("body-wrap-e"),
-        extend3.classList.remove("body-wrap-e3");
+    extend2.classList.add("body-wrap-e2");
+    extend1.classList.remove("body-wrap-e");
+    extend3.classList.remove("body-wrap-e3");
 }
 
 function Body3() {
-    extend3.classList.add("body-wrap-e3"),
-        extend1.classList.remove("body-wrap-e"),
-        extend2.classList.remove("body-wrap-e2");
+    extend3.classList.add("body-wrap-e3");
+    extend1.classList.remove("body-wrap-e");
+    extend2.classList.remove("body-wrap-e2");
 }
