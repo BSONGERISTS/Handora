@@ -31,17 +31,26 @@ $guide_title = $_POST['guide_title'];
 $guide_description = $_POST['guide_description'];
 $guide_contents = $_POST['guide_contents'];
 
-
-
-
-
+// PUT THE IMAGE PATH INSIDE THIS SQL GUIDE===================================================================================================
+$pathinfo = pathinfo($_FILES['guide_thumbnail']['name']);
+$base = $pathinfo['filename'];
+$base = preg_replace("/[^\w-]/", "_", $base);
+$filename = $base . "." . $pathinfo['extension'];
+$destination = "./uploads/guide_pictures/". $filename;
+$i = 1;
+while (file_exists($destination)){
+    $filename = $base . "($i)." . $pathinfo['extension'];
+    $destination = "./uploads/guide_pictures/". $filename;
+    $i++;
+}
+move_uploaded_file($_FILES['guide_thumbnail']['tmp_name'], $destination);
 // PUT THE IMAGE PATH INSIDE THIS SQL GUIDE===================================================================================================
 
-$sql_guide = "INSERT INTO `guides`(`users_id`, `games_id`, `title`, `description`, `content`, `image`) VALUES (?, ?, ?, ?, ?, 'uploads/profile_pictures/16.png');";
+$sql_guide = "INSERT INTO `guides`(`users_id`, `games_id`, `title`, `description`, `content`, `image`) VALUES (?, ?, ?, ?, ?, ?);";
 
 $stmt = $mysqli -> prepare ($sql_guide);
 
-$stmt -> bind_param ('iisss', $user_id, $game['id'], $guide_title, $guide_description, $guide_contents);
+$stmt -> bind_param ('iissss', $user_id, $game['id'], $guide_title, $guide_description, $guide_contents, $filename);
 
 $stmt -> execute();
 

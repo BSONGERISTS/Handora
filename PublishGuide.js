@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         payload.append("guide_title", guide_title.value);
         payload.append("guide_description", guide_description.value);
         payload.append("game_title", game_title.value);
-        payload.append("guide_thumbnail", guide_thumbnail.files[0]); // Use files[0] instead of value
+        payload.append("guide_thumbnail", guide_thumbnail.files[0]);
         payload.append("guide_contents", guide_contents.value);
 
         for (let key in uploadedMedia) {
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
             canvas.toBlob(function (blob) {
                 var formData = new FormData();
                 formData.append('croppedImage', blob);
-
+                
                 var newImageUrl = URL.createObjectURL(blob);
                 document.getElementById("guideImageContent").src = newImageUrl;
                 document.getElementById("guideImagePreview").src = newImageUrl;
