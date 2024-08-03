@@ -6,10 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const game_title = document.getElementById("game-search");
     const guide_thumbnail = document.getElementById("guide_thumbnail");
     const guide_contents = document.getElementById("guide_contents");
+    const media_upload = document.getElementById("media-upload");
+    const attach_media_btn = document.getElementById("attach-media-btn");
 
     const previewContent = document.getElementById("previewContent");
 
     const submitButton = document.getElementById("submitButton");
+
+    let uploadedMedia = {};
 
     // Fetch and display the logged-in username
     fetch('./session_status.php')
@@ -30,6 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
         payload.append("guide_thumbnail", guide_thumbnail.files[0]); // Use files[0] instead of value
         payload.append("guide_contents", guide_contents.value);
 
+        for (let key in uploadedMedia) {
+            if (uploadedMedia.hasOwnProperty(key)) {
+                payload.append(key, uploadedMedia[key]);
+            }
+        }
+
         fetch('./PublishGuide.php', {
             method: "POST",
             body: payload
@@ -49,12 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
             .replace(/\[i\](.*?)\[\/i\]/g, '<em>$1</em>')
             .replace(/\[strike\](.*?)\[\/strike\]/g, '<del>$1</del>')
             .replace(/\[hr\]/g, '<hr>')
+            .replace(/\[img\](.*?)\[\/img\]/g, (match, filename) => `<img src="${uploadedMedia[filename]}" style="max-width: 100%;">`)
+            .replace(/\[video\](.*?)\[\/video\]/g, (match, filename) => `<video src="${uploadedMedia[filename]}" controls style="max-width: 100%;"></video>`)
             .replace(/\[url=(.*?)\](.*?)\[\/url\]/g, '<a href="$1">$2</a>');
         return parsedText;
     };
 
     guide_contents.addEventListener('input', () => {
-        previewContent.innerHTML = parseMarkdown(guide_contents.value);
+        updatePreview();
     });
 
     guide_title.addEventListener('input', () => {
@@ -198,6 +210,64 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     };
+
+    // Handle media upload
+    attach_media_btn.addEventListener('click', () => {
+        media_upload.click();
+    });
+
+    media_upload.addEventListener('change', (event) => {
+        const files = event.target.files;
+        if (files.length > 0) {
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    if (file.type.startsWith('image/')) {
+                        const imageURL = e.target.result;
+                        const placeholder = `[img]${file.name}[/img]`;
+                        uploadedMedia[file.name] = imageURL;
+                        insertPlaceholder(placeholder);
+                    } else if (file.type.startsWith('video/')) {
+                        const videoURL = URL.createObjectURL(file);
+                        const placeholder = `[video]${file.name}[/video]`;
+                        uploadedMedia[file.name] = videoURL;
+                        insertPlaceholder(placeholder);
+                    }
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+    });
+
+    function insertPlaceholder(placeholder) {
+        const cursorPos = guide_contents.selectionStart;
+        const textBefore = guide_contents.value.substring(0, cursorPos);
+        const textAfter = guide_contents.value.substring(cursorPos);
+        guide_contents.value = textBefore + placeholder + textAfter;
+        guide_contents.selectionStart = guide_contents.selectionEnd = cursorPos + placeholder.length;
+        guide_contents.focus();
+        updatePreview();
+    }
+
+    function updatePreview() {
+        previewContent.innerHTML = parseMarkdown(guide_contents.value);
+    }
+
+    guide_contents.addEventListener('input', () => {
+        updatePreview();
+    });
+
+    guide_contents.addEventListener('keydown', (event) => {
+        if (event.key === 'Backspace' || event.key === 'Delete') {
+            const cursorPos = guide_contents.selectionStart;
+            const textBefore = guide_contents.value.substring(0, cursorPos);
+            const textAfter = guide_contents.value.substring(cursorPos);
+            const newText = textBefore + textAfter;
+            guide_contents.value = newText;
+            guide_contents.selectionStart = guide_contents.selectionEnd = cursorPos;
+            updatePreview();
+        }
+    });
 });
 
 document.getElementById('format').addEventListener('click', openformat);
