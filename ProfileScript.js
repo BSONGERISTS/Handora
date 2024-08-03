@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 guideImage.src = `./uploads/guide_pictures/${guide.image}`;
                 guideTitle.textContent = guide.title;
                 guideCreator.append(`${guide.gameName} Guide by ${guide.username}`);
-                guideContent.append(guide.content);
+                guideContent.append(guide.description);
 
                 document.getElementById("guideContainer").appendChild(card);
 
