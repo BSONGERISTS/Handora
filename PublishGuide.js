@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const guide_thumbnail = document.getElementById("guide_thumbnail");
     const guide_contents = document.getElementById("guide_contents");
 
+    const previewContent = document.getElementById("previewContent");
+
     const submitButton = document.getElementById("submitButton");
 
     // Fetch and display the logged-in username
@@ -37,6 +39,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(data);
             })
             .catch(error => console.error(error))
+    });
+
+    const parseMarkdown = (text) => {
+        let parsedText = text
+            .replace(/\[h1\](.*?)\[\/h1\]/g, '<h1>$1</h1>')
+            .replace(/\[b\](.*?)\[\/b\]/g, '<strong>$1</strong>')
+            .replace(/\[u\](.*?)\[\/u\]/g, '<u>$1</u>')
+            .replace(/\[i\](.*?)\[\/i\]/g, '<em>$1</em>')
+            .replace(/\[strike\](.*?)\[\/strike\]/g, '<del>$1</del>')
+            .replace(/\[hr\]/g, '<hr>')
+            .replace(/\[url=(.*?)\](.*?)\[\/url\]/g, '<a href="$1">$2</a>');
+        return parsedText;
+    };
+
+    guide_contents.addEventListener('input', () => {
+        previewContent.innerHTML = parseMarkdown(guide_contents.value);
     });
 
     guide_title.addEventListener('input', () => {
