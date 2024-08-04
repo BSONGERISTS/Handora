@@ -24,7 +24,7 @@
                 <!-- search left -->
                 <div class="left-content">
                     <!-- left top -->
-                    <span id="top-pop" class="left-top-content">
+                    <form id="top-pop" class="left-top-content">
                         <!-- header -->
                         <div class="header-diss">START A DISCUSSION</div>
 
@@ -33,17 +33,17 @@
                         <div class="mid-content">
                             <!-- user pic -->
                             <div class="user-pic">
-                                <img src="./Assets/MCLogo.svg">
+                                <img id="user-pic-container">
                             </div>
                             <!-- user input -->
                             <div class="inputs">
                                 <!-- title input -->
                                 <div class="input-title">
-                                    <input type="text"placeholder="Title">
+                                    <input type="text"placeholder="Title" name="input_title">
                                 </div>
                                 <!-- body input -->
                                 <div class="input-body">
-                                    <textarea type="text" placeholder="Type your content"></textarea>
+                                    <textarea type="text" placeholder="Type your content" name="input_content"></textarea>
                                 </div>
                             </div>
                         </div>    
@@ -52,141 +52,84 @@
                                 <div class="category-txt">Post in:</div>
                                 <div class="inner-category">
                                     <img src="./pics/search icon.png">
-                                    <input type="text" placeholder="Search Game Title">
+                                    <input type="text" id="game-search" placeholder="Search Game Title" name="input_game">
+                                    <div id="dropdown" class="dropdown-content"></div>
                                 </div>
                             </div>
                             <div class="button-wrap">
-                                <button class="post">
+                                <button type="submit" class="post">
                                     Post Discussion
                                 </button>
                             </div>
                          
-                    </span>
+                    </form>
                     <!-- left bot -->
                         <div id="bot-pop" class="left-bot-content drag">
                             <!-- all -->
                             <div id="all" class="topic-container">
                                 <!-- Guide -->
-                                <a id="Guide-ID" class="guide-post" href="">
-                                    <div class="guide-img-container">
-                                        <img src="./pics/thubnail.png">
-                                    </div>
-
-                                    <div class="right-guide">
-                                        <div class="right-guide-top">
-                                            <!-- guide info -->
-                                            <div class="right-left">
-                                                <div class="rl-text">Guide Title</div>
-                                                <div class="rl-placeholder">
-                                                    <img src="./pics/game-logo.png">
-                                                    <div class="placeholder-txt">
-                                                        Lorem ipsum Guide
+                                <template data-guide-template>
+                                    <a id="Guide-ID" class="guide-post" href="">
+                                        <div class="guide-img-container">
+                                            <img data-guide-image>
+                                        </div>
+    
+                                        <div class="right-guide">
+                                            <div class="right-guide-top">
+                                                <!-- guide info -->
+                                                <div class="right-left">
+                                                    <div class="rl-text" data-guide-title></div>
+                                                    <div class="rl-placeholder">
+                                                        <img src="./pics/game-logo.png">
+                                                        <div class="placeholder-txt" data-guide-creator>
+                                                        </div>
+                                                    </div>
+                                                </div>
+    
+                                                <!-- likes dislikes -->
+                                                <div class="like-holder">
+                                                    <!-- like -->
+                                                    <div class="like">
+                                                        <button><img src="./Assets/like.svg"></button>
+                                                        <div class="like-font">63</div>
+                                                    </div>
+                                                    <!-- dislike -->
+                                                    <div class="dislike">
+                                                        <button><img src="./Assets/dislike.svg"></button>
+                                                        <div class="like-font">25</div>
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <!-- likes dislikes -->
-                                            <div class="like-holder">
-                                                <!-- like -->
-                                                <div class="like">
-                                                    <button><img src="./Assets/like.svg"></button>
-                                                    <div class="like-font">63</div>
-                                                </div>
-                                                <!-- dislike -->
-                                                <div class="dislike">
-                                                    <button><img src="./Assets/dislike.svg"></button>
-                                                    <div class="like-font">25</div>
-                                                </div>
+    
+                                            <div class="right-guide-bot" data-guide-content>
                                             </div>
                                         </div>
-
-                                        <div class="right-guide-bot">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing ...
-                                        </div>
-                                    </div>
-
-                                </a>
-
-                                <a id="Guide-ID" class="guide-post" href="">
-                                    <div class="guide-img-container">
-                                        <img src="./pics/thubnail.png">
-                                    </div>
-
-                                    <div class="right-guide">
-                                        <div class="right-guide-top">
-                                            <!-- guide info -->
-                                            <div class="right-left">
-                                                <div class="rl-text">Guide Title</div>
-                                                <div class="rl-placeholder">
-                                                    <img src="./pics/game-logo.png">
-                                                    <div class="placeholder-txt">
-                                                        Lorem ipsum Guide
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- likes dislikes -->
-                                            <div class="like-holder">
-                                                <!-- like -->
-                                                <div class="like">
-                                                    <button><img src="./Assets/like.svg"></button>
-                                                    <div class="like-font">63</div>
-                                                </div>
-                                                <!-- dislike -->
-                                                <div class="dislike">
-                                                    <button><img src="./Assets/dislike.svg"></button>
-                                                    <div class="like-font">25</div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="right-guide-bot">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing ...
-                                        </div>
-                                    </div>
-
-                                </a>
+                                    </a>
+                                </template>
 
                                 <!-- Discussion -->
-                                <a id="Discussion-ID" class="discussion-post" href="">
-                                    <div class="discussion-left">
-                                        <!-- game logo -->
-                                        <img src="./Assets/Discussion.svg">
-                                        <!-- info -->
-                                        <div class="discussion-left-contents">
-                                            <div class="discussion-top-left">Title Lorem</div>
-                                            <div class="discussion-bot-left">Minecraft | Discussion</div>
-                                        </div> 
-                                    </div>
-                                        <!-- publish date -->
-                                    <div class="discussion-right">
-                                        <div class="date">May 27, 2024</div>
-                                        <div class="number">
-                                            <img src="./Assets/Chat.svg">
-                                            <div class="num">100</div>
+                                <template data-discussion-template>
+                                    <a id="Discussion-ID" class="discussion-post" href="">
+                                        <div class="discussion-left">
+                                            <!-- game logo -->
+                                            <img src="./Assets/Discussion.svg">
+                                            <!-- info -->
+                                            <div class="discussion-left-contents">
+                                                <div class="discussion-top-left" data-discussion-title>Title Lorem</div>
+                                                <div class="discussion-bot-left" data-discussion-game></div>
+                                            </div> 
                                         </div>
-                                    </div>
-                                </a>
+                                            <!-- publish date -->
+                                        <div class="discussion-right">
+                                            <div class="date" data-discussion-date></div>
+                                            <div class="number">
+                                                <img src="./Assets/Chat.svg">
+                                                <div class="num">100</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </template>
                                 
-                                <a id="Discussion-ID" class="discussion-post" href="">
-                                    <div class="discussion-left">
-                                        <!-- game logo -->
-                                        <img src="./Assets/Discussion.svg">
-                                        <!-- info -->
-                                        <div class="discussion-left-contents">
-                                            <div class="discussion-top-left">Title Lorem</div>
-                                            <div class="discussion-bot-left">Minecraf | Discussion</div>
-                                        </div> 
-                                    </div>
-                                        <!-- publish date -->
-                                    <div class="discussion-right">
-                                        <div class="date">May 27, 2024</div>
-                                        <div class="number">
-                                            <img src="./Assets/Chat.svg">
-                                            <div class="num">100</div>
-                                        </div>
-                                    </div>
-                                </a>
                             </div>
                         </div>
                     
@@ -249,6 +192,5 @@
     </div>
 
     <script src="SearchResults.js"></script>
-    <script src="navbar-loggedin.js"></script>
 </body>
 </html>

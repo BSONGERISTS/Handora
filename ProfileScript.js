@@ -208,8 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 guideContent.append(guide.description);
 
                 document.getElementById("guideContainer").appendChild(card);
-
-
             });
             
         })
