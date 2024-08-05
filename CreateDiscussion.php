@@ -6,14 +6,14 @@ $mysqli = require_once 'db_connection.php';
 
 $gameName = $_POST['input_game'];
 
-$sql_game = "SELECT id FROM `games` WHERE name = ?";
+$sql_game = "SELECT id FROM `games` WHERE name= ?;";
 $stmt = $mysqli -> prepare ($sql_game);
 $stmt -> bind_param ('s', $gameName);
 $stmt -> execute();
 $result = $stmt -> get_result();
-$game_id = $result -> fetch_assoc();
+$game = $result -> fetch_assoc();
 
-if (!$game_id) {
+if (!$game) {
     $response = [
         'status' => "error",
         'message' => "There are no such game"
@@ -27,7 +27,7 @@ $input_content = $_POST['input_content'];
 
 $sql_discussion = "INSERT INTO `discussions`(`users_id`, `games_id`, `title`, `content`) VALUES (?, ?, ?, ?);";
 $stmt = $mysqli -> prepare ($sql_discussion);
-$stmt -> bind_param ('iiss', $user_id, $game_id, $input_title, $input_content);
+$stmt -> bind_param ('iiss', $user_id, $game['id'], $input_title, $input_content);
 $stmt -> execute();
 
 $response = [

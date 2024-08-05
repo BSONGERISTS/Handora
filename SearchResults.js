@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('./getGuideDiscussion.php')
         .then(response => response.json())
         .then(data => {
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
             data.guides.forEach(guide => {
                 const guideTemplate = document.querySelector("[data-guide-template]");
                 const card = guideTemplate.content.cloneNode(true);
@@ -32,9 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const discussionGame = card.querySelector('[data-discussion-game]');
                 const discussionDate = card.querySelector('[data-discussion-date]');
 
+                // convert the publishdate
+                const rawPublishDate = new Date(discussion.publishDate);
+                const publishDate = months[rawPublishDate.getMonth()] + ' ' + rawPublishDate.getDate() + ', ' + rawPublishDate.getFullYear();
+                
                 discussionTitle.textContent = discussion.title;
                 discussionGame.append(`${discussion.gameName} | Discussion`);
-                discussionDate.append(discussion.publishDate);
+                discussionDate.append(publishDate);
 
                 document.getElementById("all").appendChild(card);
             });

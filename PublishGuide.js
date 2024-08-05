@@ -15,6 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let uploadedMedia = {};
 
+    // get the date now
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const now = new Date();
+    const date = months[now.getMonth()] + ' ' + now.getDate() + ', ' + now.getFullYear();
+    document.getElementById("date").textContent = date;
+
+
+
     // Fetch and display the logged-in username
     fetch('./session_status.php')
         .then(response => response.json())
@@ -202,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
             canvas.toBlob(function (blob) {
                 var formData = new FormData();
                 formData.append('croppedImage', blob);
-                
+
                 var newImageUrl = URL.createObjectURL(blob);
                 document.getElementById("guideImageContent").src = newImageUrl;
                 document.getElementById("guideImagePreview").src = newImageUrl;
