@@ -114,6 +114,7 @@ body {
 .video-Container{
     width: 100%;
     height: auto;
+    display: flex;
 }
 
 .video-Container video {
@@ -226,6 +227,35 @@ body {
 .search-bar img {
     height: auto;
     width: 3.28vh;
+}
+
+/* See All */
+.see-all-center{
+    position: absolute;
+    bottom: 15%;
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.see-all-center a{
+    color: #FFF;
+    text-shadow: 0.5vh 0.5vh 20vh #FFC700;
+    font-family: "Markazi Text";
+    font-size: 3.5vh;
+    font-style: normal;
+    font-weight: 700;
+    cursor: default;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+.see-all-center a:hover{
+    color: #FFC700;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
 /* Scroll Animation */
