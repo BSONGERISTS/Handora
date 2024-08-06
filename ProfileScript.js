@@ -189,10 +189,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // GET THE GUIDES OF THE USER
-    fetch('./ProfileGuide.php')
+    fetch('./ProfileGuideDiscussion.php')
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
             data.guides.forEach(guide => {
                 const guideTemplate = document.querySelector("[data-guide-template]");
                 const card = guideTemplate.content.cloneNode(true);
@@ -209,14 +210,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 document.getElementById("guideContainer").appendChild(card);
             });
+
+            data.discussions.forEach(discussion => {
+                const discussionTemplate = document.querySelector("[data-discussion-template]");
+                const card = discussionTemplate.content.cloneNode(true);
+    
+                const discussionTitle = card.querySelector('[data-discussion-title]');
+                const discussionGame = card.querySelector('[data-discussion-game]');
+                const discussionDate = card.querySelector('[data-discussion-date]');
+    
+                // convert the publishdate
+                const rawPublishDate = new Date(discussion.publishDate);
+                const publishDate = months[rawPublishDate.getMonth()] + ' ' + rawPublishDate.getDate() + ', ' + rawPublishDate.getFullYear();
+                
+                discussionTitle.textContent = discussion.title;
+                discussionGame.append(`${discussion.gameName} | Discussion`);
+                discussionDate.append(publishDate);
+
+                document.getElementById("discussionContainer").appendChild(card);
+            });
             
         })
         .catch((error) => {
             console.error('Error:', error);
         });
-
-
-
 });
 
 var header = document.getElementById("butts");

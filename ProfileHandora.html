@@ -205,87 +205,31 @@
                         </div>
 
                         <!-- Discussion -->
-                        <div id="2s" class="contribution ">
-                            <div class="contribution-scroll">
-                                <a id="Discussion-ID" class="discussion-post" href="">
-                                    <div class="discussion-left">
-                                        <!-- game logo -->
-                                        <img src="./Assets/Discussion.svg">
-                                        <!-- info -->
-                                        <div class="discussion-left-contents">
-                                            <div class="discussion-top-left">Title Lorem</div>
-                                            <div class="discussion-bot-left">Minecraft | Discussion</div>
-                                        </div> 
-                                    </div>
-                                        <!-- publish date -->
-                                    <div class="discussion-right">
-                                        <div class="date">May 27, 2024</div>
-                                        <div class="number">
-                                            <img src="./Assets/Chat.svg">
-                                            <div class="num">100</div>
+                        <div id="2s" class="contribution">
+                            <div id="discussionContainer" class="contribution-scroll">
+                                <template data-discussion-template>
+                                    <a id="Discussion-ID" class="discussion-post" href="">
+                                        <div class="discussion-left">
+                                            <!-- game logo -->
+                                            <img src="./Assets/Discussion.svg">
+                                            <!-- info -->
+                                            <div class="discussion-left-contents">
+                                                <div class="discussion-top-left" data-discussion-title></div>
+                                                <div class="discussion-bot-left" data-discussion-game></div>
+                                            </div> 
                                         </div>
-                                    </div>
-                                </a>
+                                        <!-- publish date -->
+                                        <div class="discussion-right">
+                                            <div class="date" data-discussion-date></div>
+                                            <div class="number">
+                                                <img src="./Assets/Chat.svg">
+                                                <div class="num" data-discussion-comments></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </template>
 
-                                <a id="Discussion-ID" class="discussion-post" href="">
-                                    <div class="discussion-left">
-                                        <!-- game logo -->
-                                        <img src="./Assets/Discussion.svg">
-                                        <!-- info -->
-                                        <div class="discussion-left-contents">
-                                            <div class="discussion-top-left">Title Lorem</div>
-                                            <div class="discussion-bot-left">Minecraft | Discussion</div>
-                                        </div> 
-                                    </div>
-                                        <!-- publish date -->
-                                    <div class="discussion-right">
-                                        <div class="date">May 27, 2024</div>
-                                        <div class="number">
-                                            <img src="./Assets/Chat.svg">
-                                            <div class="num">100</div>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <a id="Discussion-ID" class="discussion-post" href="">
-                                    <div class="discussion-left">
-                                        <!-- game logo -->
-                                        <img src="./Assets/Discussion.svg">
-                                        <!-- info -->
-                                        <div class="discussion-left-contents">
-                                            <div class="discussion-top-left">Title Lorem</div>
-                                            <div class="discussion-bot-left">Minecraft | Discussion</div>
-                                        </div> 
-                                    </div>
-                                        <!-- publish date -->
-                                    <div class="discussion-right">
-                                        <div class="date">May 27, 2024</div>
-                                        <div class="number">
-                                            <img src="./Assets/Chat.svg">
-                                            <div class="num">100</div>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <a id="Discussion-ID" class="discussion-post" href="">
-                                    <div class="discussion-left">
-                                        <!-- game logo -->
-                                        <img src="./Assets/Discussion.svg">
-                                        <!-- info -->
-                                        <div class="discussion-left-contents">
-                                            <div class="discussion-top-left">Title Lorem</div>
-                                            <div class="discussion-bot-left">Minecraft | Discussion</div>
-                                        </div> 
-                                    </div>
-                                        <!-- publish date -->
-                                    <div class="discussion-right">
-                                        <div class="date">May 27, 2024</div>
-                                        <div class="number">
-                                            <img src="./Assets/Chat.svg">
-                                            <div class="num">100</div>
-                                        </div>
-                                    </div>
-                                </a>
+                                
                             </div>
                         </div>
                     </div>
