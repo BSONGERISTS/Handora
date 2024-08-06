@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function(){
     console.log('JavaScript loaded and ready');
     document.getElementById('game-search').addEventListener('input', showDropdown);
 
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             data.guides.forEach(guide => {
                 const guideTemplate = document.querySelector("[data-guide-template]");
-                const card = guideTemplate.content.cloneNode(true);
+                const card = guideTemplate.content.cloneNode(true).children[0];
 
                 const guideImage = card.querySelector('[data-guide-image]');
                 const guideTitle = card.querySelector('[data-guide-title]');
@@ -22,8 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 guideTitle.textContent = guide.title;
                 guideCreator.append(`${guide.gameName} Guide by ${guide.username}`);
                 guideContent.append(guide.description);
+                console.log(guide.id);
 
-                
+                card.addEventListener('click', () => {
+                    window.location = `GuidePage.html?guideID=${guide.id}`;
+                });
 
                 const likeBtn = card.querySelector('.heart-icon');
                 const numberOfLikesElement = card.querySelector('.like-font');
@@ -51,14 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 likeBtn.addEventListener('click', likeClick);
 
-
-
                 document.getElementById("all").appendChild(card);
+
             });
 
             data.discussions.forEach(discussion => {
                 const discussionTemplate = document.querySelector("[data-discussion-template]");
-                const card = discussionTemplate.content.cloneNode(true);
+                const card = discussionTemplate.content.cloneNode(true).children[0];
 
                 const discussionTitle = card.querySelector('[data-discussion-title]');
                 const discussionGame = card.querySelector('[data-discussion-game]');
@@ -71,6 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 discussionTitle.textContent = discussion.title;
                 discussionGame.append(`${discussion.gameName} | Discussion`);
                 discussionDate.append(publishDate);
+
+                card.addEventListener('click', () => {
+                    window.location = `DiscussionPage.html?discussionID=${discussion.id}`;
+                });
 
                 document.getElementById("all").appendChild(card);
             });

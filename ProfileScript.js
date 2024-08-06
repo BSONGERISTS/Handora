@@ -209,6 +209,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 guideContent.append(guide.description);
 
                 document.getElementById("guideContainer").appendChild(card);
+
+                card.addEventListener('click', (ev) => {
+                    ev.preventDefault();
+                    console.log("tite");
+                });
             });
 
             data.discussions.forEach(discussion => {
