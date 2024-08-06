@@ -23,6 +23,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 guideCreator.append(`${guide.gameName} Guide by ${guide.username}`);
                 guideContent.append(guide.description);
 
+                
+
+                const likeBtn = card.querySelector('.heart-icon');
+                const numberOfLikesElement = card.querySelector('.like-font');
+                console.log(numberOfLikesElement);
+                let numberOfLikes = Number.parseInt(numberOfLikesElement.innerText, 10);
+                let isLiked = false;
+
+                // Functions
+
+                const likeClick = () => {
+                    if (!isLiked) {
+                        likeBtn.classList.add('isLiked');
+                        numberOfLikes++;
+                        numberOfLikesElement.innerText = numberOfLikes;
+                        isLiked = true;
+                    } else {
+                        likeBtn.classList.remove('isLiked');
+                        numberOfLikes--;
+                        numberOfLikesElement.innerText = numberOfLikes;
+                        isLiked = false;
+                    }
+                };
+
+                // Event Listeners
+
+                likeBtn.addEventListener('click', likeClick);
+
+
+
                 document.getElementById("all").appendChild(card);
             });
 
@@ -37,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // convert the publishdate
                 const rawPublishDate = new Date(discussion.publishDate);
                 const publishDate = months[rawPublishDate.getMonth()] + ' ' + rawPublishDate.getDate() + ', ' + rawPublishDate.getFullYear();
-                
+
                 discussionTitle.textContent = discussion.title;
                 discussionGame.append(`${discussion.gameName} | Discussion`);
                 discussionDate.append(publishDate);
@@ -110,6 +140,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load navbar.html into the div with id 'navbar-container'
     loadNavbar();
+
+
+
+
+
+
+
+
+
+
+
 
 });
 

@@ -518,7 +518,8 @@ body {
 }
 
 .like-active,
-.like img:hover{
+.like img:hover,
+.isLiked{
     opacity: 1;
     filter: grayscale(0%) sepia(100%) saturate(5000%) hue-rotate(-335deg);
 }
@@ -542,11 +543,15 @@ body {
     font-weight: 400;
 }
 
+
 .right-guide-bot{
     color: #B9B9B9;
     font-family: Actor;
     font-size: 2.15vh;
     font-weight: 400;
+    height: 3vh;
+    width: 57.7vh;
+    overflow: hidden;
 }
 
 /* Discussion */
@@ -585,9 +590,9 @@ body {
 .discussion-left-contents{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     gap: 1vh;
+    width: 45vh;
 }
 
 .discussion-top-left{
@@ -595,6 +600,8 @@ body {
     font-family: Actor;
     font-size: 3.6vh;
     font-weight: bold;
+    width: 45vh;
+    height: 4.5vh;
 }
 
 .discussion-bot-left{
