@@ -759,6 +759,44 @@ body {
     right: 10%;
 }
 
+/* Dropdown */
+.search-inner {
+    position: relative;
+    width: 43vh;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    border-radius: 0.5vh;
+    background: #424242;
+    box-shadow: 0.4vh 0.4vh 0.4vh 0vh rgba(0, 0, 0, 0.25);
+    gap: 1vh;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 44vh; /* Ensure it matches the width of the search-inner */
+    box-shadow: 0 0.8vh 1.6vh 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    max-height: 20vh;
+    overflow-y: auto;
+    top: 28vh; /* Position below the input field */
+    border-radius: 0.4vh; /* Optional: rounded corners */
+    margin-top: 0.5vh; /* Space between input and dropdown */
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 1.2vh 1.6vh;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
 .dp{
     height: auto;
     width: 3vh;
