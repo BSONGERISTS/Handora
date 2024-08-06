@@ -647,6 +647,8 @@ body {
     align-items: center;
     flex-direction: column;
     overflow: hidden;
+    gap: 2vh;
+    padding-bottom: 1vh;
 }
 
 .preview-head{
