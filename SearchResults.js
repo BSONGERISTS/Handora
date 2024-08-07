@@ -243,9 +243,38 @@ function updateNavbarForLoggedInUser() {
                 `;
                 // change the image picture discussion
                 document.getElementById("user-pic-container").src = profilePicUrl;
+                
 
                 addPopupEventListeners(); // Reattach event listeners for the updated navbar
+
+                document.getElementById("make-discuss").addEventListener('click', () => {
+                    PopOpen()
+                    Extend()
+                })
+
+                document.getElementById("publishGuideButton").addEventListener('click', () => {
+                    window.location ="./PublishGuide.html"
+                });
+
             } else {
+                document.getElementById('navbar-buttons').innerHTML = `
+                    <nav class="nav-btn"> 
+                        <img src="./Assets/Discord.svg" class="nav-btn-size hover-icon" />
+                    </nav>
+                    <nav class="nav-btn">
+                        <img src="./Assets/x icon.png" class="nav-btn-size hover-icon" />
+                    </nav>
+                    <nav class="Nav-Style popup"><span>Login</span></nav>
+                `;
+                addPopupEventListeners();
+                document.getElementById("make-discuss").addEventListener('click', () => {
+                    document.getElementById('pop').classList.toggle('login-index2');
+                })
+
+                document.getElementById("publishGuideButton").addEventListener('click', () => {
+                    document.getElementById('pop').classList.toggle('login-index2');
+                });
+
                 // Redirect to login page or show an error message
                 // window.location.href = './HandoraBSong.html';
             }
@@ -259,6 +288,24 @@ function addPopupEventListeners() {
         popup.addEventListener('click', () => {
             document.getElementById('pop').classList.toggle('login-index2');
         });
+    }
+
+    const closer = document.querySelector('.closer2');
+    if (closer) {
+        closer.addEventListener('click', () => {
+            document.getElementById('pop').classList.add('login-index2');
+        });
+    }
+
+
+
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('passwordInput');
+    
+    if (togglePassword && passwordInput) {
+        togglePassword.addEventListener('mousedown', () => passwordInput.setAttribute('type', 'text'));
+        togglePassword.addEventListener('mouseup', () => passwordInput.setAttribute('type', 'password'));
+        togglePassword.addEventListener('mouseleave', () => passwordInput.setAttribute('type', 'password'));
     }
 }
 
