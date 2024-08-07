@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             } else {
                 // Redirect to login page or show an error message
-                window.location.href = './HandoraBSong.html';
+                // window.location.href = './HandoraBSong.html';
             }
         })
         .catch(error => console.error('Error fetching session status:', error));
