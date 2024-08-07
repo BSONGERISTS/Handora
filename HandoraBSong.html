@@ -28,10 +28,10 @@
             <!-- Search Bar -->
             <div class="search-center">
                 <div class="search-bar">
-                    <div class="search-bar-content">
-                        <input type="text" placeholder="Search e.g. Elden Ring how to get Black Knife Tiche" data-search/>
+                    <form id="searchSubmit" class="search-bar-content">
+                        <input id="searchInput" type="text" placeholder="Search e.g. Elden Ring how to get Black Knife Tiche"/>
                         <button><img src="pics/search icon.png" alt="Search"></button>
-                    </div>
+                    </form>
                 </div>
             </div>
 
@@ -172,5 +172,15 @@
 
 
     <script src="navbar-loggedin.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            document.getElementById("searchSubmit").addEventListener('submit', (ev) => {
+                ev.preventDefault();
+                window.location = `./SearchResults.html?searchInputURLValues=${document.getElementById("searchInput").value}`;
+
+            });
+        });
+    </script>
 </body>
 </html>

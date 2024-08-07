@@ -1,7 +1,9 @@
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
     console.log('JavaScript loaded and ready');
     document.getElementById('game-search').addEventListener('input', showDropdown);
 
+    var guideArray = [];
+    var discussionArray = [];
 
     // this gets the guides and discussions
     fetch('./getGuideDiscussion.php')
@@ -9,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function(){
         .then(data => {
             const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-            data.guides.forEach(guide => {
+            guideArray = data.guides.map(guide => {
                 const guideTemplate = document.querySelector("[data-guide-template]");
                 const card = guideTemplate.content.cloneNode(true).children[0];
 
@@ -22,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function(){
                 guideTitle.textContent = guide.title;
                 guideCreator.append(`${guide.gameName} Guide by ${guide.username}`);
                 guideContent.append(guide.description);
-                console.log(guide.id);
 
                 card.addEventListener('click', () => {
                     window.location = `GuidePage.html?guideID=${guide.id}`;
@@ -30,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 const likeBtn = card.querySelector('.heart-icon');
                 const numberOfLikesElement = card.querySelector('.like-font');
-                console.log(numberOfLikesElement);
                 let numberOfLikes = Number.parseInt(numberOfLikesElement.innerText, 10);
                 let isLiked = false;
 
@@ -56,9 +56,14 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 document.getElementById("all").appendChild(card);
 
+                return {
+                    title: guide.title,
+                    element: card
+                }
+
             });
 
-            data.discussions.forEach(discussion => {
+            discussionArray = data.discussions.map(discussion => {
                 const discussionTemplate = document.querySelector("[data-discussion-template]");
                 const card = discussionTemplate.content.cloneNode(true).children[0];
 
@@ -79,12 +84,41 @@ document.addEventListener('DOMContentLoaded', function(){
                 });
 
                 document.getElementById("all").appendChild(card);
+
+                return {
+                    title: discussion.title,
+                    element: card
+                }
             });
 
+            filtering();
 
-            console.log(data);
         })
         .catch(error => console.error(error));
+
+    
+    // get the parameters in the url
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchInputURLValues = urlParams.get("searchInputURLValues");
+
+    const searchInput = document.getElementById("searchInput");
+    searchInput.value = searchInputURLValues;
+
+    filtering = () => {
+        guideArray.forEach (guide => {
+            const CardVisibility = guide.title.toLowerCase().includes(searchInput.value.toLowerCase());
+            guide.element.style.display = CardVisibility ? "" : "none";
+        })
+
+        discussionArray.forEach (discussion => {
+            const CardVisibility = discussion.title.toLowerCase().includes(searchInput.value.toLowerCase());
+            discussion.element.style.display = CardVisibility ? "" : "none";
+        })
+    }
+
+    searchInput.addEventListener('input', () => {
+        filtering();
+    });
 
 
 

@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             data.guides.forEach(guide => {
                 const guideTemplate = document.querySelector("[data-guide-template]");
-                const card = guideTemplate.content.cloneNode(true);
+                const card = guideTemplate.content.cloneNode(true).children[0];
 
                 const guideImage = card.querySelector('[data-guide-image]');
                 const guideTitle = card.querySelector('[data-guide-title]');
@@ -211,15 +211,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 document.getElementById("guideContainer").appendChild(card);
 
-                card.addEventListener('click', (ev) => {
-                    ev.preventDefault();
-                    console.log("tite");
+                card.addEventListener('click', () => {
+                    window.location = `GuidePage.html?guideID=${guide.id}`;
                 });
             });
 
             data.discussions.forEach(discussion => {
                 const discussionTemplate = document.querySelector("[data-discussion-template]");
-                const card = discussionTemplate.content.cloneNode(true);
+                const card = discussionTemplate.content.cloneNode(true).children[0];
     
                 const discussionTitle = card.querySelector('[data-discussion-title]');
                 const discussionGame = card.querySelector('[data-discussion-game]');
@@ -234,6 +233,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 discussionDate.append(publishDate);
 
                 document.getElementById("discussionContainer").appendChild(card);
+
+                card.addEventListener('click', () => {
+                    window.location = `DiscussionPage.html?discussionID=${discussion.id}`;
+                });
             });
             
         })

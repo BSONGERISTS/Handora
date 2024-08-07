@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (data.status == "success") {
                 console.log(data);
                 document.getElementById("guideTitlePreview").innerText = data.guide.title;
-                document.getElementById("game-name-display-preview").textContent = data.guide.title;
+                document.getElementById("game-name-display-preview").textContent = data.guide.gameName;
                 document.getElementById("username-display-preview").textContent = data.guide.username;
                 document.getElementById("guideImagePreview").src = `./uploads/guide_pictures/${data.guide.image}`;
                 document.getElementById("titlepubs").textContent = data.guide.description;
