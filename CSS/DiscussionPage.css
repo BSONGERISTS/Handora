@@ -101,6 +101,7 @@ body {
     align-items: center;
     height: 5vh;
     width: 5vh;
+    overflow: hidden;
     cursor: pointer;
 }
 
@@ -279,6 +280,7 @@ body {
     display: flex;
     padding: 1vh;
     flex-direction: column;
+    gap: 2vh;
 }
 
 .content-con{

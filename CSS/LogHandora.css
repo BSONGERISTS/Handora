@@ -75,7 +75,7 @@ body {
 }
 
 .nav-btn-size{
-    width: 4vh;
+    width: 5vh;
     height: auto;
 }
 
@@ -101,6 +101,7 @@ body {
     align-items: center;
     height: 5vh;
     width: 5vh;
+    overflow: hidden;
     cursor: pointer;
 }
 

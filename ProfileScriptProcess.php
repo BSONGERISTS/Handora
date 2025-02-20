@@ -1,102 +1,83 @@
 <?php
-
 session_start();
-// Connect to the database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "reben_database";
+include('db_connection.php'); // Make sure you have the database connection file included
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$response = array();
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_FILES['croppedImage'])) {
+        // Handle profile picture update
+        $image = $_FILES['croppedImage']['tmp_name'];
+        $imgContent = addslashes(file_get_contents($image));
 
-// Check if form data has been submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $userId = $_SESSION['user_id'];
 
-    // create an sql to get users 
-    $sql = "SELECT * FROM `users` WHERE id = ?";
-    // prepare the statement with sql
-    $stmt = $conn -> prepare ($sql);
-    // bind the session user id
-    $stmt -> bind_param ('i', $_SESSION['user_id']);
-    // execute the statement
-    $stmt->execute();
-    // get the result from execution
-    $result = $stmt -> get_result();
-    // get the value of result as variable $user
-    $user = $result -> fetch_assoc();
+        $imagePath = 'uploads/profile_pictures/' . $userId . '.png'; // Store with user ID
 
-    // get all the inputs from the ProfileHandora.html
-    $username = $_POST['input_username'];
-    $email = $_POST['input_email'];
-    $hashed_password = password_hash($_POST['input_password'], PASSWORD_DEFAULT);
-
-    if (empty($_POST['input_password'])){
-
-        try{
-            // create an sql to update a logged in user
-            $sql = "UPDATE `users` SET `username`= ?,`email`= ? WHERE ID = ?;";
-            // prepare the statement with sql
-            $stmt = $conn -> prepare ($sql);
-            // bind the all the values
-            $stmt -> bind_param ('ssi', $username, $email, $_SESSION['user_id']);
-            // execute the statement
-            $stmt->execute();
-    
-            $response = [
-                'status' => "success",
-                'message' => "Data updated successfully"
-            ];
+        // Ensure the directory exists
+        if (!file_exists('uploads/profile_pictures')) {
+            mkdir('uploads/profile_pictures', 0777, true);
         }
-        // if there is error in query
-        catch (Exception $e){
-            // make an error response
-            $response = [
-                'status' => "error",
-                'message' => "Error No: ". $e->getCode() ." - ". $e->getMessage()    // get error code and message
-            ];
+
+        // Move the uploaded file
+        if (move_uploaded_file($_FILES['croppedImage']['tmp_name'], $imagePath)) {
+            // Update the database
+            $query = "UPDATE users SET profile_picture = ? WHERE id = ?";
+            $stmt = $conn->prepare($query);
+
+            if (!$stmt) {
+                error_log("Statement preparation failed: " . $conn->error);
+                $response['status'] = 'error';
+                $response['message'] = 'Failed to update profile picture: ' . $conn->error;
+            } else {
+                $stmt->bind_param("si", $imagePath, $userId);
+
+                if ($stmt->execute()) {
+                    $response['status'] = 'success';
+                    $response['message'] = 'Profile picture updated successfully';
+                } else {
+                    $response['status'] = 'error';
+                    $response['message'] = 'Failed to update profile picture: ' . $stmt->error;
+                    error_log("SQL error: " . $stmt->error);
+                }
+
+                $stmt->close();
+            }
+        } else {
+            $response['status'] = 'error';
+            $response['message'] = 'Failed to upload image';
         }
-    
-    }
-    else{
-        try{
-            // create an sql to update a logged in user
-            $sql = "UPDATE `users` SET `username`= ?,`email`= ?,`password`= ? WHERE ID = ?;";
-            // prepare the statement with sql
-            $stmt = $conn -> prepare ($sql);
-            // bind the all the values
-            $stmt -> bind_param ('sssi', $username, $email, $hashed_password, $_SESSION['user_id']);
-            // execute the statement
-            $stmt->execute();
-    
-            $response = [
-                'status' => "success",
-                'message' => "Data updated successfully"
-            ];
-        }
-        // if there is error in query
-        catch (Exception $e){
-            // make an error signup response
-            $response = [
-                'status' => "error",
-                'message' => "Error No: ". $e->getCode() ." - ". $e->getMessage()    // get error code and message
-            ];
+    } else {
+        // Handle other profile updates (e.g., username and email)
+        $username = $_POST['input_username'];
+        $email = $_POST['input_email'];
+        $userId = $_SESSION['user_id'];
+
+        error_log("Username: $username, Email: $email, UserID: $userId");
+
+        $query = "UPDATE users SET username = ?, email = ? WHERE id = ?";
+        $stmt = $conn->prepare($query);
+
+        if (!$stmt) {
+            error_log("Statement preparation failed: " . $conn->error);
+            $response['status'] = 'error';
+            $response['message'] = 'Failed to update profile: ' . $conn->error;
+        } else {
+            $stmt->bind_param("ssi", $username, $email, $userId);
+
+            if ($stmt->execute()) {
+                $response['status'] = 'success';
+                $response['message'] = 'Profile updated successfully';
+            } else {
+                $response['status'] = 'error';
+                $response['message'] = 'Failed to update profile: ' . $stmt->error;
+                error_log("SQL error: " . $stmt->error);
+            }
+
+            $stmt->close();
         }
     }
-    
-
-    exit ( json_encode($response) );
 }
 
-$response = [
-    'status' => "error",
-    'message' => "NOT A POST METHOD"
-];
-
-exit ( json_encode($response) );
-
-
+echo json_encode($response);
 ?>

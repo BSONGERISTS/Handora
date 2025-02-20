@@ -6,57 +6,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Handora</title>
     <link rel="stylesheet" href="./CSS/PublishGuide.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css"/>
 </head>
-
-
 <body>
+    <div id="navbar-container"></div>
 
-    <!-- Top Navbar -->
-    
-    <div id="head" class="header">
-        <!-- Inside Navbar -->
-        <div class="wrap">
-
-            <!-- Navbar Logo -->
-            
-            <a href="HandoraBSong.html"><img src="./Assets/WebNL.svg" class="logo"/></a>
-            
-            <!-- Navbar Buttons -->
-            <div class="header-buttons">
-                
-                <nav class="nav-btn"> 
-                    <img src="./Assets/Discord.svg" class="nav-btn-size hover-icon"/>
-                </nav>
-
-                <nav class="nav-btn">
-                    <img src="./Assets/x icon.png" class="nav-btn-size hover-icon"/>
-                </nav>
-
-                <nav class="profile popup">
-                    <img src="./Assets/ProfilePlaceholder.svg" class="nav-btn-size">
-                </nav>
+    <div id="cropper-popup" class="cropper-popup-container" style="display: none;">
+        <div class="cropper-popup-content">
+            <div class="cropper-pop-top">
+                <div class="cropper-pop-top-text">Crop your image</div>
+                <button class="cropper-pop-exit" onclick="hideCropperPopup()">&times;</button>
+            </div>
+            <div class="cropper-pop-body">
+                <img id="cropper-image" src="">
+            </div>
+            <div class="cropper-con-wrap">
+                <button class="cropper-pop-confirm" onclick="cropImage()">Save</button>
             </div>
         </div>
     </div>
 
-    <!-- Pop Up -->
-    <div id="pop" class="login-box login-index">
-        <img src="./Assets/PopTop.svg" class="pop-indicator">
+    <!-- Popup -->
+    <div id="gpop" class="guide-pop login-index">
+        <div class="guide-pop-body">
+            <div class="pop-close-wrap">
+                <button onclick="togglegpop()"><img src="./Assets/Close.svg"></button>
+            </div>
+            <div class="guide-pop-header">Formatting Help</div>
+            <div class="guide-header-support">Use the syntax below to add text formatting for your guide publishing texts</div>
+            <!-- Table -->
+            <div class="table">
+                <!-- left table -->
+                <div class="content-table">
+                    <div class="table-line"></div>
+                    <div class="table-header1">Example</div>
+                    <div class="table-line"></div>
+                    <div class="heading">Heading Text</div>
+                    <div class="table-line"></div>
+                    <div class="bold">Bold Text</div>
+                    <div class="table-line"></div>
+                    <div class="underline">Underlined Text</div>
+                    <div class="table-line"></div>
+                    <div class="italic">Italic Text</div>
+                    <div class="table-line"></div>
+                    <div class="website">Website Link</div>
+                    <div class="table-line"></div>
+                    <div class="render">Render a horizontal rule</div>
+                    <div class="table-line"></div>
+                </div>
+                <!-- right table -->
+                <div class="content-table">
+                    <div class="table-line"></div>
+                    <div class="table-header2">Syntax</div>
+                    <div class="table-line"></div>
+                    <div class="table-text"><a>[h1]</a> Heading Text <a>[/h1]</a></div>
+                    <div class="table-line"></div>
+                    <div class="table-text"><a>[b]</a> Bold Text <a>[/b]</a></div>
+                    <div class="table-line"></div>
+                    <div class="table-text"><a>[u]</a> Underlined Text <a>[/u]</a></div>
+                    <div class="table-line"></div>
+                    <div class="table-text"><a>[i]</a> Italic Text <a>[/i]</a></div>
+                    <div class="table-line"></div>
+                    <div class="table-text"><a>[url=https:/example.com]</a> Website Link <a>[/url]</a></div>
+                    <div class="table-line"></div>
+                    <div class="table-text"><a>[hr]</a> Render a horizontal rule <a>[/hr]</a></div>
+                    <div class="table-line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <!-- Profile Btn -->
-        <a href="./ProfileHandora.html" class='pop-btn grid-top'>
-            View my Profile
-        <a>
-
-        <!-- Log Out btn -->
-        <a href="./HandoraBSong.html" class='pop-btn grid-bot'>
-            Log Out
-            <img src="./Assets/LogOut.svg">
-        </a>
-    </div>                                                                                               
-    
-    <!-- Nav End -->
-    
     <!-- Container -->
     <div class="Container">
         <!-- background -->
@@ -68,7 +87,6 @@
         <div class="guide-container">
             <!-- top nav -->
             <div class="guide-nav">
-    
                 <div id="guide-nav-btn" class="nav-wrap">
                     <button class="guide-nav-style gnstyle-active" onclick="Body1()">Guide Information</button>
                     <img src="./Assets/Arriw.svg">
@@ -76,91 +94,88 @@
                     <img src="./Assets/Arriw.svg">
                     <button class="guide-nav-style" onclick="Body3()">Preview Guide</button>
                 </div>
-
             </div>
         </div>
         <!-- insides -->
         <div id="main-body" class="content-container">
             <!-- the wrap -->
             <div id="body1" class="body-wrap body-wrap-e">
-                <!-- search -->
-                <div class="guide-search">
-                    <!-- text -->
-                    <div class="search-txt">Post guide about:</div>
-                    <!-- search input -->
-                    <div class="search-inner">
-                        <img src="./pics/search icon.png">
-                        <input type="text" placeholder="Search Game Title">
+                <!-- form -->
+                <form action="publish_guide.php" method="POST">
+                    <!-- search -->
+                    <div class="guide-search">
+                        <!-- text -->
+                        <div class="search-txt">Post guide about:</div>
+                        <!-- search input -->
+                        <div class="search-inner">
+                            <img src="./pics/search icon.png">
+                            <input type="text" placeholder="Search Game Title" id="game-search">
+                            <div id="dropdown" class="dropdown-content"></div>
+                        </div>
                     </div>
-
-                </div>
-                <!-- Guide title info -->
-                <div class="title-info">
-
-                    <div class="info-left">
-                        <img src="./Assets/indicator.svg">
-                        <div class="left-info-wrap">
-                            <div class="yellow-header">Enter your guide title</div>
-                            <div class="header-support">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                    <!-- Guide title info -->
+                    <div class="title-info">
+                        <div class="info-left">
+                            <img src="./Assets/indicator.svg">
+                            <div class="left-info-wrap">
+                                <div class="yellow-header">Enter your guide title</div>
+                                <div class="header-support">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                </div>
+                                <div class="info-inner">
+                                    <input type="text" id="guide_title">
+                                </div>
                             </div>
-                            <div class="info-inner">
-                                <input type="text">
+                        </div>
+                        <div class="info-left">
+                            <img src="./Assets/indicator.svg">
+                            <div class="left-info-wrap">
+                                <div class="yellow-header">Select your guide thumbnail</div>
+                                <div class="header-support">
+                                    This image will represent your game guide in the Handora Guides Community.
+                                </div>
+                                <div class="info-inner2">
+                                    <input type="file" id="guide_thumbnail" accept="image/*" multiple>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="info-left">
-                        <img src="./Assets/indicator.svg">
-                        <div class="left-info-wrap">
-                            <div class="yellow-header">Select your guide thumbnail</div>
-                            <div class="header-support">
-                                This image will represent your game guide in the Handora Guides Community.
-                            </div>
-                            <div class="info-inner2">
-
-                                
-                                <input type="file">
+                    <!-- Guide Description -->
+                    <div class="guide-description">
+                        <div class="desc-left">
+                            <img class="imgr" src="./Assets/indicator.svg">
+                            <div class="left-info-wrap">
+                                <div class="yellow-header">Describe your guide</div>
+                                <div class="header-support">
+                                    Use this space to describe your guide, what makes it interesting, and what the scope is. 
+                                </div>
+                                <div class="info-inner3">
+                                    <textarea type="text" id="guide_description" class="txtarea"></textarea>
+                                </div>
+                                <button id="format" class="f-help" type="button" onclick="openformat()">Formatting Help</button>
                             </div>
                         </div>
                     </div>
-
-
-                </div>
-
-                <!-- Guide Description -->
-                <div class="guide-description">
-                    <div class="desc-left">
-                        <img class="imgr" src="./Assets/indicator.svg">
-                        <div class="left-info-wrap">
-                            <div class="yellow-header">Describe your guide</div>
-                            <div class="header-support">
-                                Use this space to describe your guide, what makes it interesting, and what the scope is. 
-                            </div>
-                            <div class="info-inner3">
-                                <textarea type="text" class="txtarea"></textarea>
-                            </div>
-                            <a href="" class="f-help">Formatting Help</a>
-                        </div>
-                    </div>                    
-                </div>
-
-                <!-- buttons -->
-                <div class="btn-wrap">
-                    <a href="SearchResults.html"><button class="cel">Cancel</button></a>
-                    <button class="sndcon">Save and Continue</button>
-                </div>
+                    <!-- buttons -->
+                    <div class="btn-wrap">
+                        <a href="SearchResults.html"><button class="cel" type="button">Cancel</button></a>
+                        <button class="sndcon" type="submit">Save and Continue</button>
+                    </div>
+                </form>
             </div>
-
+            <!-- other bodies for steps -->
             <div id="body2" class="body-wrap2">
                 <!-- Guide Content Header -->
                 <div class="guide-content-header">
                     <div class="profile-wrap">
-                        <img>
+                        <img id="guideImageContent" class="prof-img">
                     </div>
                     <div class="guide-content-text">
-                        <div class="big-header-text">Guide Title</div>
-                        <div class="underline-header-text">Game Title</div>
+                        <div id="guideTitleContent" class="big-header-text">Guide Title</div>
+                        <div class="underline-header-text">
+                            <span id="game-name-display">(game name)</span> Guide by
+                            <a id="username-display">User-Name</a>
+                        </div>
                     </div>
                 </div>
                 <!-- Guide Content Body -->
@@ -173,98 +188,58 @@
                             <div class="header-support">
                                 Type in here the contents of your guide. To add an image, click the insert image icon on the bottom-right of the text field. 
                             </div>
-
-                            <div class="textarea-btns">
-                                <!-- <button id="btn1">
-                                    <img>
-                                </button>
-                                <button id="btn2">
-                                    <img>
-                                </button>
-                                <button id="btn3">
-                                    <img>
-                                </button>
-                                <button id="btn4">
-                                    <img>
-                                </button>
-                                <button id="btn5">
-                                    <img>
-                                </button>
-                                <button id="btn6">
-                                    <img>
-                                </button>
-                                <button id="btn7">
-                                    <img>
-                                </button>
-                                <button id="btn8">
-                                    <img>
-                                </button> -->
-                            </div>
-
                             <div class="info-inner4">
-                                <textarea type="text" class="txtarea"></textarea>
-                                <button><img src="./pics/photo.png" class="insert-pic"></button>
+                                <textarea type="text" id="guide_contents" class="txtarea"></textarea>
+                                <input type="file" id="media-upload" accept="image/*,video/*" style="display:none">
+                                <button type="button" id="attach-media-btn"><img src="./pics/photo.png" class="insert-pic"></button>
                             </div>
-                            <a href="" class="f-help">Formatting Help</a>
+                            <button id="format" class="f-help" onclick="openformat()">Formatting Help</button>
                         </div>
                     </div>
                 </div>
                 <!-- buttons -->
                 <div class="btn-wrap">
-                    <a href="SearchResults.html"><button class="cel">Cancel</button></a>
-                    <button class="sndcon">Save and Continue</button>
+                    <a href="SearchResults.html"><button class="cel" type="button">Cancel</button></a>
+                    <button class="sndcon" type="submit">Save and Continue</button>
                 </div>
             </div>
-
             <div id="body3" class="body-wrap3">
                 <!-- preview head -->
                 <div class="preview-head">
                     <div class="insides">
                         <div class="profile-wrap">
-                            <img>
+                            <img id="guideImagePreview" class="prof-img">
                         </div>
                         <div class="guide-content-text">
-                            <div class="big-header-text">Guide Title</div>
-                            <div class="underline-header-text">Game Title</div>
+                            <div id="guideTitlePreview" class="big-header-text">Guide Title</div>
+                            <div class="underline-header-text">
+                                <span id="game-name-display-preview">(game name)</span> Guide by
+                                <a id="username-display-preview">User-Name</a>
+                            </div>
                             <div class="lime"></div>
                         </div>
                     </div>
                     <!-- date -->
                     <div class="date"> Date Published: <a id="date"> June 24, 2024</a></div>
                     <div class="date">
-                        <a id="titlepubs">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </a>
+                        <a id="titlepubs"></a>
                     </div>
                 </div>
                 <!-- body -->
                 <div class="preview-head">
                     <div class="body-header">
-                        Heading 1 Lorem
-                    </div>
-                    <div class="body-line"></div>
-                    <div class="date">
-                        <a id="body-con">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </a>
+                        <div id="previewContent" class="preview-content"></div>
                     </div>
                 </div>
-                
                 <div class="btn-wrap">
-                    <button class="sndcon">Publish Guide</button>
+                    <button id="submitButton" class="sndcon">Publish Guide</button>
                 </div>
-                
             </div>
         </div>
     </div>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    <script src="navbar-loggedin.js"></script>
     <script src="./PublishGuide.js"></script>
 </body>
 </html>

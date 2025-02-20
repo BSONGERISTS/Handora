@@ -9,12 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('name').value = data.username;
                 document.getElementById('e-mail').value = data.email;
                 document.getElementById('welcome-username').innerText = data.username;
-
+                
                 // Update profile picture
                 if (data.profile_picture) {
-                    var profilePicUrl = data.profile_picture + '?' + new Date().getTime();
-                    document.getElementById('user-prof').src = profilePicUrl;
-                    document.getElementById('top-profile-pic').src = profilePicUrl;
+                    document.getElementById('user-prof').src = data.profile_picture + '?' + new Date().getTime(); // Prevent caching
+                    document.getElementById('top-profile-pic').src = data.profile_picture + '?' + new Date().getTime(); // Update top profile pic
                 }
 
                 document.querySelector('.change-style.cancel').addEventListener('click', () => {
@@ -22,12 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.getElementById('name').value = data.username;
                     document.getElementById('e-mail').value = data.email;
                 });
-
             } else {
                 // Redirect to login page or show an error message
-                window.location.href = './HandoraBSong.html';
+                // window.location.href = './HandoraBSong.html';
             }
-
         })
         .catch(error => console.error('Error fetching session status:', error));
 
@@ -42,29 +39,29 @@ document.addEventListener('DOMContentLoaded', () => {
             method: "POST",
             body: formData
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                if (data.status === 'success') {
-                    alert('Profile updated successfully');
-
-                    // Update the displayed username and email without refreshing
-                    const newUsername = formData.get('input_username');
-                    const newEmail = formData.get('input_email');
-                    document.querySelector('.display-name').innerText = newUsername;
-                    document.getElementById('name').value = newUsername;
-                    document.getElementById('e-mail').value = newEmail;
-                    document.getElementById('welcome-username').innerText = newUsername;
-                } else {
-                    alert('Failed to update profile: ' + data.message);
-                }
-            })
-            .catch(error => console.error('Error updating profile:', error));
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data.status === 'success') {
+                alert('Profile updated successfully');
+                
+                // Update the displayed username and email without refreshing
+                const newUsername = formData.get('input_username');
+                const newEmail = formData.get('input_email');
+                document.querySelector('.display-name').innerText = newUsername;
+                document.getElementById('name').value = newUsername;
+                document.getElementById('e-mail').value = newEmail;
+                document.getElementById('welcome-username').innerText = newUsername;
+            } else {
+                alert('Failed to update profile: ' + data.message);
+            }
+        })
+        .catch(error => console.error('Error updating profile:', error));
     });
 
     document.getElementById('Guide').addEventListener('click', guide);
     document.getElementById('Diss').addEventListener('click', diss);
-
+    
     document.getElementById('confirm-password-change').addEventListener('click', () => {
         const currentPassword = document.getElementById('current-password').value;
         const newPassword = document.getElementById('new-password').value;
@@ -83,16 +80,16 @@ document.addEventListener('DOMContentLoaded', () => {
             method: 'POST',
             body: formData
         })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'success') {
-                    alert('Password updated successfully');
-                    PopClose2();
-                } else {
-                    alert('Failed to update password: ' + data.message);
-                }
-            })
-            .catch(error => console.error('Error updating password:', error));
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert('Password updated successfully');
+                PopClose2();
+            } else {
+                alert('Failed to update password: ' + data.message);
+            }
+        })
+        .catch(error => console.error('Error updating password:', error));
     });
 
     document.querySelector('.pop-cancel2').addEventListener('click', () => {
@@ -155,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.showCropperPopup = showCropperPopup;
     window.hideCropperPopup = hideCropperPopup;
 
-    window.cropImage = function () {
+    window.cropImage = function() {
         var canvas;
         if (cropper) {
             canvas = cropper.getCroppedCanvas({
@@ -174,9 +171,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (data.status === 'success') {
                         alert('Profile picture updated successfully');
                         // Update profile picture on the frontend
-                        var newImageUrl = URL.createObjectURL(blob);
+                        var newImageUrl = URL.createObjectURL(blob) + '?' + new Date().getTime();
                         document.getElementById('user-prof').src = newImageUrl;
-                        document.getElementById('top-profile-pic').src = newImageUrl; //for this to work add the id top-profile pic to navbar-logged.js line 45
+                        document.getElementById('top-profile-pic').src = newImageUrl;
                         hideCropperPopup();
                     } else {
                         alert('Failed to update profile picture');
@@ -187,69 +184,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     };
-
-
-    // GET THE GUIDES OF THE USER
-    fetch('./ProfileGuideDiscussion.php')
-        .then(response => response.json())
-        .then(data => {
-            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-            data.guides.forEach(guide => {
-                const guideTemplate = document.querySelector("[data-guide-template]");
-                const card = guideTemplate.content.cloneNode(true).children[0];
-
-                const guideImage = card.querySelector('[data-guide-image]');
-                const guideTitle = card.querySelector('[data-guide-title]');
-                const guideCreator = card.querySelector('[data-guide-creator]');
-                const guideContent = card.querySelector('[data-guide-content]');
-
-                guideImage.src = `./uploads/guide_pictures/${guide.image}`;
-                guideTitle.textContent = guide.title;
-                guideCreator.append(`${guide.gameName} Guide by ${guide.username}`);
-                guideContent.append(guide.description);
-
-                document.getElementById("guideContainer").appendChild(card);
-
-                card.addEventListener('click', () => {
-                    window.location = `GuidePage.html?guideID=${guide.id}`;
-                });
-            });
-
-            data.discussions.forEach(discussion => {
-                const discussionTemplate = document.querySelector("[data-discussion-template]");
-                const card = discussionTemplate.content.cloneNode(true).children[0];
-    
-                const discussionTitle = card.querySelector('[data-discussion-title]');
-                const discussionGame = card.querySelector('[data-discussion-game]');
-                const discussionDate = card.querySelector('[data-discussion-date]');
-    
-                // convert the publishdate
-                const rawPublishDate = new Date(discussion.publishDate);
-                const publishDate = months[rawPublishDate.getMonth()] + ' ' + rawPublishDate.getDate() + ', ' + rawPublishDate.getFullYear();
-                
-                discussionTitle.textContent = discussion.title;
-                discussionGame.append(`${discussion.gameName} | Discussion`);
-                discussionDate.append(publishDate);
-
-                document.getElementById("discussionContainer").appendChild(card);
-
-                card.addEventListener('click', () => {
-                    window.location = `DiscussionPage.html?discussionID=${discussion.id}`;
-                });
-            });
-            
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
 });
 
 var header = document.getElementById("butts");
 var btns = header.getElementsByClassName("btn-style");
 
 for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function () {
+    btns[i].addEventListener("click", function() {
         var current = document.getElementsByClassName("active");
         current[0].className = current[0].className.replace(" active", "");
         this.className += " active";

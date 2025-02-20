@@ -10,63 +10,7 @@
 </head>
 <body>
 
-    <!-- Top Navbar -->
-    
-    <div id="head" class="header">
-        <!-- Inside Navbar -->
-        <div class="wrap">
-            <!-- Navbar Logo -->
-            <a href="HandoraBSong.html"><img src="./Assets/WebNL.svg" class="logo" /></a>
-            <!-- Navbar Buttons -->
-            <div class="header-buttons" id="navbar-buttons">
-                <!-- Default guest buttons -->
-                <nav class="nav-btn"> 
-                    <img src="./Assets/Discord.svg" class="nav-btn-size hover-icon" />
-                </nav>
-                <nav class="nav-btn">
-                    <img src="./Assets/x icon.png" class="nav-btn-size hover-icon" />
-                </nav>
-                <nav class="Nav-Style popup"><span>Login</span></nav>
-            </div>
-        </div>
-    </div>
-
-    <!-- Log in Pop Up -->
-    <div id="pop" class="login-box login-index">
-        <form class="login-contents" action="login.php" method="post">
-            <img src="./Assets/Close.svg" class="closer"></img>
-            <img src="./Assets/WebNL.svg" class="login-logo"></img>
-            <!-- Email -->
-            <div class="login-input">
-                <input type="text" placeholder="Email or Username" name="email_or_username" required>
-                <img src="./Assets/User.svg" />
-            </div>
-            <!-- Password -->
-            <div class="login-input">
-                <input type="password" placeholder="Password" id="passwordInput" name="password" required>
-                <img src="./Assets/Eye.svg" class="eyebtn" id="togglePassword" />
-            </div>
-            <!-- links -->
-            <div class="login-mid">
-                <!-- check box -->
-                <div class="check-box">
-                    <input type="checkbox" />
-                    <div class="mid-text">Remember Me</div>
-                </div>
-                <!-- Forgot Link -->
-                <a href="" class="mid-text mid-link">Forgot Password?</a>
-            </div>
-            <!-- Login Button -->
-            <button class="login-mid-mid">Login</button>
-            <!-- register -->
-            <div class="register">
-                <div class="register-text">Dont have an account?</div>
-                <a href="./RegisterPage.html" class="register-text mid-link">Register</a>
-            </div>
-        </form>
-    </div>
-    
-    <!-- Nav End -->
+    <div id="navbar-container"></div>
 
     <!-- Part 1 -->
     <div class="Container">
@@ -84,13 +28,16 @@
             <!-- Search Bar -->
             <div class="search-center">
                 <div class="search-bar">
-                    <div class="search-bar-content">
-                        <input type="text" placeholder="Search e.g. Elden Ring how to get Black Knife Tiche"/>
+                    <form id="searchSubmit" class="search-bar-content">
+                        <input id="searchInput" type="text" placeholder="Search e.g. Elden Ring how to get Black Knife Tiche"/>
                         <button><img src="pics/search icon.png" alt="Search"></button>
-                    </div>
+                    </form>
                 </div>
             </div>
 
+            <div class="see-all-center">
+                <a href="SearchResults.html">See all of Handora</a>
+            </div>
             <!-- Scroll Animation -->
             <div class="scroll-center">
                 <img src="pics/Scroll icon.png" class="Scroll-icon"/>
@@ -110,10 +57,10 @@
             <!-- Game List -->
             <div class="popular-games">
                 <div class="game">
-                    <a href=""><img src="pics/cs2 game cover.png" alt="Counter Strike 2"></a>
+                    <a href="GamePage.html"><img src="pics/cs2 game cover.png" alt="Counter Strike 2"></a>
                 </div>
                 <div class="game">
-                    <a href="https://www.dota2.com/home"><img src="pics/dota 2.png" alt="Dota 2"></a>
+                    <a href=""><img src="pics/dota 2.png" alt="Dota 2"></a>
                 </div>
                 <div class="game">
                     <a href=""><img src="pics/tf2.png" alt="Team Fortress 2"></a>
@@ -225,6 +172,15 @@
 
 
     <script src="navbar-loggedin.js"></script>
-    <script src="indexMain.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            document.getElementById("searchSubmit").addEventListener('submit', (ev) => {
+                ev.preventDefault();
+                window.location = `./SearchResults.html?searchInputURLValues=${document.getElementById("searchInput").value}`;
+
+            });
+        });
+    </script>
 </body>
 </html>

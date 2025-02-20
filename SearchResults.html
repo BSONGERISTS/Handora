@@ -9,51 +9,7 @@
 </head>
 <body>
 
-    <!-- Top Navbar -->
-    
-    <div id="head" class="header">
-        <!-- Inside Navbar -->
-        <div class="wrap">
-
-            <!-- Navbar Logo -->
-            
-            <a href="HandoraBSong.html"><img src="./Assets/WebNL.svg" class="logo"/></a>
-            
-            <!-- Navbar Buttons -->
-            <div class="header-buttons">
-                
-                <nav class="nav-btn"> 
-                    <img src="./Assets/Discord.svg" class="nav-btn-size hover-icon"/>
-                </nav>
-
-                <nav class="nav-btn">
-                    <img src="./Assets/x icon.png" class="nav-btn-size hover-icon"/>
-                </nav>
-
-                <nav class="profile popup">
-                    <img src="./Assets/ProfilePlaceholder.svg" class="nav-btn-size">
-                </nav>
-            </div>
-        </div>
-    </div>
-
-    <!-- Pop Up -->
-    <div id="pop" class="login-box login-index">
-        <img src="./Assets/PopTop.svg" class="pop-indicator">
-
-        <!-- Profile Btn -->
-        <a href="./ProfileHandora.html" class='pop-btn grid-top'>
-            View my Profile
-        <a>
-
-        <!-- Log Out btn -->
-        <a href="./HandoraBSong.html" class='pop-btn grid-bot'>
-            Log Out
-            <img src="./Assets/LogOut.svg">
-        </a>
-    </div>                                                                                               
-    
-    <!-- Nav End -->
+    <div id="navbar-container"></div>
     
     <!-- Container -->
     <div class="Container">
@@ -68,7 +24,7 @@
                 <!-- search left -->
                 <div class="left-content">
                     <!-- left top -->
-                    <span id="top-pop" class="left-top-content">
+                    <form id="top-pop" class="left-top-content">
                         <!-- header -->
                         <div class="header-diss">START A DISCUSSION</div>
 
@@ -77,17 +33,17 @@
                         <div class="mid-content">
                             <!-- user pic -->
                             <div class="user-pic">
-                                <img src="./Assets/MCLogo.svg">
+                                <img id="user-pic-container">
                             </div>
                             <!-- user input -->
                             <div class="inputs">
                                 <!-- title input -->
                                 <div class="input-title">
-                                    <input type="text"placeholder="Title">
+                                    <input type="text"placeholder="Title" name="input_title">
                                 </div>
                                 <!-- body input -->
                                 <div class="input-body">
-                                    <textarea type="text" placeholder="Type your content"></textarea>
+                                    <textarea type="text" placeholder="Type your content" name="input_content"></textarea>
                                 </div>
                             </div>
                         </div>    
@@ -96,116 +52,79 @@
                                 <div class="category-txt">Post in:</div>
                                 <div class="inner-category">
                                     <img src="./pics/search icon.png">
-                                    <input type="text" placeholder="Search Game Title">
+                                    <input type="text" id="game-search" placeholder="Search Game Title" name="input_game">
+                                    <div id="dropdown" class="dropdown-content"></div>
                                 </div>
                             </div>
                             <div class="button-wrap">
-                                <button class="post">
+                                <button type="submit" class="post">
                                     Post Discussion
                                 </button>
                             </div>
                          
-                    </span>
+                    </form>
                     <!-- left bot -->
                         <div id="bot-pop" class="left-bot-content drag">
                             <!-- all -->
                             <div id="all" class="topic-container">
-                                <!-- yes -->
-                                <a class="guide-post" href="">
-                                    <div class="guide-left">
-                                        <!-- game logo -->
-                                        <img src="./Assets/MCLogo.svg">
-                                        <!-- info -->
-                                        <div class="guide-left-contents">
-                                            <div class="guide-top-left">Title Lorem</div>
-                                            <div class="guide-bot-left">Minecraf|Guide</div>
-                                        </div> 
-                                    </div>
-                                        <!-- publish date -->
-                                    <div class="guide-right">
-                                        <div class="date">May 27, 2024</div>
-                                        <div class="number">
-                                            <img src="./Assets/Chat.svg">
-                                            <div class="num">100</div>
+                                <!-- Guide -->
+                                <template data-guide-template>
+                                    <div id="Guide-ID" class="guide-post">
+                                        <div class="guide-img-container">
+                                            <img data-guide-image>
+                                        </div>
+    
+                                        <div class="right-guide">
+                                            <div class="right-guide-top">
+                                                <!-- guide info -->
+                                                <div class="right-left">
+                                                    <div class="rl-text" data-guide-title></div>
+                                                    <div class="rl-placeholder">
+                                                 
+                                                        <div class="placeholder-txt" data-guide-creator>
+                                                        </div>
+                                                    </div>
+                                                </div>
+    
+                                                <!-- likes dislikes -->
+                                                <div class="like-holder">
+                                                    <!-- like -->
+                                                    <div class="like">
+                                                        <button class="heart-icon"><img src="./Assets/like.svg"></button>
+                                                        <div class="like-font">0</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div class="right-guide-bot" data-guide-content>
+                                            </div>
                                         </div>
                                     </div>
-                                </a>
-                                <a class="guide-post" href="">
-                                    <div class="guide-left">
-                                        <!-- game logo -->
-                                        <img src="./Assets/MCLogo.svg">
-                                        <!-- info -->
-                                        <div class="guide-left-contents">
-                                            <div class="guide-top-left">Title Lorem</div>
-                                            <div class="guide-bot-left">Minecraf|Guide</div>
-                                        </div> 
-                                    </div>
-                                        <!-- publish date -->
-                                    <div class="guide-right">
-                                        <div class="date">May 27, 2024</div>
-                                        <div class="number">
-                                            <img src="./Assets/Chat.svg">
-                                            <div class="num">100</div>
+                                </template>
+
+                                <!-- Discussion -->
+                                <template data-discussion-template>
+                                    <a id="Discussion-ID" class="discussion-post">
+                                        <div class="discussion-left">
+                                            <!-- game logo -->
+                                            <img src="./Assets/Discussion.svg">
+                                            <!-- info -->
+                                            <div class="discussion-left-contents">
+                                                <div class="discussion-top-left" data-discussion-title>Title Lorem</div>
+                                                <div class="discussion-bot-left" data-discussion-game></div>
+                                            </div> 
                                         </div>
-                                    </div>
-                                </a>
-                                <a class="guide-post" href="">
-                                    <div class="guide-left">
-                                        <!-- game logo -->
-                                        <img src="./Assets/MCLogo.svg">
-                                        <!-- info -->
-                                        <div class="guide-left-contents">
-                                            <div class="guide-top-left">Title Lorem</div>
-                                            <div class="guide-bot-left">Minecraf|Guide</div>
-                                        </div> 
-                                    </div>
-                                        <!-- publish date -->
-                                    <div class="guide-right">
-                                        <div class="date">May 27, 2024</div>
-                                        <div class="number">
-                                            <img src="./Assets/Chat.svg">
-                                            <div class="num">100</div>
+                                            <!-- publish date -->
+                                        <div class="discussion-right">
+                                            <div class="date" data-discussion-date></div>
+                                            <div class="number">
+                                                <img src="./Assets/Chat.svg">
+                                                <div class="num">0</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                                <a class="guide-post" href="">
-                                    <div class="guide-left">
-                                        <!-- game logo -->
-                                        <img src="./Assets/MCLogo.svg">
-                                        <!-- info -->
-                                        <div class="guide-left-contents">
-                                            <div class="guide-top-left">Title Lorem</div>
-                                            <div class="guide-bot-left">Minecraf|Guide</div>
-                                        </div> 
-                                    </div>
-                                        <!-- publish date -->
-                                    <div class="guide-right">
-                                        <div class="date">May 27, 2024</div>
-                                        <div class="number">
-                                            <img src="./Assets/Chat.svg">
-                                            <div class="num">100</div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="guide-post" href="">
-                                    <div class="guide-left">
-                                        <!-- game logo -->
-                                        <img src="./Assets/MCLogo.svg">
-                                        <!-- info -->
-                                        <div class="guide-left-contents">
-                                            <div class="guide-top-left">Title Lorem</div>
-                                            <div class="guide-bot-left">Minecraf|Guide</div>
-                                        </div> 
-                                    </div>
-                                        <!-- publish date -->
-                                    <div class="guide-right">
-                                        <div class="date">May 27, 2024</div>
-                                        <div class="number">
-                                            <img src="./Assets/Chat.svg">
-                                            <div class="num">100</div>
-                                        </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </template>
+                                
                             </div>
                         </div>
                     
@@ -216,13 +135,13 @@
                         <!-- search bar -->
                         <div class="inner-search">
                             <img src="./pics/search icon.png">
-                            <input type="text" placeholder="Search Handora Topics">
+                            <input type="text" id="searchInput" placeholder="Search Handora Topics">
                         </div>
                         <!-- search nav -->
                         <div id="snav" class="search-nav">
-                            <button id="all" class="search-btn sbtn-active">All of Handora</button>
-                            <button id="disscuss" class="search-btn">Discussions</button>
-                            <button id="guiddes" class="search-btn">Guides</button>
+                            <button id="all" class="search-btn sbtn-active" onclick="ShowAll()">All of Handora</button>
+                            <button id="disscuss" class="search-btn" onclick="ShowDiscussion()">Discussions</button>
+                            <button id="guiddes" class="search-btn" onclick="ShowGuide()">Guides</button>
                         </div>
                         <div class="search-line"></div>
                         <!-- Dropdown -->
@@ -254,9 +173,9 @@
                     </div>
 
                     <div class="right-bot-content">
-                        <button id="make-discuss" class="bot-btn" onclick="PopOpen(), Extend()">Start Disussion</button>
+                        <button id="make-discuss" class="bot-btn">Start Disussion</button>
                         <div class="search-line"></div>
-                        <a href="./PublishGuide.html"> <button id="make-guide" class="bot-btn">Publish Guide</button> </a>
+                        <a id="publishGuideButton"> <button id="make-guide" class="bot-btn">Publish Guide</button> </a>
                         <div class="guide-desc">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -266,7 +185,6 @@
             </div>
         </div>
     </div>
-
     <script src="SearchResults.js"></script>
 </body>
 </html>

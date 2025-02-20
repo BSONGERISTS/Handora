@@ -73,7 +73,7 @@ body {
 }
 
 .nav-btn-size{
-    width: 4vh;
+    width: 5vh;
     height: auto;
     cursor: pointer;
 }
@@ -99,6 +99,7 @@ body {
     align-items: center;
     height: 5vh;
     width: 5vh;
+    overflow: hidden;
     cursor: pointer;
 }
 
@@ -113,6 +114,7 @@ body {
 .video-Container{
     width: 100%;
     height: auto;
+    display: flex;
 }
 
 .video-Container video {
@@ -225,6 +227,35 @@ body {
 .search-bar img {
     height: auto;
     width: 3.28vh;
+}
+
+/* See All */
+.see-all-center{
+    position: absolute;
+    bottom: 15%;
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.see-all-center a{
+    color: #FFF;
+    text-shadow: 0.5vh 0.5vh 20vh #FFC700;
+    font-family: "Markazi Text";
+    font-size: 3.5vh;
+    font-style: normal;
+    font-weight: 700;
+    cursor: default;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+.see-all-center a:hover{
+    color: #FFC700;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
 /* Scroll Animation */
@@ -516,7 +547,7 @@ body {
 
 /* Pop Up */
 
-.login-box{
+.login-box2{
     width: 100%;
     height: 100vh;
     position: fixed;
@@ -529,14 +560,14 @@ body {
     transition: 1s;
 }
 
-.login-index{
+.login-index2{
     z-index: -1;
     opacity: 0;
     transition: 1s;
 }  
 
 
-.login-contents{
+.login-contents2{
     width: 70vh;
     height: 55.7vh;
     border-radius: 5vh;
@@ -548,7 +579,7 @@ body {
     gap: 2vh;
 }
 
-.login-input{
+.login-input2{
     width: 50vh;
     height: 6vh;
     border-radius: 1vh;
@@ -558,7 +589,7 @@ body {
     justify-content: space-between;
 }
 
-.login-input input{
+.login-input2 input{
     border: none;
     border-radius: 1vh;
     height: 100%;
@@ -569,14 +600,14 @@ body {
     margin-left: 1vh;
 }
 
-.login-input:focus-within,
-.login-input:hover{
+.login-input2:focus-within,
+.login-input2:hover{
     transition: 0.3s;
     border: 0.1vh solid #FFC700;
     background-color: white;
 }
 
-.login-input img{
+.login-input2 img{
     width: 5vh;
     height: auto;
     margin-right: 1vh;
@@ -584,7 +615,7 @@ body {
 
 
 
-.closer{
+.closer2{
     position:relative;
     left: 30vh;
     width: 5vh;
@@ -592,14 +623,14 @@ body {
     cursor: pointer;
 }
 
-.login-logo {
+.login-logo2 {
     width: 45vh;
     height: auto;
 }
 
 /* check box */
 
-.login-mid{
+.login-mid2{
     height: auto;
     width: 50vh;
     display: flex;
@@ -607,14 +638,14 @@ body {
     justify-content: space-between;
 }
 
-.mid-text{
+.mid-text2{
     color: white;
     font-size: 2vh;
     width: 30vh;
     cursor: default;
 }
 
-.check-box input{
+.check-box2 input{
     height: 100%;
     width: 2vh;
     border-radius: 1vh;
@@ -623,17 +654,17 @@ body {
     margin: 0;
 }
 
-.mid-link{
+.mid-link2{
     cursor: pointer;
     text-decoration: underline;
 }
 
-.mid-link:hover{
+.mid-link2:hover{
     color: #FFC700;
     cursor: pointer;
 }
 
-.check-box{
+.check-box2{
     width: 100%;
     height: 100%;
     display: flex;
@@ -642,7 +673,7 @@ body {
     gap: 1vh;
 }
 
-.login-mid-mid{
+.login-mid-mid2{
     width: 50vh;
     height: 6vh;
     border-radius: 1vh;
@@ -656,12 +687,12 @@ body {
     cursor: pointer;
 }
 
-.login-mid-mid:hover{
+.login-mid-mid2:hover{
     transition: 0.3s;
     transform: scale(1.01);
 }
 
-.register{
+.register2{
     width: 50vh;
     height: 6vh;
     display: flex;
@@ -670,7 +701,7 @@ body {
     gap: 1vh;
 }
 
-.register-text{
+.register-text2{
     color: white;
     font-size: 2vh;
     width: auto;
